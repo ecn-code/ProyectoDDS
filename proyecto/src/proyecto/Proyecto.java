@@ -18,7 +18,7 @@ public class Proyecto implements ApplicationListener {
 	
 	@Override
 	public void create() {		
-		int erre;
+		
 		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
 		
