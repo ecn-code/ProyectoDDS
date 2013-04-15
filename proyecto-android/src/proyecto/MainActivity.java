@@ -1,5 +1,6 @@
 package proyecto;
 
+import vista.Proyecto;
 import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;

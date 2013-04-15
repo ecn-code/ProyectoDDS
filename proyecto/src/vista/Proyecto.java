@@ -1,4 +1,4 @@
-package proyecto;
+package vista;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
