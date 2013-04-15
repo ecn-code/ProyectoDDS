@@ -25,8 +25,11 @@ public class Proyecto implements ApplicationListener {
 		*/
 		
 		batch = new SpriteBatch();
+		
 		texture = new Texture(Gdx.files.internal("data/enemy.png"));
 		textura = new TextureRegion(texture);
+		
+		Enemigo enemigo = new Enemigo(0,0,50,50,textura);		
 	}
 	@Override
 	public void dispose() {
@@ -40,7 +43,8 @@ public class Proyecto implements ApplicationListener {
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
 		batch.begin();
-		batch.draw(textura, 0, 0, 50, 50);
+		batch.draw(enemigo.getTextura(), enemigo.getX(), 
+				enemigo.getY(), enemigo.getAncho(), enemigo.getAlto());
 		batch.end();
 	}
 
