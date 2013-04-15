@@ -27,22 +27,22 @@ public class Entidad {
 	public void setAlto(float _alto) {
 		alto = _alto;
 	}
-	protected void setX(float _x){
+	public void setX(float _x){
 		x=_x;
 	}
-	protected double getX(){
+	public float getX(){
 	return x;	
 	}
-	protected double getY() {
+	public float getY() {
 		return y;
 	}
-	protected void setY(float _y) {
+	public void setY(float _y) {
 		y = _y;
 	}
-	protected TextureRegion getTextura() {
+	public TextureRegion getTextura() {
 		return textura;
 	}
-	protected void setTextura(TextureRegion _textura) {
+	public void setTextura(TextureRegion _textura) {
 		textura = _textura;
 	}
 }

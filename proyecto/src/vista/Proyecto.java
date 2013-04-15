@@ -1,5 +1,8 @@
 package vista;
 
+import modelo.Enemigo;
+import modelo.Entidad;
+
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
@@ -16,6 +19,7 @@ public class Proyecto implements ApplicationListener {
 	private SpriteBatch batch;
 	private Texture texture;
 	TextureRegion textura;
+	private Entidad enemigo;
 	
 	@Override
 	public void create() {		
@@ -29,7 +33,7 @@ public class Proyecto implements ApplicationListener {
 		texture = new Texture(Gdx.files.internal("data/enemy.png"));
 		textura = new TextureRegion(texture);
 		
-		Enemigo enemigo = new Enemigo(0,0,50,50,textura);		
+		enemigo = new Enemigo(0,0,50,50,4,4,textura);		
 	}
 	@Override
 	public void dispose() {
