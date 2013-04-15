@@ -1,7 +1,11 @@
 package vista;
 
+import java.util.ArrayList;
+
+import modelo.Bala;
 import modelo.Enemigo;
 import modelo.Entidad;
+import modelo.Personaje;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
@@ -15,11 +19,11 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer;
 
 public class Proyecto implements ApplicationListener {
-	private OrthographicCamera camera;
 	private SpriteBatch batch;
 	private Texture texture;
 	TextureRegion textura;
 	private Entidad enemigo;
+	private ArrayList<Entidad> array = new ArrayList<Entidad>();
 	
 	@Override
 	public void create() {		
@@ -34,6 +38,11 @@ public class Proyecto implements ApplicationListener {
 		textura = new TextureRegion(texture);
 		
 		enemigo = new Enemigo(0,0,50,50,4,4,textura);		
+		array.add(enemigo);
+		Bala bala = new Bala(40,40,150,50,4,4,textura);
+		array.add(bala);
+		Personaje personaje = new Personaje(270,70,200,50,4,4,textura);
+		array.add(personaje);
 	}
 	@Override
 	public void dispose() {
@@ -47,8 +56,9 @@ public class Proyecto implements ApplicationListener {
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
 		batch.begin();
-		batch.draw(enemigo.getTextura(), enemigo.getX(), 
-				enemigo.getY(), enemigo.getAncho(), enemigo.getAlto());
+		for(Entidad entidad : array)
+		batch.draw(entidad.getTextura(), entidad.getX(), 
+				entidad.getY(), entidad.getAncho(), entidad.getAlto());
 		batch.end();
 	}
 
