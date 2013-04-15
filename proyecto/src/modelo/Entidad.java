@@ -1,48 +1,55 @@
 package modelo;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 
 
 
 public abstract class Entidad {
 
-	protected float x,y,ancho,alto;
+	protected Rectangle superficie;
 	protected static TextureRegion textura;
 	public Entidad(float _x, float _y, float _ancho, float _alto,TextureRegion _textura){
-		x=_x;
-		y=_y;
-		ancho=_ancho;
-		alto=_alto;
+		superficie = new Rectangle(_x, _y, _ancho, _alto);
 		textura=_textura;
 	}
 	public float getAncho() {
-		return ancho;
+		return superficie.getWidth();
 	}
 	public void setAncho(float _ancho) {
-		ancho = _ancho;
+		superficie.setWidth(_ancho);
 	}
 	public float getAlto() {
-		return alto;
+		return superficie.getHeight();
 	}
 	public void setAlto(float _alto) {
-		alto = _alto;
+		superficie.setHeight(_alto);
 	}
 	public void setX(float _x){
-		x=_x;
+		superficie.setX(_x);
 	}
 	public float getX(){
-	return x;	
+	return superficie.getX();
 	}
 	public float getY() {
-		return y;
+		return superficie.getY();
 	}
 	public void setY(float _y) {
-		y = _y;
+		superficie.setY(_y);
 	}
 	public TextureRegion getTextura() {
 		return textura;
 	}
 	public void setTextura(TextureRegion _textura) {
 		textura = _textura;
+	}
+	public void sumarX(float _x){
+		superficie.setX(superficie.getX()+_x);
+	}
+	public void sumarY(float _y){
+		superficie.setY(superficie.getY()+_y);
+	}
+	public boolean colision(Rectangle _rectangulo){
+		return superficie.contains(_rectangulo);
 	}
 }

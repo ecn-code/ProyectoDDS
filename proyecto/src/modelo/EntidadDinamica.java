@@ -10,8 +10,8 @@ public class EntidadDinamica extends Entidad {
 		vy=_vy;
 	}
 	public void actualizar(float time){
-		x+=vx;
-		y+=vy;
+		sumarX(vx);
+		sumarY(vy);
 	}
 	public float getVx() {
 		return vx;
