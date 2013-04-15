@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 
 
-public class Entidad {
+public abstract class Entidad {
 
 	protected float x,y,ancho,alto;
 	protected static TextureRegion textura;
