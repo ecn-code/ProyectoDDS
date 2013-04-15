@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import modelo.Bala;
 import modelo.Enemigo;
 import modelo.Entidad;
+import modelo.EntidadDinamica;
+import modelo.FabricaEntidadesDinamicas;
+import modelo.InterfazFabrica;
 import modelo.Personaje;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -22,7 +25,6 @@ public class Proyecto implements ApplicationListener {
 	private SpriteBatch batch;
 	private Texture texture;
 	TextureRegion textura;
-	private Entidad enemigo;
 	private ArrayList<Entidad> array = new ArrayList<Entidad>();
 	
 	@Override
@@ -31,17 +33,18 @@ public class Proyecto implements ApplicationListener {
 	/*	float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
 		*/
+		InterfazFabrica fabrica = new FabricaEntidadesDinamicas();
 		
 		batch = new SpriteBatch();
 		
 		texture = new Texture(Gdx.files.internal("data/enemy.png"));
 		textura = new TextureRegion(texture);
 		
-		enemigo = new Enemigo(0,0,50,50,4,4,textura);		
+		Entidad enemigo = fabrica.crearEntidad("Enemigo",new float[]{0,0,50,50,4,4},textura);		
 		array.add(enemigo);
-		Bala bala = new Bala(40,40,150,50,4,4,textura);
+		Entidad bala = fabrica.crearEntidad("Bala",new float[]{40,40,150,50,4,4},textura);
 		array.add(bala);
-		Personaje personaje = new Personaje(270,70,200,50,4,4,textura);
+		Entidad personaje = fabrica.crearEntidad("Personaje",new float[]{270,70,200,50,4,4},textura);
 		array.add(personaje);
 	}
 	@Override
@@ -60,6 +63,8 @@ public class Proyecto implements ApplicationListener {
 		batch.draw(entidad.getTextura(), entidad.getX(), 
 				entidad.getY(), entidad.getAncho(), entidad.getAlto());
 		batch.end();
+		
+		for(Entidad entidad : array) ((EntidadDinamica) entidad).actualizar(5f);
 	}
 
 	@Override
