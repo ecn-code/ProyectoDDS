@@ -20,6 +20,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer;
+import com.badlogic.gdx.math.Rectangle;
 
 public class Proyecto implements ApplicationListener {
 	private SpriteBatch batch;
@@ -36,16 +37,18 @@ public class Proyecto implements ApplicationListener {
 		InterfazFabrica fabrica = new FabricaEntidadesDinamicas();
 		
 		batch = new SpriteBatch();
-		
+		Rectangle rec = new Rectangle(0,0,10,10);
+		Rectangle rec2 = new Rectangle(9,9,10,10);
 		texture = new Texture(Gdx.files.internal("data/enemy.png"));
 		textura = new TextureRegion(texture);
 		
-		Entidad enemigo = fabrica.crearEntidad("Enemigo",new float[]{0,0,50,50,4,4},textura);		
+		Entidad enemigo = fabrica.crearEntidad("Enemigo",new float[]{0,0,50,50,0,0},textura);		
 		array.add(enemigo);
-		Entidad bala = fabrica.crearEntidad("Bala",new float[]{40,40,150,50,4,4},textura);
+		Entidad bala = fabrica.crearEntidad("Bala",new float[]{20,40,150,50,0.2f,0},textura);
 		array.add(bala);
-		Entidad personaje = fabrica.crearEntidad("Personaje",new float[]{270,70,200,50,4,4},textura);
-		array.add(personaje);
+		//Entidad personaje = fabrica.crearEntidad("Personaje",new float[]{270,70,200,50,4,4},textura);
+		//array.add(personaje);
+		System.out.println("Contiene?");
 	}
 	@Override
 	public void dispose() {
@@ -65,6 +68,14 @@ public class Proyecto implements ApplicationListener {
 		batch.end();
 		
 		for(Entidad entidad : array) ((EntidadDinamica) entidad).actualizar(5f);
+		
+		for(int r=0;array.size()>r;r++) 
+			for(int i=0;array.size()>i;i++)
+			if(array.get(i)!=array.get(r))
+			if(array.get(r).colision(array.get(i).getSuperficie()))
+				System.out.println("Si");
+			else
+				System.out.println("No");
 	}
 
 	@Override

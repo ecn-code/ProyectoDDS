@@ -50,6 +50,9 @@ public abstract class Entidad {
 		superficie.setY(superficie.getY()+_y);
 	}
 	public boolean colision(Rectangle _rectangulo){
-		return superficie.contains(_rectangulo);
+		return superficie.overlaps(_rectangulo);
+	}
+	public Rectangle getSuperficie(){
+		return superficie;
 	}
 }
