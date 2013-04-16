@@ -8,6 +8,7 @@ import modelo.Entidad;
 import modelo.EntidadDinamica;
 import modelo.FabricaEntidadesDinamicas;
 import modelo.InterfazFabrica;
+import modelo.Logica;
 import modelo.Personaje;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -22,18 +23,21 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 
+import controlador.EventosTeclado;
+
 public class Proyecto implements ApplicationListener {
 	private SpriteBatch batch;
 	private Texture texture;
 	TextureRegion textura;
 	private ArrayList<Entidad> array = new ArrayList<Entidad>();
-	
+	private EntidadDinamica nave;
 	@Override
 	public void create() {		
 		
 	/*	float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
 		*/
+		Gdx.input.setInputProcessor(new EventosTeclado(new Logica(this)));
 		InterfazFabrica fabrica = new FabricaEntidadesDinamicas();
 		
 		batch = new SpriteBatch();
@@ -41,7 +45,8 @@ public class Proyecto implements ApplicationListener {
 		Rectangle rec2 = new Rectangle(9,9,10,10);
 		texture = new Texture(Gdx.files.internal("data/enemy.png"));
 		textura = new TextureRegion(texture);
-		
+		nave=(EntidadDinamica) fabrica.crearEntidad("Personaje", new float[]{0,0,50,50,0,0},textura);
+		array.add(nave);
 		Entidad enemigo = fabrica.crearEntidad("Enemigo",new float[]{0,0,50,50,0,0},textura);		
 		array.add(enemigo);
 		Entidad bala = fabrica.crearEntidad("Bala",new float[]{20,40,150,50,0.2f,0},textura);
@@ -77,7 +82,12 @@ public class Proyecto implements ApplicationListener {
 			else
 				System.out.println("No");
 	}
-
+	public void moverPersonajeX(float vx){
+		nave.setVx(vx);
+	}
+	public void moverPersonajeY(float vy){
+		nave.setVy(vy);
+	}
 	@Override
 	public void resize(int width, int height) {
 	}

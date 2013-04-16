@@ -25,4 +25,10 @@ public class EntidadDinamica extends Entidad {
 	public void setVy(float _vy) {
 		vy = _vy;
 	}
+	public void sumarX(float _x){
+		superficie.setX(superficie.getX()+_x);
+	}
+	public void sumarY(float _y){
+		superficie.setY(superficie.getY()+_y);
+	}
 }

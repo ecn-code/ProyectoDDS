@@ -43,12 +43,7 @@ public abstract class Entidad {
 	public void setTextura(TextureRegion _textura) {
 		textura = _textura;
 	}
-	public void sumarX(float _x){
-		superficie.setX(superficie.getX()+_x);
-	}
-	public void sumarY(float _y){
-		superficie.setY(superficie.getY()+_y);
-	}
+	
 	public boolean colision(Rectangle _rectangulo){
 		return superficie.overlaps(_rectangulo);
 	}
