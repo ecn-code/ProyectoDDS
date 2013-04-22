@@ -27,6 +27,7 @@ public void crearBala(){
 	crearEntidades("Bala",new float[]{nave.getX()+nave.getAncho()/2,nave.getY()+nave.getAlto(),5,10,0,4},proyecto.textura);
 }
 public void crearEntidades(String _entidad, float[] parametros,TextureRegion textura){
+	if(!_entidad.equals(""))
 	array.add(fabrica.crearEntidad(_entidad, parametros,textura));
 	}
 public void update(){

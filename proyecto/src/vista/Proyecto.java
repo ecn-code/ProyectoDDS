@@ -32,6 +32,10 @@ public class Proyecto implements ApplicationListener {
 	private Logica logica;
 	private int fps;
 	private float acumulador=0;
+	private String[][] nivel1 = new String[][]{
+			{"","Nave",""},{"","",""},{"Enemigo","Enemigo","Enemigo"}
+			,{"","Enemigo",""},{"Enemigo","Enemigo","Enemigo"},{"Enemigo","","Enemigo"}
+	};
 	@Override
 	public void create() {		
 		logica=new Logica(this);
@@ -45,7 +49,7 @@ public class Proyecto implements ApplicationListener {
 		Rectangle rec = new Rectangle(0,0,10,10);
 		Rectangle rec2 = new Rectangle(9,9,10,10);
 		texture = new Texture(Gdx.files.internal("data/enemy.png"));
-		textura = new TextureRegion(texture);
+		textura = new TextureRegion(texture);/*
 		logica.crearNave(textura);
 		logica.crearEntidades("Enemigo",new float[]{0,400,50,50,1,-0.5f},textura);		
 		logica.crearEntidades("Enemigo",new float[]{0,500,50,50,0.2f,-1.5f},textura);
@@ -57,11 +61,14 @@ public class Proyecto implements ApplicationListener {
 		logica.crearEntidades("Enemigo",new float[]{700,600,50,50,-0.5f,-1f},textura);
 		logica.crearEntidades("Enemigo",new float[]{600,600,50,50,-0.5f,0.5f},textura);
 		logica.crearEntidades("Enemigo",new float[]{500,500,50,50,-1f,-0.5f},textura);
-		
-		
-		//Entidad personaje = fabrica.crearEntidad("Personaje",new float[]{270,70,200,50,4,4},textura);
-		//array.add(personaje);
-		System.out.println("Contiene?");
+	*/
+		for(int i=0;i<4;i++)
+		for(int j=0;j<nivel1[i].length;j++){
+			if(nivel1[i][j].equals("Nave"))
+				logica.crearEntidades(nivel1[i][j], new float[]{800/3*j,600/3*i,50,50,0,0}, textura);
+			else
+			logica.crearEntidades(nivel1[i][j], new float[]{800/3*j,600/3*i,50,50,-1f,-0.2f}, textura);
+		}
 	}
 	@Override
 	public void dispose() {
@@ -77,6 +84,9 @@ public class Proyecto implements ApplicationListener {
 		logica.iA();
 		logica.update();
 		logica.colision();
+		
+		
+		
 		if(acumulador>1){
 		  acumulador=0;
 			System.out.println("FPS: "+fps);
