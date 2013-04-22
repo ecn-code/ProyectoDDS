@@ -32,6 +32,17 @@ public void crearEntidades(String _entidad, float[] parametros,TextureRegion tex
 public void update(){
 	for(Entidad entidad : array) ((EntidadDinamica) entidad).actualizar(5f);
 }
+public void iA(){
+	double random;
+	for(int i=0;i<array.size();i++){
+		if(array.get(i) instanceof Enemigo){
+		random=Math.random()*50;
+		if(random>2 && random<2.55){
+			crearEntidades("BalaEnemigo",new float[]{array.get(i).getX()+array.get(i).getAncho()/2,array.get(i).getY(),5,10,0,-4},proyecto.textura);
+		}
+		}
+	}
+}
 public void colision(){
 	Entidad[] eliminar= new Entidad[array.size()];
 	for(int r=0;array.size()>r;r++) {
@@ -43,13 +54,25 @@ public void colision(){
 				eliminar[r]=array.get(r);
 				eliminar[i]=array.get(i);
 			}else if(array.get(r) instanceof Bala && array.get(i) instanceof Enemigo){
+				eliminar[r]=array.get(r); 
+				eliminar[i]=array.get(i);
+			}else if(array.get(r) instanceof Nave && array.get(i) instanceof Enemigo){
+				eliminar[r]=array.get(r);
+				eliminar[i]=array.get(i);
+			}else if(array.get(r) instanceof Enemigo && array.get(i) instanceof Nave){
+				eliminar[r]=array.get(r);
+				eliminar[i]=array.get(i);
+			}else if(array.get(r) instanceof BalaEnemigo && array.get(i) instanceof Nave){
+				eliminar[r]=array.get(r);
+				eliminar[i]=array.get(i);
+			}else if(array.get(r) instanceof Nave && array.get(i) instanceof BalaEnemigo){
 				eliminar[r]=array.get(r);
 				eliminar[i]=array.get(i);
 			}
 	}
 		
 		if(array.get(r) instanceof Bala || array.get(r) instanceof Enemigo)
-			if(array.get(r).getY()<0 || array.get(r).getY()>Gdx.graphics.getHeight()+50)
+			if(array.get(r).getY()<0 || array.get(r).getY()>Gdx.graphics.getHeight()+50 )
 				eliminar[r]=array.get(r);}
 		//System.out.println(array.size());
 	for(Entidad entidad : eliminar){
