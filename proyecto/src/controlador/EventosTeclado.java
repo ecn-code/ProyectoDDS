@@ -13,30 +13,31 @@ public EventosTeclado(Logica _logica){
 	@Override
 	public boolean keyDown(int keycode) {
 		// TODO Auto-generated method stub
-		if(keycode==Input.Keys.RIGHT){
+		if(keycode==Input.Keys.RIGHT)
 			logica.moverNaveX(3);
-		}else if(keycode==Input.Keys.LEFT){
+		if(keycode==Input.Keys.LEFT)
 			logica.moverNaveX(-3);
-		}else if(keycode==Input.Keys.UP){
+		if(keycode==Input.Keys.UP)
 			logica.moverNaveY(3);
-		}else if(keycode==Input.Keys.DOWN){
+		if(keycode==Input.Keys.DOWN)
 			logica.moverNaveY(-3);
-		}
+		if(keycode==Input.Keys.SPACE)
+			logica.crearBala();
 		return false;
 	}
 
 	@Override
 	public boolean keyUp(int keycode) {
 		// TODO Auto-generated method stub
-		if(keycode==Input.Keys.RIGHT){
+		if(keycode==Input.Keys.RIGHT)
 			logica.moverNaveX(0);
-		}else if(keycode==Input.Keys.LEFT){
+		if(keycode==Input.Keys.LEFT)
 			logica.moverNaveX(0);
-		}else if(keycode==Input.Keys.UP){
+		if(keycode==Input.Keys.UP)
 			logica.moverNaveY(0);
-		}else if(keycode==Input.Keys.DOWN){
+		if(keycode==Input.Keys.DOWN)
 			logica.moverNaveY(0);
-		}
+		
 		return false;
 	}
 	@Override

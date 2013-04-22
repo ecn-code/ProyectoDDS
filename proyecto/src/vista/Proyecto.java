@@ -28,9 +28,10 @@ import controlador.EventosTeclado;
 public class Proyecto implements ApplicationListener {
 	private SpriteBatch batch;
 	private Texture texture;
-	TextureRegion textura;
+	public TextureRegion textura;
 	private Logica logica;
-	
+	private int fps;
+	private float acumulador=0;
 	@Override
 	public void create() {		
 		logica=new Logica(this);
@@ -45,9 +46,9 @@ public class Proyecto implements ApplicationListener {
 		Rectangle rec2 = new Rectangle(9,9,10,10);
 		texture = new Texture(Gdx.files.internal("data/enemy.png"));
 		textura = new TextureRegion(texture);
-		logica.crearNave(new float[]{0,200,50,50,0,0},textura);
-		logica.crearEntidades("Enemigo",new float[]{0,0,50,50,0,0},textura);		
-		logica.crearEntidades("Bala",new float[]{20,40,150,50,0.2f,0},textura);
+		logica.crearNave(textura);
+		logica.crearEntidades("Enemigo",new float[]{0,400,50,50,1,-0.5f},textura);		
+		logica.crearEntidades("Enemigo",new float[]{0,500,50,50,0.2f,-1.5f},textura);
 		
 		//Entidad personaje = fabrica.crearEntidad("Personaje",new float[]{270,70,200,50,4,4},textura);
 		//array.add(personaje);
@@ -59,12 +60,19 @@ public class Proyecto implements ApplicationListener {
 	}
 
 	@Override
-	public void render() {		
+	public void render() {	
+		acumulador+=Gdx.graphics.getDeltaTime();
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		logica.dibujar();
 		logica.update();
 		logica.colision();
+		if(acumulador>1){
+		  acumulador=0;
+			System.out.println("FPS: "+fps);
+			fps=0;
+		}else fps++;
+			
 	}
 	
 	@Override
