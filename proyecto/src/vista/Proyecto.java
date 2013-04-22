@@ -9,7 +9,7 @@ import modelo.EntidadDinamica;
 import modelo.FabricaEntidadesDinamicas;
 import modelo.InterfazFabrica;
 import modelo.Logica;
-import modelo.Personaje;
+import modelo.Nave;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
@@ -29,15 +29,15 @@ public class Proyecto implements ApplicationListener {
 	private SpriteBatch batch;
 	private Texture texture;
 	TextureRegion textura;
-	private ArrayList<Entidad> array = new ArrayList<Entidad>();
-	private EntidadDinamica nave;
+	private Logica logica;
+	
 	@Override
 	public void create() {		
-		
+		logica=new Logica(this);
 	/*	float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
 		*/
-		Gdx.input.setInputProcessor(new EventosTeclado(new Logica(this)));
+		Gdx.input.setInputProcessor(new EventosTeclado(logica));
 		InterfazFabrica fabrica = new FabricaEntidadesDinamicas();
 		
 		batch = new SpriteBatch();
@@ -45,49 +45,28 @@ public class Proyecto implements ApplicationListener {
 		Rectangle rec2 = new Rectangle(9,9,10,10);
 		texture = new Texture(Gdx.files.internal("data/enemy.png"));
 		textura = new TextureRegion(texture);
-		nave=(EntidadDinamica) fabrica.crearEntidad("Personaje", new float[]{0,0,50,50,0,0},textura);
-		array.add(nave);
-		Entidad enemigo = fabrica.crearEntidad("Enemigo",new float[]{0,0,50,50,0,0},textura);		
-		array.add(enemigo);
-		Entidad bala = fabrica.crearEntidad("Bala",new float[]{20,40,150,50,0.2f,0},textura);
-		array.add(bala);
+		logica.crearNave(new float[]{0,200,50,50,0,0},textura);
+		logica.crearEntidades("Enemigo",new float[]{0,0,50,50,0,0},textura);		
+		logica.crearEntidades("Bala",new float[]{20,40,150,50,0.2f,0},textura);
+		
 		//Entidad personaje = fabrica.crearEntidad("Personaje",new float[]{270,70,200,50,4,4},textura);
 		//array.add(personaje);
 		System.out.println("Contiene?");
 	}
 	@Override
 	public void dispose() {
-		batch.dispose();
-		texture.dispose();
+		
 	}
 
 	@Override
 	public void render() {		
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-		
-		batch.begin();
-		for(Entidad entidad : array)
-		batch.draw(entidad.getTextura(), entidad.getX(), 
-				entidad.getY(), entidad.getAncho(), entidad.getAlto());
-		batch.end();
-		
-		for(Entidad entidad : array) ((EntidadDinamica) entidad).actualizar(5f);
-		
-		for(int r=0;array.size()>r;r++) 
-			for(int i=0;array.size()>i;i++)
-			if(array.get(i)!=array.get(r))
-			if(array.get(r).colision(array.get(i).getSuperficie()))
-				System.out.println("Si");
-			else
-				System.out.println("No");
+		logica.dibujar();
+		logica.update();
+		logica.colision();
 	}
-	public void moverPersonajeX(float vx){
-		nave.setVx(vx);
-	}
-	public void moverPersonajeY(float vy){
-		nave.setVy(vy);
-	}
+	
 	@Override
 	public void resize(int width, int height) {
 	}

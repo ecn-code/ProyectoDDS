@@ -2,6 +2,7 @@ package controlador;
 
 import modelo.Logica;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 
 public class EventosTeclado implements InputProcessor {
@@ -12,17 +13,32 @@ public EventosTeclado(Logica _logica){
 	@Override
 	public boolean keyDown(int keycode) {
 		// TODO Auto-generated method stub
-		logica.teclaPulsada(keycode);
+		if(keycode==Input.Keys.RIGHT){
+			logica.moverNaveX(3);
+		}else if(keycode==Input.Keys.LEFT){
+			logica.moverNaveX(-3);
+		}else if(keycode==Input.Keys.UP){
+			logica.moverNaveY(3);
+		}else if(keycode==Input.Keys.DOWN){
+			logica.moverNaveY(-3);
+		}
 		return false;
 	}
 
 	@Override
 	public boolean keyUp(int keycode) {
 		// TODO Auto-generated method stub
-		logica.teclaSoltada(keycode);
+		if(keycode==Input.Keys.RIGHT){
+			logica.moverNaveX(0);
+		}else if(keycode==Input.Keys.LEFT){
+			logica.moverNaveX(0);
+		}else if(keycode==Input.Keys.UP){
+			logica.moverNaveY(0);
+		}else if(keycode==Input.Keys.DOWN){
+			logica.moverNaveY(0);
+		}
 		return false;
 	}
-
 	@Override
 	public boolean keyTyped(char character) {
 		// TODO Auto-generated method stub
