@@ -26,16 +26,9 @@ import com.badlogic.gdx.math.Rectangle;
 import controlador.EventosTeclado;
 
 public class Proyecto implements ApplicationListener {
-	private SpriteBatch batch;
-	private Texture texture;
-	public TextureRegion textura;
 	private Logica logica;
 	private int fps;
 	private float acumulador=0;
-	private String[][] nivel1 = new String[][]{
-			{"","Nave",""},{"","",""},{"Enemigo","Enemigo","Enemigo"}
-			,{"","Enemigo",""},{"Enemigo","Enemigo","Enemigo"},{"Enemigo","","Enemigo"}
-	};
 	@Override
 	public void create() {		
 		logica=new Logica(this);
@@ -44,31 +37,21 @@ public class Proyecto implements ApplicationListener {
 		*/
 		Gdx.input.setInputProcessor(new EventosTeclado(logica));
 		InterfazFabrica fabrica = new FabricaEntidadesDinamicas();
+		logica.inicializarMapa();
 		
-		batch = new SpriteBatch();
-		Rectangle rec = new Rectangle(0,0,10,10);
-		Rectangle rec2 = new Rectangle(9,9,10,10);
-		texture = new Texture(Gdx.files.internal("data/enemy.png"));
-		textura = new TextureRegion(texture);/*
-		logica.crearNave(textura);
+		//logica.crearNave(textura);
+		/*
 		logica.crearEntidades("Enemigo",new float[]{0,400,50,50,1,-0.5f},textura);		
 		logica.crearEntidades("Enemigo",new float[]{0,500,50,50,0.2f,-1.5f},textura);
 		logica.crearEntidades("Enemigo",new float[]{0,300,50,50,1,-0.5f},textura);		
 		logica.crearEntidades("Enemigo",new float[]{150,500,50,50,0.2f,-0.5f},textura);
-		logica.crearEntidades("Enemigo",new float[]{150,600,50,50,0,-3f},textura);
+		logica.crearEntidades("Enemigo",new float[]{100,600,50,50,0,-0.4f},textura);
 		logica.crearEntidades("Enemigo",new float[]{400,600,50,50,0,0.5f},textura);
 		logica.crearEntidades("Enemigo",new float[]{350,500,50,50,0.1f,2f},textura);
-		logica.crearEntidades("Enemigo",new float[]{700,600,50,50,-0.5f,-1f},textura);
+		logica.crearEntidades("Enemigo",new float[]{700,600,50,50,-0.5f,-0.2f},textura);
 		logica.crearEntidades("Enemigo",new float[]{600,600,50,50,-0.5f,0.5f},textura);
 		logica.crearEntidades("Enemigo",new float[]{500,500,50,50,-1f,-0.5f},textura);
-	*/
-		for(int i=0;i<4;i++)
-		for(int j=0;j<nivel1[i].length;j++){
-			if(nivel1[i][j].equals("Nave"))
-				logica.crearEntidades(nivel1[i][j], new float[]{800/3*j,600/3*i,50,50,0,0}, textura);
-			else
-			logica.crearEntidades(nivel1[i][j], new float[]{800/3*j,600/3*i,50,50,-1f,-0.2f}, textura);
-		}
+		*/
 	}
 	@Override
 	public void dispose() {
@@ -82,14 +65,11 @@ public class Proyecto implements ApplicationListener {
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		logica.dibujar();
 		logica.iA();
-		logica.update();
+		logica.actualizar(Gdx.graphics.getDeltaTime());
 		logica.colision();
-		
-		
-		
 		if(acumulador>1){
 		  acumulador=0;
-			System.out.println("FPS: "+fps);
+		  System.out.println("FPS: "+fps);
 			fps=0;
 		}else fps++;
 			

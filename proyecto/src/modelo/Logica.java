@@ -6,6 +6,7 @@ import vista.Proyecto;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
@@ -15,23 +16,52 @@ public class Logica {
 	private ArrayList<Entidad> array = new ArrayList<Entidad>();
 	private SpriteBatch batch;
 	EntidadDinamica nave;
+	private float acumulador=0;
+	private int fila=0;
+	private Texture texture;
+	public TextureRegion textura;
+	private String[][] nivel1 = new String[][]{
+			{"","Nave",""},{"","",""},{"Enemigo","Enemigo","Enemigo"},
+			{"","Enemigo",""},{"Enemigo","Enemigo","Enemigo"},
+			{"Enemigo","","Enemigo"}};
+	
 public Logica(Proyecto proy) {
 	proyecto=proy;
-	batch=new SpriteBatch();
+	batch = new SpriteBatch();
+	texture = new Texture(Gdx.files.internal("data/enemy.png"));
+	textura = new TextureRegion(texture);
 }
 public void crearNave(TextureRegion textura){
 	nave=(EntidadDinamica) fabrica.crearEntidad("Nave", new float[]{0,0 ,50,50,0,0},textura);
 	array.add(nave);
 }
 public void crearBala(){
-	crearEntidades("Bala",new float[]{nave.getX()+nave.getAncho()/2,nave.getY()+nave.getAlto(),5,10,0,4},proyecto.textura);
+	crearEntidades("Bala",new float[]{nave.getX()+nave.getAncho()/2,nave.getY()+nave.getAlto(),5,10,0,4},textura);
 }
 public void crearEntidades(String _entidad, float[] parametros,TextureRegion textura){
 	if(!_entidad.equals(""))
 	array.add(fabrica.crearEntidad(_entidad, parametros,textura));
 	}
-public void update(){
+public void inicializarMapa(){
+	for(fila=0;fila<4;fila++)
+		for(int j=0;j<nivel1[fila].length;j++){
+			if(nivel1[fila][j].equals("Nave"))
+				crearNave(textura);
+			else
+			crearEntidades(nivel1[fila][j], new float[]{800/3*j,600/3*fila,50,50,0,-0.2f}, textura);	
+		}
+}
+public void actualizar(float time){
 	for(Entidad entidad : array) ((EntidadDinamica) entidad).actualizar(5f);
+	acumulador+=time;
+	if(acumulador>6){
+		  acumulador=0;
+		  if(fila<nivel1.length){
+		  for(int j=0;j<nivel1[fila].length;j++)
+			  crearEntidades(nivel1[fila][j], new float[]{800/3*j,600/3*3,50,50,0,-0.2f}, textura);
+			fila++;
+		  }	
+	}
 }
 public void iA(){
 	double random;
@@ -39,7 +69,7 @@ public void iA(){
 		if(array.get(i) instanceof Enemigo){
 		random=Math.random()*50;
 		if(random>2 && random<2.55){
-			crearEntidades("BalaEnemigo",new float[]{array.get(i).getX()+array.get(i).getAncho()/2,array.get(i).getY(),5,10,0,-4},proyecto.textura);
+			crearEntidades("BalaEnemigo",new float[]{array.get(i).getX()+array.get(i).getAncho()/2,array.get(i).getY(),5,10,0,-4},textura);
 		}
 		}
 	}
