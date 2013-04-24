@@ -16,7 +16,7 @@ public class Logica {
 	private ArrayList<Entidad> array = new ArrayList<Entidad>();
 	private SpriteBatch batch;
 	EntidadDinamica nave;
-	private float acumulador=0;
+	private float acumulador=0,total=0, movimiento=0;
 	private int fila=0;
 	private Texture texture;
 	public TextureRegion textura;
@@ -52,8 +52,18 @@ public void inicializarMapa(){
 		}
 }
 public void actualizar(float time){
-	for(Entidad entidad : array) ((EntidadDinamica) entidad).actualizar(5f);
 	acumulador+=time;
+	total+=time;
+	movimiento+=time;
+	for(Entidad entidad : array){ 
+		if(movimiento > 1 && entidad instanceof Enemigo){
+			((Enemigo) entidad).setVx((float)Math.sin(total+2));
+			System.out.print(total+" ");
+			System.out.println(Math.sin(total));
+		}
+		((EntidadDinamica) entidad).actualizar(5f);
+	}
+	
 	if(acumulador>6){
 		  acumulador=0;
 		  if(fila<nivel1.length){
@@ -61,6 +71,9 @@ public void actualizar(float time){
 			  crearEntidades(nivel1[fila][j], new float[]{800/3*j,600/3*3,50,50,0,-0.2f}, textura);
 			fila++;
 		  }	
+	}
+	if(movimiento>1){
+		movimiento=0;
 	}
 }
 public void iA(){
