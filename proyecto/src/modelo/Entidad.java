@@ -1,5 +1,6 @@
 package modelo;
 
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 
@@ -8,8 +9,8 @@ import com.badlogic.gdx.math.Rectangle;
 public abstract class Entidad {
 
 	protected Rectangle superficie;
-	protected static TextureRegion textura;
-	public Entidad(float _x, float _y, float _ancho, float _alto,TextureRegion _textura){
+	protected AtlasRegion textura;
+	public Entidad(float _x, float _y, float _ancho, float _alto,AtlasRegion _textura){
 		superficie = new Rectangle(_x, _y, _ancho, _alto);
 		textura=_textura;
 	}
@@ -37,10 +38,10 @@ public abstract class Entidad {
 	public void setY(float _y) {
 		superficie.setY(_y);
 	}
-	public TextureRegion getTextura() {
+	public AtlasRegion getTextura() {
 		return textura;
 	}
-	public void setTextura(TextureRegion _textura) {
+	public void setTextura(AtlasRegion _textura) {
 		textura = _textura;
 	}
 	

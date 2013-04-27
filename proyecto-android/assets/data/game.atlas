@@ -1,0 +1,47 @@
+
+game.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+fondo
+  rotate: false
+  xy: 5, 165
+  size: 224, 256
+  orig: 224, 256
+  offset: 0, 0
+  index: -1
+naveNormal
+  rotate: false
+  xy: 5, 98
+  size: 64, 57
+  orig: 64, 57
+  offset: 0, 0
+  index: -1
+jefeRajoy
+  rotate: false
+  xy: 5, 31
+  size: 40, 57
+  orig: 40, 57
+  offset: 0, 0
+  index: -1
+libelula
+  rotate: false
+  xy: 79, 126
+  size: 29, 29
+  orig: 29, 29
+  offset: 0, 0
+  index: -1
+mocoRojo
+  rotate: false
+  xy: 5, 5
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+bala
+  rotate: false
+  xy: 79, 101
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1

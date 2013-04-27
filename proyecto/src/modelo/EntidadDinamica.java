@@ -1,10 +1,11 @@
 package modelo;
 
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public abstract class EntidadDinamica extends Entidad {
 	protected float vx,vy;
-	public EntidadDinamica(float _x,float _y,float _ancho, float _alto,float _vx,float _vy,TextureRegion _textura){
+	public EntidadDinamica(float _x,float _y,float _ancho, float _alto,float _vx,float _vy,AtlasRegion _textura){
 		super(_x, _y,_ancho,_alto,_textura);
 		vx=_vx;
 		vy=_vy;
