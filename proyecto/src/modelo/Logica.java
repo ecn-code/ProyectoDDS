@@ -17,14 +17,14 @@ public class Logica {
 	InterfazFabrica fabrica = new FabricaEntidadesDinamicas();
 	private ArrayList<Entidad> array = new ArrayList<Entidad>();
 	private SpriteBatch batch;
-	EntidadDinamica nave;
+	Nave nave;
 	private float acumulador=0;
 	private int fila=0;
 	private TextureAtlas texture;
 	public AtlasRegion naveTextura,mocoRojo,libelula,fondo,bala;
 	private String[][] nivel1 = new String[][]{
 			{"","Nave",""},{"","",""},{"","libelula","mocoRojo"},
-			{"","",""},{"","",""},
+			{"libelula","mocoRojo","libelula"},{"","",""},
 			{"mocoRojo","mocoRojo",""}};
 	
 public Logica(Proyecto proy) {
@@ -38,11 +38,11 @@ public Logica(Proyecto proy) {
 	bala = texture.findRegion("bala");
 }
 public void crearNave(AtlasRegion textura){
-	nave=(EntidadDinamica) fabrica.crearEntidad("Nave", new float[]{0,0 ,50,50,0,0},textura);
+	nave=(Nave) fabrica.crearEntidad("Nave", new float[]{0,0 ,50,50,0,0},textura);
 	array.add(nave);
 }
 public void crearBala(){
-	crearEntidades("Bala",new float[]{nave.getX()+nave.getAncho()/2,nave.getY()+nave.getAlto(),20,20,0,4},bala);
+	crearEntidades("Bala",new float[]{nave.getX()+nave.getAncho()/2-10,nave.getY()+nave.getAlto(),20,20,0,4},bala);
 }
 public void crearEntidades(String _entidad, float[] parametros,AtlasRegion textura){
 	if(!_entidad.equals(""))
@@ -61,6 +61,13 @@ public void inicializarMapa(){
 		}
 }
 public void actualizar(float time){
+	if(nave.getVx()>0){
+		nave.girarDerecha(libelula);
+	}else if(nave.getVx()<0){
+		nave.girarIzquierda(mocoRojo);
+	}else{
+		nave.parar(naveTextura);
+	}
 	for(Entidad entidad : array) ((EntidadDinamica) entidad).actualizar(5f);
 	acumulador+=time;
 	if(acumulador>6){
