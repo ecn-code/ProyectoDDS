@@ -17,7 +17,7 @@ public class FabricaEntidadesDinamicas implements InterfazFabrica {
 			return new Nave(parametros[0], parametros[1], parametros[2], parametros[3], parametros[4], parametros[5], textura);
 		}else if(name.equals("mocoRojo")){
 			return new Enemigo(parametros[0], parametros[1], parametros[2], parametros[3], parametros[4], parametros[5], textura);
-		} 
+		}
 			return null;			
 	}
 

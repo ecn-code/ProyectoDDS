@@ -19,6 +19,7 @@ public class EstadoDerecha implements Estado{
 	@Override
 	public void girarDerecha(AtlasRegion _textura) {
 		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -26,6 +27,8 @@ public class EstadoDerecha implements Estado{
 		// TODO Auto-generated method stub
 		nave.setTextura(_textura);
 		nave.setEstado(nave.getEstadoDerecha());
+		
+		
 	}
 
 	@Override
