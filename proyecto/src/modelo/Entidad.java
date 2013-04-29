@@ -9,10 +9,19 @@ import com.badlogic.gdx.math.Rectangle;
 public abstract class Entidad {
 
 	protected Rectangle superficie;
-	protected AtlasRegion textura;
-	public Entidad(float _x, float _y, float _ancho, float _alto,AtlasRegion _textura){
+	protected TextureRegion textura;
+	protected TextureRegion texturaNormal;
+	
+	public Entidad(float _x, float _y, float _ancho, float _alto,TextureRegion _textura){
 		superficie = new Rectangle(_x, _y, _ancho, _alto);
-		textura=_textura;
+		textura = _textura;
+		texturaNormal = textura;
+	}
+	public TextureRegion getTexturaNormal() {
+		return texturaNormal;
+	}
+	public void setTexturaNormal(TextureRegion texturaNormal) {
+		this.texturaNormal = texturaNormal;
 	}
 	public float getAncho() {
 		return superficie.getWidth();
@@ -38,10 +47,10 @@ public abstract class Entidad {
 	public void setY(float _y) {
 		superficie.setY(_y);
 	}
-	public AtlasRegion getTextura() {
+	public TextureRegion getTextura() {
 		return textura;
 	}
-	public void setTextura(AtlasRegion _textura) {
+	public void setTextura(TextureRegion _textura) {
 		textura = _textura;
 	}
 	

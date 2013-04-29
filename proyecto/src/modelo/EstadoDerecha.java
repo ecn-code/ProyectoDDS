@@ -3,36 +3,33 @@ package modelo;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 
 public class EstadoDerecha implements Estado{
-	private Nave nave;
-	public EstadoDerecha(Nave nave){
-		this.nave=nave;
+	private EntidadDinamica entidad;
+	private float acumulado;
+	public EstadoDerecha(EntidadDinamica entidad){
+		this.entidad=entidad;
+		acumulado=0;
 	}
 	@Override
-	public void parar(AtlasRegion _textura) {
-		// TODO Auto-generated method stub
-		nave.setTextura(_textura);
-		nave.setEstado(nave.getEstadoReposo());
-		//meter textura normal;
-		
+	public void parar() {
+			entidad.setEstado(new EstadoReposo(entidad));
 	}
 
 	@Override
-	public void girarDerecha(AtlasRegion _textura) {
-		// TODO Auto-generated method stub
-		
+	public void girarDerecha(float time) {
+		acumulado += time;
+		entidad.setTextura(entidad.getAnimDerecha().getKeyFrame(acumulado));
 	}
 
 	@Override
-	public void girarIzquierda(AtlasRegion _textura) {
+	public void girarIzquierda(float time) {
 		// TODO Auto-generated method stub
-		nave.setTextura(_textura);
-		nave.setEstado(nave.getEstadoDerecha());
+		entidad.setEstado(new EstadoIzquierda(entidad));
 		
 		
 	}
 
 	@Override
-	public void colisionar(AtlasRegion _textura) {
+	public void colisionar(float time) {
 		// TODO Auto-generated method stub
 	}
 

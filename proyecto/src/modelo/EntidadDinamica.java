@@ -1,16 +1,25 @@
 package modelo;
 
+import vista.Recursos;
+
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public abstract class EntidadDinamica extends Entidad {
 	protected float vx,vy;
-	public EntidadDinamica(float _x,float _y,float _ancho, float _alto,float _vx,float _vy,AtlasRegion _textura){
+	protected Estado estado;
+	protected Animation  animIzquierda,animDerecha;;
+	public EntidadDinamica(float _x,float _y,float _ancho, float _alto,float _vx,float _vy,TextureRegion _textura){
 		super(_x, _y,_ancho,_alto,_textura);
 		vx=_vx;
 		vy=_vy;
+		estado = new EstadoReposo(this);
 	}
 	public void actualizar(float time){
+		if(vx>0) estado.girarDerecha(time);
+		else if(vx<0) estado.girarIzquierda(time);
+		else estado.parar();
 		sumarX(vx);
 		sumarY(vy);
 	}
@@ -31,5 +40,18 @@ public abstract class EntidadDinamica extends Entidad {
 	}
 	public void sumarY(float _y){
 		superficie.setY(superficie.getY()+_y);
+	}
+	public Estado getEstado() {
+		return estado;
+	}
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+	public Animation getAnimIzquierda(){
+		return animIzquierda;
+	}
+	public Animation getAnimDerecha() {
+		// TODO Auto-generated method stub
+		return animDerecha;
 	}
 }

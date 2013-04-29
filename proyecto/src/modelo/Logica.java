@@ -26,6 +26,11 @@ public class Logica {
 			{"","Nave",""},{"","",""},{"","libelula","mocoRojo"},
 			{"libelula","mocoRojo","libelula"},{"","",""},
 			{"mocoRojo","mocoRojo",""}};
+	/*private String[][] nivel1 = new String[][]{
+			{"","Nave",""},{"","",""},{"","",""},
+			{"","",""},{"","",""},
+			{"","",""}
+	};*/
 	
 public Logica(Proyecto proy) {
 	proyecto=proy;
@@ -61,14 +66,14 @@ public void inicializarMapa(){
 		}
 }
 public void actualizar(float time){
-	if(nave.getVx()>0){
+	/*if(nave.getVx()>0){
 		nave.girarDerecha(libelula);
 	}else if(nave.getVx()<0){
 		nave.girarIzquierda(mocoRojo);
 	}else{
 		nave.parar(naveTextura);
-	}
-	for(Entidad entidad : array) ((EntidadDinamica) entidad).actualizar(5f);
+	}*/
+	for(Entidad entidad : array) ((EntidadDinamica) entidad).actualizar(time);
 	acumulador+=time;
 	if(acumulador>6){
 		  acumulador=0;
