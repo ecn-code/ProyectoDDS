@@ -54,4 +54,7 @@ public abstract class EntidadDinamica extends Entidad {
 		// TODO Auto-generated method stub
 		return animDerecha;
 	}
+public void configurar(float[] parametros) {
+		
+	}
 }

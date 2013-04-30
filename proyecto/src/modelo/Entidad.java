@@ -60,4 +60,5 @@ public abstract class Entidad {
 	public Rectangle getSuperficie(){
 		return superficie;
 	}
+	
 }
