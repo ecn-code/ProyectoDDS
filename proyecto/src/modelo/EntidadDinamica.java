@@ -11,6 +11,9 @@ public abstract class EntidadDinamica extends Entidad {
 	protected float vx,vy;
 	protected Estado estado;
 	protected Animation  animIzquierda,animDerecha;
+	public  EntidadDinamica() {
+		super();
+	}
 	public EntidadDinamica(TextureRegion _texturaNormal){
 		super(_texturaNormal);
 		estado = new EstadoReposo(this);
@@ -60,8 +63,8 @@ public abstract class EntidadDinamica extends Entidad {
 		return animDerecha;
 	}
 public void configurar(float[] parametros) {
-		superficie = new Rectangle(parametros[0],parametros[1], parametros[2], parametros[3]);
-		vx= parametros[4];
-		vy=parametros[5];
+		superficie = new Rectangle(parametros[0],parametros[1], getAncho(), getAlto());
+		vx= parametros[2];
+		vy=parametros[3];
 	}
 }

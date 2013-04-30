@@ -1,4 +1,4 @@
-package modelo;
+  package modelo;
 
 import vista.Recursos;
 
@@ -12,6 +12,10 @@ public Nave(){
 	Recursos.girar();
 	animIzquierda = Recursos.animNaveIzquierda;
 	animDerecha = Recursos.animNaveDerecha;
+	setAncho(50);
+	setAlto(50);
+	setVx(0);
+	setVy(0);
 }
 public Nave(float x,float y,float ancho,float alto, float vx, float vy,AtlasRegion textura){
 	super(x,y,ancho,alto,vx,vy,textura);

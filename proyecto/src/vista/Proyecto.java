@@ -32,26 +32,9 @@ public class Proyecto implements ApplicationListener {
 	@Override
 	public void create() {		
 		logica=new Logica(this);
-	/*	float w = Gdx.graphics.getWidth();
-		float h = Gdx.graphics.getHeight();
-		*/
 		Gdx.input.setInputProcessor(new EventosTeclado(logica));
 		InterfazFabricaEntidad fabrica = new FabricaEntidadesDinamicas();
 		logica.inicializarMapa();
-		
-		//logica.crearNave(textura);
-		/*
-		logica.crearEntidades("Enemigo",new float[]{0,400,50,50,1,-0.5f},textura);		
-		logica.crearEntidades("Enemigo",new float[]{0,500,50,50,0.2f,-1.5f},textura);
-		logica.crearEntidades("Enemigo",new float[]{0,300,50,50,1,-0.5f},textura);		
-		logica.crearEntidades("Enemigo",new float[]{150,500,50,50,0.2f,-0.5f},textura);
-		logica.crearEntidades("Enemigo",new float[]{100,600,50,50,0,-0.4f},textura);
-		logica.crearEntidades("Enemigo",new float[]{400,600,50,50,0,0.5f},textura);
-		logica.crearEntidades("Enemigo",new float[]{350,500,50,50,0.1f,2f},textura);
-		logica.crearEntidades("Enemigo",new float[]{700,600,50,50,-0.5f,-0.2f},textura);
-		logica.crearEntidades("Enemigo",new float[]{600,600,50,50,-0.5f,0.5f},textura);
-		logica.crearEntidades("Enemigo",new float[]{500,500,50,50,-1f,-0.5f},textura);
-		*/
 	}
 	@Override
 	public void dispose() {
