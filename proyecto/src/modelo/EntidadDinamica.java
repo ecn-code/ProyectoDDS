@@ -11,6 +11,10 @@ public abstract class EntidadDinamica extends Entidad {
 	protected float vx,vy;
 	protected Estado estado;
 	protected Animation  animIzquierda,animDerecha;
+	public EntidadDinamica(TextureRegion _texturaNormal){
+		super(_texturaNormal);
+		estado = new EstadoReposo(this);
+	}
 	public EntidadDinamica(float _x,float _y,float _ancho, float _alto,float _vx,float _vy,TextureRegion _textura){
 		super(_x, _y,_ancho,_alto,_textura);
 		vx=_vx;

@@ -6,13 +6,19 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 
 public class Nave extends EntidadDinamica {
-
+	
+public Nave(){
+	super(Recursos.naveNormal);
+	Recursos.girar();
+	animIzquierda = Recursos.animNaveIzquierda;
+	animDerecha = Recursos.animNaveDerecha;
+}
 public Nave(float x,float y,float ancho,float alto, float vx, float vy,AtlasRegion textura){
 	super(x,y,ancho,alto,vx,vy,textura);
 	Recursos.girar();
 	animIzquierda = Recursos.animNaveIzquierda;
 	animDerecha = Recursos.animNaveDerecha;
-	texturaNormal = Recursos.naveNormal;
+	texturaNormal = Recursos.naveNormal;	
 }
 
 
