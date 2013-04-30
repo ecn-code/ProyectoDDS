@@ -7,7 +7,7 @@ import modelo.Enemigo;
 import modelo.Entidad;
 import modelo.EntidadDinamica;
 import modelo.FabricaEntidadesDinamicas;
-import modelo.InterfazFabrica;
+import modelo.InterfazFabricaEntidad;
 import modelo.Logica;
 import modelo.Nave;
 
@@ -36,7 +36,7 @@ public class Proyecto implements ApplicationListener {
 		float h = Gdx.graphics.getHeight();
 		*/
 		Gdx.input.setInputProcessor(new EventosTeclado(logica));
-		InterfazFabrica fabrica = new FabricaEntidadesDinamicas();
+		InterfazFabricaEntidad fabrica = new FabricaEntidadesDinamicas();
 		logica.inicializarMapa();
 		
 		//logica.crearNave(textura);

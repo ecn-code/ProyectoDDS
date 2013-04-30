@@ -14,7 +14,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Logica {
 	private static Proyecto proyecto;
-	InterfazFabrica fabrica = new FabricaEntidadesDinamicas();
+	InterfazFabricaEntidad fabrica = new FabricaEntidadesDinamicas();
 	private ArrayList<Entidad> array = new ArrayList<Entidad>();
 	private SpriteBatch batch;
 	Nave nave;
@@ -22,15 +22,15 @@ public class Logica {
 	private int fila=0;
 	private TextureAtlas texture;
 	public AtlasRegion naveTextura,mocoRojo,libelula,fondo,bala;
-	private String[][] nivel1 = new String[][]{
+	/*private String[][] nivel1 = new String[][]{
 			{"","Nave",""},{"","",""},{"","libelula","mocoRojo"},
 			{"libelula","mocoRojo","libelula"},{"","",""},
-			{"mocoRojo","mocoRojo",""}};
-	/*private String[][] nivel1 = new String[][]{
+			{"mocoRojo","mocoRojo",""}};*/
+	private String[][] nivel1 = new String[][]{
 			{"","Nave",""},{"","",""},{"","",""},
 			{"","",""},{"","",""},
 			{"","",""}
-	};*/
+	};
 	
 public Logica(Proyecto proy) {
 	proyecto=proy;
@@ -43,15 +43,15 @@ public Logica(Proyecto proy) {
 	bala = texture.findRegion("bala");
 }
 public void crearNave(AtlasRegion textura){
-	nave=(Nave) fabrica.crearEntidad("Nave", new float[]{0,0 ,50,50,0,0},textura);
+	nave=(Nave) fabrica.crearEntidad("Nave", new float[]{0,0 ,50,50,0,0});
 	array.add(nave);
 }
 public void crearBala(){
-	crearEntidades("Bala",new float[]{nave.getX()+nave.getAncho()/2-10,nave.getY()+nave.getAlto(),20,20,0,4},bala);
+	crearEntidades("Bala",new float[]{nave.getX()+nave.getAncho()/2-10,nave.getY()+nave.getAlto(),20,20,0,4});
 }
-public void crearEntidades(String _entidad, float[] parametros,AtlasRegion textura){
+public void crearEntidades(String _entidad, float[] parametros){
 	if(!_entidad.equals(""))
-	array.add(fabrica.crearEntidad(_entidad, parametros,textura));
+	array.add(fabrica.crearEntidad(_entidad, parametros));
 	}
 public void inicializarMapa(){
 	for(fila=0;fila<4;fila++)
@@ -59,9 +59,9 @@ public void inicializarMapa(){
 			if(nivel1[fila][j].equals("Nave"))
 				crearNave(naveTextura);
 			else if(nivel1[fila][j].equals("mocoRojo"))
-			crearEntidades(nivel1[fila][j], new float[]{800/3*j,600/3*fila,50,50,0,-0.2f}, mocoRojo);	
+			crearEntidades(nivel1[fila][j], new float[]{800/3*j,600/3*fila,50,50,0,-0.2f});	
 			else if(nivel1[fila][j].equals("libelula"))
-				crearEntidades(nivel1[fila][j], new float[]{800/3*j,600/3*fila,50,50,0,-0.2f}, libelula);	
+				crearEntidades(nivel1[fila][j], new float[]{800/3*j,600/3*fila,50,50,0,-0.2f});	
 
 		}
 }
@@ -79,7 +79,7 @@ public void actualizar(float time){
 		  acumulador=0;
 		  if(fila<nivel1.length){
 		  for(int j=0;j<nivel1[fila].length;j++)
-			  crearEntidades(nivel1[fila][j], new float[]{800/3*j,600/3*3,50,50,0,-0.2f}, libelula);
+			  crearEntidades(nivel1[fila][j], new float[]{800/3*j,600/3*3,50,50,0,-0.2f});
 			fila++;
 		  }	
 	}
@@ -90,7 +90,7 @@ public void iA(){
 		if(array.get(i) instanceof Enemigo){
 		random=Math.random()*50;
 		if(random>2 && random<2.55){
-			crearEntidades("BalaEnemigo",new float[]{array.get(i).getX()+array.get(i).getAncho()/2,array.get(i).getY(),20,20,0,-4},bala);
+			crearEntidades("BalaEnemigo",new float[]{array.get(i).getX()+array.get(i).getAncho()/2,array.get(i).getY(),20,20,0,-4});
 		}
 		}
 	}

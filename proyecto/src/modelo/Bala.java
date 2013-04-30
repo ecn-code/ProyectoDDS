@@ -3,7 +3,6 @@ package modelo;
 import vista.Recursos;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Bala extends EntidadDinamica {
 	public Bala (float x,float y,float ancho,float alto, float vx, float vy,AtlasRegion textura){

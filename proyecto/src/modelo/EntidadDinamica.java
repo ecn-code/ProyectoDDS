@@ -5,11 +5,12 @@ import vista.Recursos;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 
 public abstract class EntidadDinamica extends Entidad {
 	protected float vx,vy;
 	protected Estado estado;
-	protected Animation  animIzquierda,animDerecha;;
+	protected Animation  animIzquierda,animDerecha;
 	public EntidadDinamica(float _x,float _y,float _ancho, float _alto,float _vx,float _vy,TextureRegion _textura){
 		super(_x, _y,_ancho,_alto,_textura);
 		vx=_vx;
@@ -55,6 +56,8 @@ public abstract class EntidadDinamica extends Entidad {
 		return animDerecha;
 	}
 public void configurar(float[] parametros) {
-		
+		superficie = new Rectangle(parametros[0],parametros[1], parametros[2], parametros[3]);
+		vx= parametros[4];
+		vy=parametros[5];
 	}
 }
