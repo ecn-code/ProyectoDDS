@@ -1,7 +1,5 @@
 package modelo;
 
-import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class FabricaEntidadesDinamicas implements InterfazFabricaEntidad {
 	private EntidadDinamica entidad;

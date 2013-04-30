@@ -3,7 +3,6 @@
 import vista.Recursos;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 
 public class Nave extends EntidadDinamica {
 	
@@ -17,6 +16,7 @@ public Nave(){
 	setVx(0);
 	setVy(0);
 }
+/*
 public Nave(float x,float y,float ancho,float alto, float vx, float vy,AtlasRegion textura){
 	super(x,y,ancho,alto,vx,vy,textura);
 	Recursos.girar();
@@ -24,6 +24,7 @@ public Nave(float x,float y,float ancho,float alto, float vx, float vy,AtlasRegi
 	animDerecha = Recursos.animNaveDerecha;
 	texturaNormal = Recursos.naveNormal;	
 }
+*/
 
 
 @Override

@@ -1,77 +1,57 @@
 package modelo;
 
 import java.util.ArrayList;
-
 import modelo.niveles.Nivel1;
-
-import vista.Proyecto;
-import vista.Recursos;
-
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
 
 public class Logica {
-	private static Proyecto proyecto;
 	InterfazFabricaEntidad fabrica = new FabricaEntidadesDinamicas();
-	private ArrayList<Entidad> array = new ArrayList<Entidad>();
+	
 	private SpriteBatch batch;
-	Nave nave;
 	Nivel1 nivel1;
-	private float acumulador=0;
-	private int fila=0;
+	private Reloj reloj;
+	private ColeccionEntidades coleccionEntidades;
 
-public Logica(Proyecto proy) {
-	proyecto=proy;
+public Logica() {
+	coleccionEntidades =  new ColeccionEntidades();
 	batch = new SpriteBatch();
 	nivel1=new Nivel1();
+	reloj=new Reloj();
 }
-public void crearNave(int i,int j){
-	nave=(Nave) fabrica.crearEntidad("Nave",new float[]{Gdx.graphics.getWidth()/3*i,Gdx.graphics.getHeight()/3*j,0,0});
-	array.add(nave);
-}
+
 public void crearBala(){
-	array.add(fabrica.crearEntidad("Bala",new float[]{nave.getX()+nave.getAncho()/2-10,nave.getY()+nave.getAlto(),0,4}));
+	coleccionEntidades.crearBala();
 }
-public void crearEntidades(String _entidad, float[] parametros){
-	if(!_entidad.equals(""))
-	array.add(fabrica.crearEntidad(_entidad, new float[]{Gdx.graphics.getWidth()/3*parametros[0],Gdx.graphics.getHeight()/3*parametros[1],parametros[2],parametros[3]}));
-	}
+
 public void inicializarMapa(){
-	int i=nivel1.getFilaActual();
-	int h=0;
-	ArrayList<String> filas=nivel1.getFila(4);
+	int numeroFila=nivel1.getFilaActual();
+	int numeroColumna=0;
+	ArrayList<String> filas=nivel1.getFila(Constantes.filasPantalla+1);
 	
 	for(String unaFila : filas){
-		System.out.println("La i vale:"+i+" Y la h vale : "+h);
-		if(unaFila.equals("Nave")) {
-			crearNave(h,i);
-		}else{
-		crearEntidades(unaFila, new float[]{h,i,0,-0.2f});
-		}
-		if(h<4)h++;
-		if(h==3){i++;
-		h=0;}
+		coleccionEntidades.crearEntidad(unaFila, new float[]{numeroColumna,numeroFila,0,-1f});
+		if(numeroColumna<3)numeroColumna++;
+		if(numeroColumna==3){
+		numeroFila++;
+		numeroColumna=0;}
 	}
 }
 public void actualizar(float time){
+	coleccionEntidades.actualizar(time);
 	
-	for(Entidad entidad : array) ((EntidadDinamica) entidad).actualizar(time);
-	acumulador+=time;
-	if(acumulador>6){
-		  acumulador=0;
+	reloj.actualizar(time);
+	if(reloj.getAcumulado()>Constantes.tiempoRefrescoMapa){
+		  reloj.reset();
 		  ArrayList<String> filas=nivel1.getFila(1);
 		  if(!filas.isEmpty()){
-			    for(int j=0;j<filas.size();j++)
-			  crearEntidades(filas.get(j), new float[]{800/3*j,600/3*3,0,-0.2f});
-			fila++;
+			    for(int numeroColumna=0;numeroColumna<filas.size();numeroColumna++)
+			  coleccionEntidades.crearEntidad(filas.get(numeroColumna), new float[]{numeroColumna,
+				  Constantes.filasPantalla+1,0,-3f});
 		  }	
 	}
 }
+/*
 public void iA(){
 	double random;
 	for(int i=0;i<array.size();i++){
@@ -83,6 +63,8 @@ public void iA(){
 		}
 	}
 }
+*/
+/*
 public void colision(){
 	Entidad[] eliminar= new Entidad[array.size()];
 	for(int r=0;array.size()>r;r++) {
@@ -119,21 +101,16 @@ public void colision(){
 		if(entidad!=null)array.remove(entidad);
 	}
 }
+*/
 public void dibujar(){
-	batch.begin();
-	batch.draw(Recursos.fondo, 0, 
-			0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-	for(Entidad entidad : array)
-	batch.draw(entidad.getTextura(), entidad.getX(), 
-			entidad.getY(), entidad.getAncho(), entidad.getAlto());
-	batch.end();
+	coleccionEntidades.dibujar(batch);
 }
 
 public void moverNaveX(float vx){
-	nave.setVx(vx);
+	coleccionEntidades.moverNaveX(vx);
 }
 public void moverNaveY(float vy){
-	nave.setVy(vy);
+	coleccionEntidades.moverNaveY(vy);
 }
 }
 

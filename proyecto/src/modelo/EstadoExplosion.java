@@ -1,6 +1,5 @@
 package modelo;
 
-import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 
 public class EstadoExplosion implements Estado{
 private EntidadDinamica entidad;

@@ -2,8 +2,6 @@ package modelo;
 
 import vista.Recursos;
 
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-
 public class Libelula extends EntidadDinamica{
 
 	public Libelula() {
