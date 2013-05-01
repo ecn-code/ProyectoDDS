@@ -13,6 +13,7 @@ public class Main {
 		cfg.width = 800;
 		cfg.height = 600;
 		
+		
 		new LwjglApplication(new Proyecto(), cfg);
 	}
 }
