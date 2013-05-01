@@ -39,7 +39,7 @@ public void inicializarMapa(){
 }
 public void actualizar(float time){
 	coleccionEntidades.actualizar(time);
-	
+
 	reloj.actualizar(time);
 	if(reloj.getAcumulado()>Constantes.tiempoRefrescoMapa){
 		  reloj.reset();
@@ -102,6 +102,10 @@ public void colision(){
 	}
 }
 */
+public void colision(){
+coleccionEntidades.colision();
+}
+
 public void dibujar(){
 	coleccionEntidades.dibujar(batch);
 }

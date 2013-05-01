@@ -8,6 +8,7 @@ public abstract class EntidadDinamica extends Entidad {
 	protected float vx,vy;
 	protected Estado estado;
 	protected Animation  animIzquierda,animDerecha;
+	protected Animation animExplosion;
 	public  EntidadDinamica() {
 		super();
 	}
@@ -22,9 +23,8 @@ public abstract class EntidadDinamica extends Entidad {
 		estado = new EstadoReposo(this);
 	}
 	public void actualizar(float time){
-		if(vx>0) estado.girarDerecha(time);
-		else if(vx<0) estado.girarIzquierda(time);
-		else estado.parar();
+		estado.mover(vx);
+		estado.actualizarTextura(time);
 		sumarX(vx);
 		sumarY(vy);
 	}
@@ -46,11 +46,11 @@ public abstract class EntidadDinamica extends Entidad {
 	public void sumarY(float _y){
 		superficie.setY(superficie.getY()+_y);
 	}
-	public Estado getEstado() {
-		return estado;
-	}
 	public void setEstado(Estado estado) {
 		this.estado = estado;
+	}
+	public Estado getEstado() {
+		return this.estado ;
 	}
 	public Animation getAnimIzquierda(){
 		return animIzquierda;
@@ -64,4 +64,8 @@ public void configurar(float[] parametros) {
 		vx= parametros[2];
 		vy=parametros[3];
 	}
+public Animation getAnimExplosion() {
+	// TODO Auto-generated method stub
+	return animExplosion;
+}
 }

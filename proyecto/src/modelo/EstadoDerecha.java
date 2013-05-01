@@ -9,27 +9,18 @@ public class EstadoDerecha implements Estado{
 		acumulado=0;
 	}
 	@Override
-	public void parar() {
-			entidad.setEstado(new EstadoReposo(entidad));
-	}
-
-	@Override
-	public void girarDerecha(float time) {
+	public void actualizarTextura(float time) {
 		acumulado += time;
-		entidad.setTextura(entidad.getAnimDerecha().getKeyFrame(acumulado));
+		entidad.setTextura(entidad.getAnimIzquierda().getKeyFrame(acumulado));
 	}
-
 	@Override
-	public void girarIzquierda(float time) {
-		// TODO Auto-generated method stub
-		entidad.setEstado(new EstadoIzquierda(entidad));
-		
-		
+	public void mover(float vx) {
+		if(vx<0) entidad.setEstado(new EstadoIzquierda(entidad));
+		else if(vx==0) entidad.setEstado(new EstadoReposo(entidad));
 	}
-
 	@Override
-	public void colisionar(float time) {
-		// TODO Auto-generated method stub
+	public void colisionar() {
+		entidad.setEstado(new EstadoExplosion(entidad));
 	}
-
+	
 }

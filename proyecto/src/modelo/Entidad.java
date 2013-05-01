@@ -10,12 +10,20 @@ public abstract class Entidad {
 	protected Rectangle superficie;
 	protected TextureRegion textura;
 	protected TextureRegion texturaNormal;
+	protected boolean eliminar;
 	public Entidad(){
 	}
 	public Entidad(TextureRegion _texturaNormal){
 		textura = _texturaNormal;
 		texturaNormal = _texturaNormal;
 		superficie = new Rectangle();
+		eliminar=false;
+	}
+	public boolean isEliminar() {
+		return eliminar;
+	}
+	public void setEliminar(boolean eliminar) {
+		this.eliminar = eliminar;
 	}
 	public Entidad(float _x, float _y, float _ancho, float _alto,TextureRegion _textura){
 		superficie = new Rectangle(_x, _y, _ancho, _alto);
@@ -59,9 +67,8 @@ public abstract class Entidad {
 		textura = _textura;
 	}
 	
-	public boolean colision(Rectangle _rectangulo){
-		return superficie.overlaps(_rectangulo);
-	}
+	public abstract boolean colision(Entidad _entidad);
+	
 	public Rectangle getSuperficie(){
 		return superficie;
 	}

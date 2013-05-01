@@ -1,6 +1,9 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+
 
 import vista.Recursos;
 
@@ -9,12 +12,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class ColeccionEntidades {
 	
-	private ArrayList<Entidad> array;
+	private LinkedList<EntidadDinamica>  array;
+	private LinkedList<Integer>  eliminar;
 	private EntidadDinamica nave;
 	private FabricaEntidadesDinamicas fabrica;
 	
 	public ColeccionEntidades(){ 
-		array = new ArrayList<Entidad>();
+		array = new LinkedList<EntidadDinamica>() ;
+		eliminar = new LinkedList<Integer>();
 		fabrica = new FabricaEntidadesDinamicas();
 		}
 	
@@ -58,4 +63,21 @@ public class ColeccionEntidades {
 		if(nave==null) buscarNave();
 		nave.setVy(vy);
 	}
+	public void colision(){
+	for(int r=0;array.size()-1>r;r++) {
+		for(int i=r+1;array.size()>i;i++){
+			if(array.get(r).colision(array.get(i))){
+				array.get(r).getEstado().colisionar();
+				array.get(i).getEstado().colisionar();
+			}
+		}
+		if(array.get(r).getY()<-50 || array.get(r).getY()>Gdx.graphics.getHeight()+50 )
+			array.get(r).setEliminar(true);
+	}	
+for (Iterator<EntidadDinamica> iter = array.iterator(); iter.hasNext();) {
+	Entidad entidad = iter.next();
+if(entidad.isEliminar()) iter.remove();
 }
+
+
+}}

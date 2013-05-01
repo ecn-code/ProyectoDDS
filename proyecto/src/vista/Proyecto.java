@@ -34,7 +34,7 @@ public class Proyecto implements ApplicationListener {
 		logica.dibujar();
 		//logica.iA();
 		logica.actualizar(Gdx.graphics.getDeltaTime());
-		//logica.colision();
+		logica.colision();
 		if(reloj.getAcumulado()>1){
 		  reloj.reset();
 		  System.out.println("FPS: "+fps);

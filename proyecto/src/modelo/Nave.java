@@ -4,13 +4,14 @@ import vista.Recursos;
 
 import com.badlogic.gdx.Gdx;
 
-public class Nave extends EntidadDinamica {
+public class Nave extends Amigo {
 	
 public Nave(){
 	super(Recursos.naveNormal);
 	Recursos.girar();
 	animIzquierda = Recursos.animNaveIzquierda;
 	animDerecha = Recursos.animNaveDerecha;
+	animExplosion = Recursos.animExplosion;
 	setAncho(50);
 	setAlto(50);
 	setVx(0);
@@ -36,5 +37,7 @@ public Nave(float x,float y,float ancho,float alto, float vx, float vy,AtlasRegi
 		vy=0;
 		super.actualizar(time);
 	}
+
+
 
 }

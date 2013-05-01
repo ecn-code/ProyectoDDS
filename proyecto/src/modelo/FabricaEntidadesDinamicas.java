@@ -7,7 +7,6 @@ public class FabricaEntidadesDinamicas implements InterfazFabricaEntidad {
 	public EntidadDinamica crearEntidad(String nombreClase,float [] parametros) {
 		
 		try {
-			System.out.println(nombreClase);
 				Class<?> clase = Class.forName("modelo."+nombreClase);
 				Object object = clase.newInstance();
 				entidad = (EntidadDinamica) object;

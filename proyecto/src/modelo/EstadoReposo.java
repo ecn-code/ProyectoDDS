@@ -7,22 +7,17 @@ public class EstadoReposo implements Estado{
 		this.entidad=entidad;
 	}
 	@Override
-	public void parar() {
+	public void actualizarTextura(float time) {
 		entidad.setTextura(entidad.getTexturaNormal());
 	}
 	@Override
-	public void girarDerecha(float time) {
-		entidad.setEstado(new EstadoDerecha(entidad));
+	public void mover(float vx) {
+		if(vx>0) entidad.setEstado(new EstadoDerecha(entidad));
+		else if(vx<0) entidad.setEstado(new EstadoIzquierda(entidad));
 	}
 	@Override
-	public void girarIzquierda(float time) {
-		entidad.setEstado(new EstadoIzquierda(entidad));
-	}
-	@Override
-	public void colisionar(float time) {
+	public void colisionar() {
 		entidad.setEstado(new EstadoExplosion(entidad));
 	}
 	
-	
-
 }
