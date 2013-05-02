@@ -2,6 +2,7 @@ package controlador;
 
 import modelo.Logica;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 
@@ -48,13 +49,21 @@ public EventosTeclado(Logica _logica){
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		// TODO Auto-generated method stub
+		if(screenX<Gdx.graphics.getWidth()/3)
+			logica.moverNaveX(-3);
+		else if(screenX>Gdx.graphics.getWidth()/3 && screenX<(Gdx.graphics.getWidth()/3)*2)
+			logica.crearBala();
+		else logica.moverNaveX(3);
 		return false;
+	
 	}
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		// TODO Auto-generated method stub
+		if(screenX<Gdx.graphics.getWidth()/3)
+			logica.moverNaveX(0);
+		else
+			logica.moverNaveX(0);
 		return false;
 	}
 
