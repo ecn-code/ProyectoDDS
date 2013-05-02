@@ -15,6 +15,6 @@ public class DOWN_19 implements Comando{
 			logica.moverNaveY(3);
 			//Hola
 			System.out.println("Prueba");
-			System.out.println("Prueba");
+			System.out.println("Prueba2");
 		}
 }
