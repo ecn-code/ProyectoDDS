@@ -1,5 +1,8 @@
 package controlador;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+
 import modelo.Logica;
 
 import com.badlogic.gdx.Gdx;
@@ -14,31 +17,15 @@ public EventosTeclado(Logica _logica){
 	@Override
 	public boolean keyDown(int keycode) {
 		// TODO Auto-generated method stub
-		if(keycode==Input.Keys.RIGHT)
-			logica.moverNaveX(3);
-		if(keycode==Input.Keys.LEFT)
-			logica.moverNaveX(-3);
-		if(keycode==Input.Keys.UP)
-			logica.moverNaveY(3);
-		if(keycode==Input.Keys.DOWN)
-			logica.moverNaveY(-3);
-		if(keycode==Input.Keys.SPACE)
-			logica.crearBala();
+		instanciarComando("controlador.DOWN_"+keycode);
 		return false;
+	
 	}
-
+	
 	@Override
 	public boolean keyUp(int keycode) {
 		// TODO Auto-generated method stub
-		if(keycode==Input.Keys.RIGHT)
-			logica.moverNaveX(0);
-		if(keycode==Input.Keys.LEFT)
-			logica.moverNaveX(0);
-		if(keycode==Input.Keys.UP)
-			logica.moverNaveY(0);
-		if(keycode==Input.Keys.DOWN)
-			logica.moverNaveY(0);
-		
+		instanciarComando("controlador.UP_"+keycode);
 		return false;
 	}
 	@Override
@@ -83,6 +70,20 @@ public EventosTeclado(Logica _logica){
 	public boolean scrolled(int amount) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	public void instanciarComando(String _clase){
+		try {
+			Class<?> clase = Class.forName(_clase);
+			Object object;
+		
+				object = clase.getDeclaredConstructor(Logica.class).newInstance(logica);
+				logica.getInvoker().setComando((Comando) object);
+			} catch (InstantiationException | IllegalAccessException
+					| IllegalArgumentException | InvocationTargetException
+					| NoSuchMethodException | SecurityException | ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 }

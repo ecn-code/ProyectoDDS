@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import modelo.niveles.Nivel1;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import controlador.Invoker;
+
 
 public class Logica {
+	Invoker invoker;
 	InterfazFabricaEntidad fabrica = new FabricaEntidadesDinamicas();
 	
 	private SpriteBatch batch;
@@ -18,6 +21,7 @@ public Logica() {
 	batch = new SpriteBatch();
 	nivel1=new Nivel1();
 	reloj=new Reloj();
+	invoker=new Invoker(null);
 }
 
 public void crearBala(){
@@ -37,7 +41,14 @@ public void inicializarMapa(){
 		numeroColumna=0;}
 	}
 }
+public Invoker getInvoker(){
+	return invoker;
+}
 public void actualizar(float time){
+	if(invoker.hayComando()){
+		invoker.ejecutar();
+		invoker.setComando(null);
+	}
 	coleccionEntidades.actualizar(time);
 
 	reloj.actualizar(time);
