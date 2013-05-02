@@ -23,7 +23,7 @@ public class ColeccionEntidades {
 	
 	public void crearEntidad(String _tipo,float[] parametros){
 		if(_tipo!="")
-			array.add(fabrica.crearEntidad(_tipo, new float[]{Gdx.graphics.getWidth()/Constantes.ColumnasPantalla*(parametros[0]),Gdx.graphics.getHeight()/3*parametros[1],parametros[2],parametros[3]}));
+			array.add(fabrica.crearEntidad(_tipo, new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1],parametros[2],parametros[3]}));
 	}
 	
 	public void crearBala(){

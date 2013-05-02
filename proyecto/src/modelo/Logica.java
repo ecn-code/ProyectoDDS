@@ -14,6 +14,7 @@ public class Logica {
 	private SpriteBatch batch;
 	Nivel1 nivel1;
 	private Reloj reloj;
+	private int cambiosVelocidad=0;
 	private ColeccionEntidades coleccionEntidades;
 
 public Logica() {
@@ -47,7 +48,6 @@ public Invoker getInvoker(){
 public void actualizar(float time){
 	if(invoker.hayComando()){
 		invoker.ejecutar();
-		invoker.setComando(null);
 	}
 	coleccionEntidades.actualizar(time);
 
@@ -122,6 +122,9 @@ public void dibujar(){
 }
 
 public void moverNaveX(float vx){
+	if(vx==0) cambiosVelocidad--;
+	else cambiosVelocidad++;
+	if(cambiosVelocidad==0 || vx!=0)
 	coleccionEntidades.moverNaveX(vx);
 }
 public void moverNaveY(float vy){
