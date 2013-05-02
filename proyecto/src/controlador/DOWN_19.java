@@ -12,5 +12,6 @@ public class DOWN_19 implements Comando{
 		public void ejecutar() {
 			// TODO Auto-generated method stub
 			logica.moverNaveY(3);
+			System.out.println("Prueba");
 		}
 }
