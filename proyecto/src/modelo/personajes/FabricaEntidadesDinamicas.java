@@ -1,4 +1,5 @@
-package modelo;
+package modelo.personajes;
+
 
 
 public class FabricaEntidadesDinamicas implements InterfazFabricaEntidad {
@@ -7,7 +8,7 @@ public class FabricaEntidadesDinamicas implements InterfazFabricaEntidad {
 	public EntidadDinamica crearEntidad(String nombreClase,float [] parametros) {
 		
 		try {
-				Class<?> clase = Class.forName("modelo."+nombreClase);
+				Class<?> clase = Class.forName("modelo.personajes."+nombreClase);
 				Object object = clase.newInstance();
 				entidad = (EntidadDinamica) object;
 				entidad.configurar(parametros);

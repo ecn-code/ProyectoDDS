@@ -1,4 +1,7 @@
-package modelo;
+package modelo.personajes;
+
+import modelo.estado.Estado;
+import modelo.estado.EstadoReposo;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;

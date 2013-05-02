@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import modelo.personajes.Entidad;
+import modelo.personajes.EntidadDinamica;
+import modelo.personajes.FabricaEntidadesDinamicas;
+import modelo.personajes.Nave;
+
 
 import vista.Recursos;
 

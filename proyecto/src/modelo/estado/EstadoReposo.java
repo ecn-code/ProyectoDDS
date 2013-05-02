@@ -1,4 +1,6 @@
-package modelo;
+package modelo.estado;
+
+import modelo.personajes.EntidadDinamica;
 
 
 public class EstadoReposo implements Estado{

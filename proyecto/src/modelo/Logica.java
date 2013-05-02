@@ -2,6 +2,9 @@ package modelo;
 
 import java.util.ArrayList;
 import modelo.niveles.Nivel1;
+import modelo.personajes.FabricaEntidadesDinamicas;
+import modelo.personajes.InterfazFabricaEntidad;
+
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import controlador.Invoker;
@@ -16,8 +19,11 @@ public class Logica {
 	private Reloj reloj;
 	private int cambiosVelocidad=0;
 	private ColeccionEntidades coleccionEntidades;
+	private Marcador marcador;
 
 public Logica() {
+	marcador = new Marcador();
+	marcador.reset();
 	coleccionEntidades =  new ColeccionEntidades();
 	batch = new SpriteBatch();
 	nivel1=new Nivel1();
@@ -48,6 +54,7 @@ public Invoker getInvoker(){
 public void actualizar(float time){
 	if(invoker.hayComando()){
 		invoker.ejecutar();
+		marcador.sumar(6);
 	}
 	coleccionEntidades.actualizar(time);
 

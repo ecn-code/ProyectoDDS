@@ -1,4 +1,4 @@
-package modelo;
+package modelo.estado;
 
 public interface Estado {
 public void actualizarTextura(float time);
