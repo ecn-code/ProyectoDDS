@@ -5,7 +5,7 @@ import vista.Recursos;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Marcador {
-private int cifras[],x=0,y=0,w=20,h=20;
+private int cifras[],x=0,y=550,w=20,h=20;
 public int getX() {
 	return x;
 }

@@ -13,6 +13,9 @@ public static  TextureRegion naveIzq1 = new TextureRegion(new Texture(Gdx.files.
 public static  TextureRegion naveIzq2 = new TextureRegion(new Texture(Gdx.files.internal("data/naveIzq2.png")));
 public static  TextureRegion libelula = new TextureRegion(new Texture(Gdx.files.internal("data/libelula.png")));
 public static  TextureRegion fondo = new TextureRegion(new Texture(Gdx.files.internal("data/fondo.png")));
+public static  TextureRegion panelSuperior = new TextureRegion(new Texture(Gdx.files.internal("data/panelSuperior.png")));
+public static  TextureRegion nube1 = new TextureRegion(new Texture(Gdx.files.internal("data/nube1.png")));
+
 public static Texture explosionTextura = new Texture(Gdx.files.internal("data/explosion.png"));
 public static TextureRegion explosion1 = new TextureRegion(explosionTextura,0,0,118,118);
 public static TextureRegion explosion2 = new TextureRegion(explosionTextura,118,0,118,118);

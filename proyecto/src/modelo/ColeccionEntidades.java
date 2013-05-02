@@ -42,8 +42,7 @@ public class ColeccionEntidades {
 	}
 	
 	public void dibujar(SpriteBatch batch){
-		batch.draw(Recursos.fondo, 0, 
-				0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		
 		for(Entidad entidad : array)
 		batch.draw(entidad.getTextura(), entidad.getX(), 
 				entidad.getY(), entidad.getAncho(), entidad.getAlto());

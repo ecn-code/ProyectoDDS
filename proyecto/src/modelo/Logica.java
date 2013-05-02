@@ -1,10 +1,13 @@
 package modelo;
 
 import java.util.ArrayList;
+
+import vista.Recursos;
 import modelo.niveles.Nivel1;
 import modelo.personajes.FabricaEntidadesDinamicas;
 import modelo.personajes.InterfazFabricaEntidad;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
@@ -37,6 +40,13 @@ public void crearBala(){
 }
 
 public void inicializarMapa(){
+	coleccionEntidades.crearEntidad("Fondo", new float[]{0,6,0,-0.5f});
+	coleccionEntidades.crearEntidad("Fondo", new float[]{0,5,0,-0.5f});
+	coleccionEntidades.crearEntidad("Fondo", new float[]{0,4,0,-0.5f});
+	coleccionEntidades.crearEntidad("Fondo", new float[]{0,3,0,-0.5f});
+	coleccionEntidades.crearEntidad("Fondo", new float[]{0,2,0,-0.5f});
+	coleccionEntidades.crearEntidad("Fondo", new float[]{0,1,0,-0.5f});
+	coleccionEntidades.crearEntidad("Fondo", new float[]{0,0,0,-0.5f});
 	int numeroFila=nivel1.getFilaActual();
 	int numeroColumna=0;
 	ArrayList<String> filas=nivel1.getFila(Constantes.filasPantalla+1);
@@ -62,6 +72,7 @@ public void actualizar(float time){
 
 	reloj.actualizar(time);
 	if(reloj.getAcumulado()>Constantes.tiempoRefrescoMapa){
+		coleccionEntidades.crearEntidad("Fondo", new float[]{0,6,0,-0.5f});
 		  reloj.reset();
 		  ArrayList<String> filas=nivel1.getFila(1);
 		  if(!filas.isEmpty()){
@@ -130,6 +141,8 @@ public void dibujar(){
 	batch.begin();
 	coleccionEntidades.dibujar(batch);
 	int indice = 120;
+	batch.draw(Recursos.panelSuperior, 0, 
+			Gdx.graphics.getHeight()-50, Gdx.graphics.getWidth(),50 );
 	for(TextureRegion texture : marcador.getTexturas()){
 		batch.draw(texture, marcador.getX()+indice, marcador.getY(),
 				marcador.getW(),marcador.getH());
