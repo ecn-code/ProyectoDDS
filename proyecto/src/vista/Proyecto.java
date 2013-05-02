@@ -17,7 +17,7 @@ public class Proyecto implements ApplicationListener {
 	@Override
 	public void create() {		
 		logica=new Logica();
-		Gdx.input.setInputProcessor(new EventosTeclado(logica));
+		//Gdx.input.setInputProcessor(new EventosTeclado(logica));
 		logica.inicializarMapa();
 		reloj = new Reloj();
 	}

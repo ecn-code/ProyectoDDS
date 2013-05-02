@@ -1,4 +1,4 @@
-package proyecto;
+package proyecto.vista;
 
 import vista.Proyecto;
 import android.os.Bundle;
