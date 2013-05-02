@@ -71,7 +71,7 @@ public EventosTeclado(Logica _logica){
 		// TODO Auto-generated method stub
 		return false;
 	}
-	public void instanciarComando(String _clase){
+	private void instanciarComando(String _clase){
 		try {
 			Class<?> clase = Class.forName(_clase);
 			Object object;

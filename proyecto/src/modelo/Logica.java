@@ -35,8 +35,8 @@ public void inicializarMapa(){
 	
 	for(String unaFila : filas){
 		coleccionEntidades.crearEntidad(unaFila, new float[]{numeroColumna,numeroFila,0,-1f});
-		if(numeroColumna<3)numeroColumna++;
-		if(numeroColumna==3){
+		if(numeroColumna<Constantes.filasPantalla)numeroColumna++;
+		if(numeroColumna==Constantes.filasPantalla){
 		numeroFila++;
 		numeroColumna=0;}
 	}
@@ -58,7 +58,7 @@ public void actualizar(float time){
 		  if(!filas.isEmpty()){
 			    for(int numeroColumna=0;numeroColumna<filas.size();numeroColumna++)
 			  coleccionEntidades.crearEntidad(filas.get(numeroColumna), new float[]{numeroColumna,
-				  Constantes.filasPantalla+1,0,-3f});
+				  Constantes.filasPantalla,0,-3f});
 		  }	
 	}
 }
