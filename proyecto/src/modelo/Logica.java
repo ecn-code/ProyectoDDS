@@ -6,6 +6,7 @@ import modelo.personajes.FabricaEntidadesDinamicas;
 import modelo.personajes.InterfazFabricaEntidad;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import controlador.Invoker;
 
@@ -54,8 +55,9 @@ public Invoker getInvoker(){
 public void actualizar(float time){
 	if(invoker.hayComando()){
 		invoker.ejecutar();
-		marcador.sumar(6);
 	}
+	marcador.sumar(coleccionEntidades.getPuntos());
+	coleccionEntidades.resetPuntos();
 	coleccionEntidades.actualizar(time);
 
 	reloj.actualizar(time);
@@ -125,7 +127,15 @@ coleccionEntidades.colision();
 }
 
 public void dibujar(){
+	batch.begin();
 	coleccionEntidades.dibujar(batch);
+	int indice = 120;
+	for(TextureRegion texture : marcador.getTexturas()){
+		batch.draw(texture, marcador.getX()+indice, marcador.getY(),
+				marcador.getW(),marcador.getH());
+	indice-=20;	
+	}
+	batch.end();
 }
 
 public void moverNaveX(float vx){

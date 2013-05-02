@@ -28,4 +28,22 @@ public static void girar(){
 	animNaveDerecha = new Animation(0.2f, new TextureRegion[] 
 			{naveNormal,naveDer1,naveDer2});
 }
+
+/**MARCADOR**/
+public static  TextureRegion n1 = new TextureRegion(new Texture(Gdx.files.internal("data/1.png")));
+public static  TextureRegion n2 = new TextureRegion(new Texture(Gdx.files.internal("data/2.png")));
+public static  TextureRegion n3 = new TextureRegion(new Texture(Gdx.files.internal("data/3.png")));
+public static  TextureRegion n4 = new TextureRegion(new Texture(Gdx.files.internal("data/4.png")));
+public static  TextureRegion n5 = new TextureRegion(new Texture(Gdx.files.internal("data/5.png")));
+public static  TextureRegion n6 = new TextureRegion(new Texture(Gdx.files.internal("data/6.png")));
+public static  TextureRegion n7 = new TextureRegion(new Texture(Gdx.files.internal("data/7.png")));
+public static  TextureRegion n8 = new TextureRegion(new Texture(Gdx.files.internal("data/8.png")));
+public static  TextureRegion n9 = new TextureRegion(new Texture(Gdx.files.internal("data/9.png")));
+public static  TextureRegion n0 = new TextureRegion(new Texture(Gdx.files.internal("data/0.png")));
+public static TextureRegion marcadorTexturas []= new TextureRegion[]
+		{n0,n1,n2,n3,n4,n5,n6,n7,n8,n9};
+
+
+
+
 }

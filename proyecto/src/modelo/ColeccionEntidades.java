@@ -20,6 +20,7 @@ public class ColeccionEntidades {
 	private LinkedList<EntidadDinamica>  array;
 	private EntidadDinamica nave;
 	private FabricaEntidadesDinamicas fabrica;
+	private int puntos=0;
 	
 	public ColeccionEntidades(){ 
 		array = new LinkedList<EntidadDinamica>() ;
@@ -41,13 +42,11 @@ public class ColeccionEntidades {
 	}
 	
 	public void dibujar(SpriteBatch batch){
-		batch.begin();
 		batch.draw(Recursos.fondo, 0, 
 				0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		for(Entidad entidad : array)
 		batch.draw(entidad.getTextura(), entidad.getX(), 
 				entidad.getY(), entidad.getAncho(), entidad.getAlto());
-		batch.end();
 	}
 	
 	public void buscarNave(){
@@ -72,6 +71,7 @@ public class ColeccionEntidades {
 			if(array.get(r).colision(array.get(i))){
 				array.get(r).getEstado().colisionar();
 				array.get(i).getEstado().colisionar();
+				
 			}
 		}
 		if(array.get(r).getY()<-50 || array.get(r).getY()>Gdx.graphics.getHeight()+50 )
@@ -79,8 +79,14 @@ public class ColeccionEntidades {
 	}	
 for (Iterator<EntidadDinamica> iter = array.iterator(); iter.hasNext();) {
 	Entidad entidad = iter.next();
-if(entidad.isEliminar()) iter.remove();
+if(entidad.isEliminar()){ iter.remove();puntos+=10;}
 }
 
 
-}}
+}
+   public void resetPuntos(){
+	   puntos = 0;
+   }
+	public int getPuntos() {
+		return puntos;
+	}}
