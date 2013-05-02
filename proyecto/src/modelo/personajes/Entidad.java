@@ -11,6 +11,7 @@ public abstract class Entidad {
 	protected TextureRegion textura;
 	protected TextureRegion texturaNormal;
 	protected boolean eliminar;
+	protected int puntos=0;
 	public Entidad(){
 	}
 	public Entidad(TextureRegion _texturaNormal){
@@ -65,6 +66,12 @@ public abstract class Entidad {
 	}
 	public void setTextura(TextureRegion _textura) {
 		textura = _textura;
+	}
+	public int getPuntos(){
+		return puntos;
+	}
+	public void setPuntos(int _puntos){
+		puntos=_puntos;
 	}
 	
 	public abstract boolean colision(Entidad _entidad);

@@ -74,12 +74,14 @@ public class ColeccionEntidades {
 				
 			}
 		}
-		if(array.get(r).getY()<-50 || array.get(r).getY()>Gdx.graphics.getHeight()+50 )
+		if(array.get(r).getY()<-50 || array.get(r).getY()>Gdx.graphics.getHeight()+50 ){
 			array.get(r).setEliminar(true);
+			array.get(r).setPuntos(0);
+		}
 	}	
 for (Iterator<EntidadDinamica> iter = array.iterator(); iter.hasNext();) {
 	Entidad entidad = iter.next();
-if(entidad.isEliminar()){ iter.remove();puntos+=10;}
+if(entidad.isEliminar()){ iter.remove();puntos+=entidad.getPuntos();}
 }
 
 

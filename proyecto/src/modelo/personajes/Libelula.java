@@ -9,6 +9,7 @@ public class Libelula extends Enemigo{
 		setAncho(50);
 		setAlto(50);
 		animExplosion = Recursos.animExplosion;
+		puntos=10;
 	}
 
 }
