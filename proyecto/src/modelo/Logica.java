@@ -37,6 +37,8 @@ public Logica() {
 
 public void crearBala(){
 	coleccionEntidades.crearBala();
+	Recursos.sonidoDisparo.play(0.3f);
+	
 }
 
 public void inicializarMapa(){

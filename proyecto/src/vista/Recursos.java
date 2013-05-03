@@ -1,6 +1,7 @@
 package vista;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -15,7 +16,7 @@ public static  TextureRegion libelula = new TextureRegion(new Texture(Gdx.files.
 public static  TextureRegion fondo = new TextureRegion(new Texture(Gdx.files.internal("data/fondo.png")));
 public static  TextureRegion panelSuperior = new TextureRegion(new Texture(Gdx.files.internal("data/panelSuperior.png")));
 public static  TextureRegion nube1 = new TextureRegion(new Texture(Gdx.files.internal("data/nube1.png")));
-
+public static Sound sonidoDisparo= Gdx.audio.newSound(Gdx.files.internal("data/sonidoDisparo.mp3"));
 public static Texture explosionTextura = new Texture(Gdx.files.internal("data/explosion.png"));
 public static TextureRegion explosion1 = new TextureRegion(explosionTextura,0,0,118,118);
 public static TextureRegion explosion2 = new TextureRegion(explosionTextura,118,0,118,118);
