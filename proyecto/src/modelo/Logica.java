@@ -72,7 +72,7 @@ public void actualizar(float time){
 
 	reloj.actualizar(time);
 	if(reloj.getAcumulado()>Constantes.tiempoRefrescoMapa){
-		coleccionEntidades.crearEntidad("Fondo", new float[]{0,6,0,-0.5f});
+		coleccionEntidades.crearEntidad("Fondo",0, new float[]{0,6,0,-0.5f});
 		  reloj.reset();
 		  ArrayList<String> filas=nivel1.getFila(1);
 		  if(!filas.isEmpty()){

@@ -81,7 +81,7 @@ public EventosTeclado(Logica _logica){
 			} catch (InstantiationException | IllegalAccessException
 					| IllegalArgumentException | InvocationTargetException
 					| NoSuchMethodException | SecurityException | ClassNotFoundException e) {
-				System.out.println("Tecla no implementada!");
+				System.out.println("Tecla no implementada!"+_clase);
 			}
 	}
 

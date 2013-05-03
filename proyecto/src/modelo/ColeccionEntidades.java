@@ -90,4 +90,10 @@ if(entidad.isEliminar()){ iter.remove();puntos+=entidad.getPuntos();}
    }
 	public int getPuntos() {
 		return puntos;
+	}
+
+	public void crearEntidad(String _tipo, int i, float[] parametros) {
+		if(_tipo!="")
+			array.add(i,fabrica.crearEntidad(_tipo, new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1],parametros[2],parametros[3]}));
+	
 	}}

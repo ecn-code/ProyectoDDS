@@ -40,8 +40,8 @@ public void setH(int h) {
 
 private TextureRegion texturas[];
 	public Marcador() {
-		cifras = new int[6];
-		texturas = new TextureRegion[6];
+		cifras = new int[Constantes.numeroCifrasMarcador];
+		texturas = new TextureRegion[Constantes.numeroCifrasMarcador];
 	}
 	
 	public TextureRegion[] getTexturas(){
@@ -61,7 +61,6 @@ private TextureRegion texturas[];
 		cifra++;
 		
 		}while(puntos>0);
-		System.out.println(cifras[3]+""+cifras[2]+""+cifras[1]+""+cifras[0]);
 		actualizar();
 	}
 

@@ -11,15 +11,18 @@ import com.badlogic.gdx.graphics.GL10;
 import controlador.EventosTeclado;
 
 public class Proyecto implements ApplicationListener {
+	
 	private Logica logica;
 	private int fps;
 	private Reloj reloj;
+	
 	@Override
-	public void create() {		
+	public void create() {	
 		logica=new Logica();
 		Gdx.input.setInputProcessor(new EventosTeclado(logica));
 		logica.inicializarMapa();
 		reloj = new Reloj();
+		
 	}
 	@Override
 	public void dispose() {
@@ -31,9 +34,10 @@ public class Proyecto implements ApplicationListener {
 		reloj.actualizar(Gdx.graphics.getDeltaTime());
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-		logica.dibujar();
+		
 		//logica.iA();
 		logica.actualizar(Gdx.graphics.getDeltaTime());
+		logica.dibujar();
 		logica.colision();
 		if(reloj.getAcumulado()>1){
 		  reloj.reset();
