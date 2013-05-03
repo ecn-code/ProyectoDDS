@@ -50,7 +50,11 @@ public void inicializarMapa(){
 			if(nivel1[fila][j].equals("Nave"))
 				crearNave(textura);
 			else
+<<<<<<< HEAD
 			crearEntidades(nivel1[fila][j], new float[]{800/6*j,600/3*fila,50,50,0,-0.2f}, textura);	
+=======
+			crearEntidades(nivel1[fila][j], new float[]{800/3*j,600/3*fila,50,50,0,-1}, textura);	
+>>>>>>> n
 		}
 }
 public void actualizar(float time){
@@ -58,9 +62,14 @@ public void actualizar(float time){
 	total+=time;
 	movimiento+=time;
 	for(Entidad entidad : array){ 
+<<<<<<< HEAD
 		
 		if(movimiento > 1 && entidad instanceof EnemigoSeno){
 			((EnemigoSeno) entidad).setVx((float)Math.sin(total)*3);
+=======
+		if(movimiento > 1 && entidad instanceof Enemigo){
+			((Enemigo) entidad).setVx((float)Math.sin(total));
+>>>>>>> n
 			System.out.print(total+" ");
 			System.out.println(Math.sin(total));
 		}
@@ -72,7 +81,11 @@ public void actualizar(float time){
 		  acumulador=0;
 		  if(fila<nivel1.length){
 		  for(int j=0;j<nivel1[fila].length;j++)
+<<<<<<< HEAD
 			  crearEntidades(nivel1[fila][j], new float[]{800/6*j,600/3*3,50,50,0,-0.2f}, textura);
+=======
+			  crearEntidades(nivel1[fila][j], new float[]{800/3*j,600/3*3,50,50,0,-1}, textura);
+>>>>>>> n
 			fila++;
 		  }	
 	}

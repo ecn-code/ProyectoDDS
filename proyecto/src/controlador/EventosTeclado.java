@@ -23,7 +23,7 @@ public EventosTeclado(Logica _logica){
 			logica.moverNaveY(-3);
 		if(keycode==Input.Keys.SPACE)
 			logica.crearBala();
-		return false;
+		return true;
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public EventosTeclado(Logica _logica){
 		if(keycode==Input.Keys.DOWN)
 			logica.moverNaveY(0);
 		
-		return false;
+		return true;
 	}
 	@Override
 	public boolean keyTyped(char character) {
