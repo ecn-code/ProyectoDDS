@@ -25,8 +25,7 @@ private Reloj reloj;
 
 	@Override
 	public void render(float delta) {
-if(logica.gameOver()) game.setScreen(new GameOver());
-if(logica.gameWin()) game.setScreen(new GameWin());
+
 	reloj.actualizar(delta);
 			Gdx.gl.glClearColor(1, 1, 1, 1);
 			Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
@@ -36,6 +35,8 @@ if(logica.gameWin()) game.setScreen(new GameWin());
 			logica.dibujar();
 			logica.colision();
 			if(reloj.getAcumulado()>1){
+				if(logica.gameOver() || logica.gameOver() && !logica.gameWin()) game.setScreen(new GameOver());
+				if(!logica.gameOver() && logica.gameWin()) game.setScreen(new GameWin());
 			  reloj.reset();
 			  System.out.println("FPS: "+fps);
 				fps=0;

@@ -9,6 +9,7 @@ public class BalaEnemigo extends Enemigo{
 	setAncho(20);
 	setAlto(20);
 	vx=0;
-	vy=4;
+	vy=-4;
+	animExplosion = Recursos.animExplosion;
 	}
 }

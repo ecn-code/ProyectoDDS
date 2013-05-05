@@ -12,6 +12,7 @@ Texture intro;
 	public GameOver() {
 		batch = new SpriteBatch();
 		intro = new Texture(Gdx.files.internal("data/game-over.jpg"));
+		Gdx.input.setInputProcessor(null);
 	}
 
 	@Override

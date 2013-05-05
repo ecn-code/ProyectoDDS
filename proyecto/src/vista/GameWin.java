@@ -12,6 +12,7 @@ public class GameWin implements Screen {
 		public GameWin() {
 			batch = new SpriteBatch();
 			intro = new Texture(Gdx.files.internal("data/You Win.jpg"));
+			Gdx.input.setInputProcessor(null);
 		}
 
 		@Override

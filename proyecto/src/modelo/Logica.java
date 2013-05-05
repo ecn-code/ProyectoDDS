@@ -75,7 +75,7 @@ public void actualizar(float time){
 	}
 	marcador.sumar(coleccionEntidades.getPuntos());
 	coleccionEntidades.resetPuntos();
-	coleccionEntidades.actualizar(time);
+	coleccionEntidades.actualizar(time,reloj.getAcumulado());
 
 	reloj.actualizar(time);
 	if(reloj.getAcumulado()>Constantes.tiempoRefrescoMapa){
