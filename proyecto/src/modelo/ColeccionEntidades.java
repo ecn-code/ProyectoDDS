@@ -96,4 +96,10 @@ if(entidad.isEliminar()){ iter.remove();puntos+=entidad.getPuntos();}
 		if(_tipo!="")
 			array.add(i,fabrica.crearEntidad(_tipo, new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1],parametros[2],parametros[3]}));
 	
+	}
+
+	public boolean gameOver() {
+		if(nave!=null)
+		return nave.isEliminar();
+		else return false;
 	}}

@@ -64,6 +64,11 @@ public void inicializarMapa(){
 public Invoker getInvoker(){
 	return invoker;
 }
+
+public boolean gameOver(){
+	return coleccionEntidades.gameOver();
+}
+
 public void actualizar(float time){
 	if(invoker.hayComando()){
 		invoker.ejecutar();
