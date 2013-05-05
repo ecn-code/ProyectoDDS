@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import modelo.personajes.Entidad;
 import modelo.personajes.EntidadDinamica;
 import modelo.personajes.FabricaEntidadesDinamicas;
+import modelo.personajes.JefeRajoy;
 import modelo.personajes.Nave;
 
 
@@ -21,6 +22,7 @@ public class ColeccionEntidades {
 	private EntidadDinamica nave;
 	private FabricaEntidadesDinamicas fabrica;
 	private int puntos=0;
+	private EntidadDinamica jefeRajoy;
 	
 	public ColeccionEntidades(){ 
 		array = new LinkedList<EntidadDinamica>() ;
@@ -56,6 +58,16 @@ public class ColeccionEntidades {
 			}
 		}
 	}
+	
+	public void buscarJefeRajoy(){
+		for(Entidad entidad : array) {
+			if(entidad instanceof JefeRajoy){
+				jefeRajoy = (EntidadDinamica) entidad;
+				break;
+			}
+		}
+	}
+	
 	public void moverNaveX(float vx){
 		if(nave==null) buscarNave();
 		nave.setVx(vx);
@@ -102,4 +114,14 @@ if(entidad.isEliminar()){ iter.remove();puntos+=entidad.getPuntos();}
 		if(nave!=null)
 		return nave.isEliminar();
 		else return false;
-	}}
+	}
+	
+	public boolean gameWin() {
+		if(jefeRajoy!=null)
+		return jefeRajoy.isEliminar();
+		else {
+			buscarJefeRajoy();
+			return false;}
+	}
+	
+}

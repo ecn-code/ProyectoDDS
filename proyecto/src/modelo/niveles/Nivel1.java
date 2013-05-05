@@ -4,10 +4,21 @@ import java.util.ArrayList;
 
 public class Nivel1 {
 	private static final String[][] nivel1 = new String[][]{
-			{"","","","","","","","Nave","","","","","","",""},{"","","","","","","","","","","","","","",""},{"Libelula","","MocoRojo","","MocoRojo","Libelula","","","Libelula","","Libelula","","MocoRojo","","Libelula"},
-			{"","Libelula","","","","","","","Libelula","","","","MocoRojo","",""},{"Libelula","","MocoRojo","Libelula","","","","","Libelula","","","","MocoRojo","","","Libelula"},
-			{"MocoRojo","","","MocoRojo","","Libelula","","","Libelula","","MocoRojo","","","Libelula",""},{"MocoRojo","","","","","Libelula","MocoRojo","","","MocoRojo","Libelula","","","",""},{"MocoRojo","MocoRojo","","","","","","","","","","","","",""},
-			{"MocoRojo","","","Libelula","","","MocoRojo","","","","","Libelula","","","MocoRojo"},{"MocoRojo","MocoRojo","","","","Libelula","","","Libelula","","MocoRojo","","","",""},{"","MocoRojo","","","MocoRojo","","","MocoRojo","","Libelula","","MocoRojo","Libelula","",""}};
+			{"","","","","","","","Nave","","","","","","",""},
+			{"","","","","","","","","","","","","","",""},
+			{"Libelula","","MocoRojo","","MocoRojo","Libelula","","","Libelula","","Libelula","","MocoRojo","","Libelula"},
+			{"","Libelula","","","","","","","Libelula","","","","MocoRojo","",""},
+			{"Libelula","","MocoRojo","Libelula","","","","","Libelula","","","","MocoRojo","","","Libelula"},
+			{"MocoRojo","","","MocoRojo","","Libelula","","","Libelula","","MocoRojo","","","Libelula",""},
+			{"MocoRojo","","","","","Libelula","MocoRojo","","","MocoRojo","Libelula","","","",""},
+			{"MocoRojo","MocoRojo","","","","","","","","","","","","",""},
+			{"MocoRojo","","","Libelula","","","MocoRojo","","","","","Libelula","","","MocoRojo"},
+			{"MocoRojo","MocoRojo","","","","Libelula","","","Libelula","","MocoRojo","","","",""},
+			{"","MocoRojo","","","MocoRojo","","","MocoRojo","","Libelula","","MocoRojo","Libelula","",""},
+			{"","","","","","","","","","","","","","",""},
+			{"","","","","","","","","","","","","","",""},
+			{"","","","","","","","JefeRajoy","","","","","","",""}
+	};
 	/*
 	private static final String[][] nivel1 = new String[][]{
 		{"","","","Nave"},{"","","",""},{"","Libelula","MocoRojo",""},

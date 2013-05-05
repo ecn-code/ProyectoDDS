@@ -26,6 +26,7 @@ private Reloj reloj;
 	@Override
 	public void render(float delta) {
 if(logica.gameOver()) game.setScreen(new GameOver());
+if(logica.gameWin()) game.setScreen(new GameWin());
 	reloj.actualizar(delta);
 			Gdx.gl.glClearColor(1, 1, 1, 1);
 			Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);

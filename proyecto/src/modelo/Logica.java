@@ -167,5 +167,9 @@ public void moverNaveX(float vx){
 public void moverNaveY(float vy){
 	coleccionEntidades.moverNaveY(vy);
 }
+
+public boolean gameWin() {
+	return coleccionEntidades.gameWin();
+}
 }
 
