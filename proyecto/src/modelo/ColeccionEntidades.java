@@ -73,7 +73,7 @@ public class ColeccionEntidades {
 				
 			}
 		}
-		if(array.get(r).getY()<-50 || array.get(r).getY()>Gdx.graphics.getHeight()+50 ){
+		if(array.get(r).getY()<-95 || array.get(r).getY()>Gdx.graphics.getHeight()+50 ){
 			array.get(r).setEliminar(true);
 			array.get(r).setPuntos(0);
 		}

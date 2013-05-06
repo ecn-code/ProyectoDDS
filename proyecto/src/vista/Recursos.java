@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Recursos {
-	public static  TextureRegion bala = new TextureRegion(new Texture(Gdx.files.internal("data/bala.png")));
+	public static  TextureRegion bala = new TextureRegion(new Texture(Gdx.files.internal("data/bala.png"))); 
 public static  TextureRegion mocoRojo = new TextureRegion(new Texture(Gdx.files.internal("data/mocoRojo.png")));
 public static  TextureRegion naveNormal = new TextureRegion(new Texture(Gdx.files.internal("data/naveNormal.png")));
 public static  TextureRegion naveIzq1 = new TextureRegion(new Texture(Gdx.files.internal("data/naveIzq1.png")));
