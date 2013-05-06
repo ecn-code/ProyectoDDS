@@ -64,13 +64,18 @@ public void inicializarMapa(){
 public Invoker getInvoker(){
 	return invoker;
 }
+
+public boolean gameOver(){
+	return coleccionEntidades.gameOver();
+}
+
 public void actualizar(float time){
 	if(invoker.hayComando()){
 		invoker.ejecutar();
 	}
 	marcador.sumar(coleccionEntidades.getPuntos());
 	coleccionEntidades.resetPuntos();
-	coleccionEntidades.actualizar(time);
+	coleccionEntidades.actualizar(time,reloj.getAcumulado());
 
 	reloj.actualizar(time);
 	if(reloj.getAcumulado()>Constantes.tiempoRefrescoMapa){
@@ -161,6 +166,10 @@ public void moverNaveX(float vx){
 }
 public void moverNaveY(float vy){
 	coleccionEntidades.moverNaveY(vy);
+}
+
+public boolean gameWin() {
+	return coleccionEntidades.gameWin();
 }
 }
 

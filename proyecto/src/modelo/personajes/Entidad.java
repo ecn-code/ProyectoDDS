@@ -79,5 +79,8 @@ public abstract class Entidad {
 	public Rectangle getSuperficie(){
 		return superficie;
 	}
+	public boolean disparo(){
+		return false;
+	}
 	
 }

@@ -11,7 +11,8 @@ public class Fondo extends EntidadDinamica {
 		super(Recursos.nube1);
 		setAncho(Gdx.graphics.getWidth());
 		setAlto(100);
-		vx=-0.2f;
+		setVy(-0.2f);
+		setVx(0);
 	}
 
 	public Fondo(TextureRegion _texturaNormal) {

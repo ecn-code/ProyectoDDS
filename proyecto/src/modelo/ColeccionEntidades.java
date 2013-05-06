@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import modelo.personajes.BalaEnemigo;
 import modelo.personajes.Entidad;
 import modelo.personajes.EntidadDinamica;
 import modelo.personajes.FabricaEntidadesDinamicas;
+import modelo.personajes.JefeRajoy;
 import modelo.personajes.Nave;
 
 
@@ -21,6 +23,7 @@ public class ColeccionEntidades {
 	private EntidadDinamica nave;
 	private FabricaEntidadesDinamicas fabrica;
 	private int puntos=0;
+	private EntidadDinamica jefeRajoy;
 	
 	public ColeccionEntidades(){ 
 		array = new LinkedList<EntidadDinamica>() ;
@@ -37,10 +40,23 @@ public class ColeccionEntidades {
 		array.add(fabrica.crearEntidad("Bala",new float[]{nave.getX()+nave.getAncho()/2-10,nave.getY()+nave.getAlto(),0,4}));
 	}
 	
-	public void actualizar(float time){
-		for(Entidad entidad : array) ((EntidadDinamica) entidad).actualizar(time);
+	public void actualizar(float time,float acumulado){
+		ArrayList<EntidadDinamica> balasEnemigo = new ArrayList<EntidadDinamica>();
+		for(Entidad entidad : array){
+			final float vx = tipoMovimiento(((EntidadDinamica) entidad).getTipoMovimiento(),acumulado);
+			if(vx>-900) ((EntidadDinamica) entidad).setVx(vx);
+			if(entidad.disparo()) balasEnemigo.add(fabrica.crearEntidad("BalaEnemigo",new float[]{entidad.getX()+entidad.getAncho()/2-10,entidad.getY()+entidad.getAlto()}));
+			((EntidadDinamica) entidad).actualizar(time);	
+		}
+		for(EntidadDinamica entidad : balasEnemigo) array.add(entidad);
 	}
 	
+	private float tipoMovimiento(String tipoMovimiento,float time) {
+		if(tipoMovimiento.equals(""))
+		return -999f;
+		else return (float) Math.cos(time);
+	}
+
 	public void dibujar(SpriteBatch batch){
 		
 		for(Entidad entidad : array)
@@ -56,6 +72,16 @@ public class ColeccionEntidades {
 			}
 		}
 	}
+	
+	public void buscarJefeRajoy(){
+		for(Entidad entidad : array) {
+			if(entidad instanceof JefeRajoy){
+				jefeRajoy = (EntidadDinamica) entidad;
+				break;
+			}
+		}
+	}
+	
 	public void moverNaveX(float vx){
 		if(nave==null) buscarNave();
 		nave.setVx(vx);
@@ -94,6 +120,22 @@ if(entidad.isEliminar()){ iter.remove();puntos+=entidad.getPuntos();}
 
 	public void crearEntidad(String _tipo, int i, float[] parametros) {
 		if(_tipo!="")
-			array.add(i,fabrica.crearEntidad(_tipo, new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1],parametros[2],parametros[3]}));
+			array.add(i,fabrica.crearEntidad(_tipo, new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1]}));
 	
-	}}
+	}
+
+	public boolean gameOver() {
+		if(nave!=null)
+		return nave.isEliminar();
+		else return false;
+	}
+	
+	public boolean gameWin() {
+		if(jefeRajoy!=null)
+		return jefeRajoy.isEliminar();
+		else {
+			buscarJefeRajoy();
+			return false;}
+	}
+	
+}

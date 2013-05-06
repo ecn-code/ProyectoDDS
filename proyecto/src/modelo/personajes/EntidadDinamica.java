@@ -9,11 +9,20 @@ import com.badlogic.gdx.math.Rectangle;
 
 public abstract class EntidadDinamica extends Entidad {
 	protected float vx,vy;
+	protected String tipoMovimiento = "";
 	protected Estado estado;
 	protected Animation  animIzquierda,animDerecha;
 	protected Animation animExplosion;
 	public  EntidadDinamica() {
 		super();
+	}
+	
+	public String getTipoMovimiento() {
+		return tipoMovimiento;
+	}
+
+	public void setTipoMovimiento(String tipoMovimiento) {
+		this.tipoMovimiento = tipoMovimiento;
 	}
 	public EntidadDinamica(TextureRegion _texturaNormal){
 		super(_texturaNormal);
@@ -64,8 +73,6 @@ public abstract class EntidadDinamica extends Entidad {
 	}
 public void configurar(float[] parametros) {
 		superficie = new Rectangle(parametros[0],parametros[1], getAncho(), getAlto());
-		vx= parametros[2];
-		vy=parametros[3];
 	}
 public Animation getAnimExplosion() {
 	// TODO Auto-generated method stub

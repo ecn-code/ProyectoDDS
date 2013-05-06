@@ -9,5 +9,7 @@ public MocoRojo(){
 	setAlto(50);
 	animExplosion = Recursos.animExplosion;
 	puntos=30;
+	setVy(-0.5f);
+	setVx(0);
 }
 }

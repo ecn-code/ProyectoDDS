@@ -13,6 +13,8 @@ public static  TextureRegion naveNormal = new TextureRegion(new Texture(Gdx.file
 public static  TextureRegion naveIzq1 = new TextureRegion(new Texture(Gdx.files.internal("data/naveIzq1.png")));
 public static  TextureRegion naveIzq2 = new TextureRegion(new Texture(Gdx.files.internal("data/naveIzq2.png")));
 public static  TextureRegion libelula = new TextureRegion(new Texture(Gdx.files.internal("data/libelula.png")));
+public static Animation animLibelulaDerecha = new Animation(0.2f, new TextureRegion[] {libelula});
+public static Animation animLibelulaIzquierda = new Animation(0.2f, new TextureRegion[] {libelula});
 public static  TextureRegion fondo = new TextureRegion(new Texture(Gdx.files.internal("data/fondo.png")));
 public static  TextureRegion panelSuperior = new TextureRegion(new Texture(Gdx.files.internal("data/panelSuperior.png")));
 public static  TextureRegion nube1 = new TextureRegion(new Texture(Gdx.files.internal("data/nube1.png")));
@@ -46,6 +48,7 @@ public static  TextureRegion n9 = new TextureRegion(new Texture(Gdx.files.intern
 public static  TextureRegion n0 = new TextureRegion(new Texture(Gdx.files.internal("data/0.png")));
 public static TextureRegion marcadorTexturas []= new TextureRegion[]
 		{n0,n1,n2,n3,n4,n5,n6,n7,n8,n9};
+public static TextureRegion jefeRajoy=new TextureRegion(new Texture(Gdx.files.internal("data/jefeRajoy.png")));;
 
 
 
