@@ -29,14 +29,14 @@ private Reloj reloj;
 	reloj.actualizar(delta);
 			Gdx.gl.glClearColor(1, 1, 1, 1);
 			Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-			
+			if(logica.gameOver() || logica.gameOver() && !logica.gameWin()) game.setScreen(new GameOver());
+			if(!logica.gameOver() && logica.gameWin()) game.setScreen(new GameWin());
 			//logica.iA();
 			logica.actualizar(delta);
 			logica.dibujar();
 			logica.colision();
 			if(reloj.getAcumulado()>1){
-				if(logica.gameOver() || logica.gameOver() && !logica.gameWin()) game.setScreen(new GameOver());
-				if(!logica.gameOver() && logica.gameWin()) game.setScreen(new GameWin());
+				
 			  reloj.reset();
 			  System.out.println("FPS: "+fps);
 				fps=0;

@@ -6,7 +6,7 @@ public class Nivel1 {
 	private static final String[][] nivel1 = new String[][]{
 
 			{"","","","","","","","Nave","","","","","","",""},
-			{"","","","","","","","","","","","","","",""},
+			{"","","","","","","","Abeja","","","","","","",""},
 			{"Libelula","","MocoRojo","","MocoRojo","Libelula","","","Libelula","","Libelula","","MocoRojo","","Libelula"},
 			{"","Libelula","","","","","","","Libelula","","","","MocoRojo","",""},
 			{"Libelula","","MocoRojo","Libelula","","","","","Libelula","","","","MocoRojo","","","Libelula"},
@@ -16,7 +16,7 @@ public class Nivel1 {
 			{"MocoRojo","","","Libelula","","","MocoRojo","","","","","Libelula","","","MocoRojo"},
 			{"MocoRojo","MocoRojo","","","","Libelula","","","Libelula","","MocoRojo","","","",""},
 			{"","MocoRojo","","","MocoRojo","","","MocoRojo","","Libelula","","MocoRojo","Libelula","",""},
-			{"","","","","","","","","","","","","","",""},
+			{"","","","","","","","Abeja","","","","","","",""},
 			{"","","","","","","","","","","","","","",""},
 			{"","","","","","","","JefeRajoy","","","","","","",""}
 	};
