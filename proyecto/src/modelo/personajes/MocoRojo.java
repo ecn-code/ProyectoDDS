@@ -4,7 +4,7 @@ import vista.Recursos;
 
 public class MocoRojo extends Enemigo{
 public MocoRojo(){
-	super(Recursos.mocoRojo);
+	super(Recursos.mocoRojo1);
 	setAncho(50);
 	setAlto(50);
 	animExplosion = Recursos.animExplosion;
