@@ -29,7 +29,7 @@ private Reloj reloj;
 	reloj.actualizar(delta);
 			Gdx.gl.glClearColor(1, 1, 1, 1);
 			Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-			if(logica.gameOver() || logica.gameOver() && !logica.gameWin()) game.setScreen(new GameOver());
+			if(logica.gameOver() || logica.gameOver() && !logica.gameWin()) game.setScreen(new GameOver(game));
 			if(!logica.gameOver() && logica.gameWin()) game.setScreen(new GameWin());
 			//logica.iA();
 			logica.actualizar(delta);

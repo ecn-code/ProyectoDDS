@@ -1,5 +1,7 @@
 package modelo.personajes;
 
+import modelo.Movimiento;
+import modelo.decorador.ExtraVelocidad;
 import modelo.estado.Estado;
 import modelo.estado.EstadoReposo;
 
@@ -8,11 +10,11 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 
 public abstract class EntidadDinamica extends Entidad {
-	protected float vx,vy;
 	protected String tipoMovimiento = "";
 	protected Estado estado;
 	protected Animation  animIzquierda,animDerecha;
 	protected Animation animExplosion;
+	protected Movimiento movimiento;
 	public  EntidadDinamica() {
 		super();
 	}
@@ -27,30 +29,29 @@ public abstract class EntidadDinamica extends Entidad {
 	public EntidadDinamica(TextureRegion _texturaNormal){
 		super(_texturaNormal);
 		estado = new EstadoReposo(this);
+		movimiento= new Movimiento();
 	}
-	public EntidadDinamica(float _x,float _y,float _ancho, float _alto,float _vx,float _vy,TextureRegion _textura){
-		super(_x, _y,_ancho,_alto,_textura);
-		vx=_vx;
-		vy=_vy;
-		estado = new EstadoReposo(this);
-	}
+	
 	public void actualizar(float time){
-		estado.mover(vx);
+		if(this instanceof ExtraVelocidad){
+			System.out.println("Soy mipsito");
+		}
+		estado.mover(getVx());
 		estado.actualizarTextura(time);
-		sumarX(vx);
-		sumarY(vy);
-	}
+		sumarX(getVx());
+		sumarY(getVy());
+		}
 	public float getVx() {
-		return vx;
+		return movimiento.getVx();
 	}
 	public void setVx(float _vx) {
-		vx = _vx;
+		movimiento.setVx(_vx);
 	}
 	public float getVy() {
-		return vy;
+		return movimiento.getVy();
 	}
 	public void setVy(float _vy) {
-		vy = _vy;
+		movimiento.setVy(_vy);
 	}
 	public void sumarX(float _x){
 		superficie.setX(superficie.getX()+_x);
@@ -78,4 +79,25 @@ public Animation getAnimExplosion() {
 	// TODO Auto-generated method stub
 	return animExplosion;
 }
+
+public Movimiento getMovimiento() {
+	return movimiento;
+}
+
+public void setMovimiento(Movimiento movimiento) {
+	this.movimiento = movimiento;
+}
+
+public void setAnimIzquierda(Animation animIzquierda) {
+	this.animIzquierda = animIzquierda;
+}
+
+public void setAnimDerecha(Animation animDerecha) {
+	this.animDerecha = animDerecha;
+}
+
+public void setAnimExplosion(Animation animExplosion) {
+	this.animExplosion = animExplosion;
+}
+
 }

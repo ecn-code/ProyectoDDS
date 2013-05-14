@@ -1,6 +1,8 @@
 package modelo.estado;
 
+import modelo.decorador.ExtraVelocidad;
 import modelo.personajes.EntidadDinamica;
+import modelo.personajes.Nave;
 
 
 public class EstadoDerecha implements Estado{
@@ -17,6 +19,9 @@ public class EstadoDerecha implements Estado{
 	}
 	@Override
 	public void mover(float vx) {
+		if(entidad instanceof Nave){
+			System.out.println("entra ederechaaaaaaaaa");
+		}
 		if(vx<0) entidad.setEstado(new EstadoIzquierda(entidad));
 		else if(vx==0) entidad.setEstado(new EstadoReposo(entidad));
 	}

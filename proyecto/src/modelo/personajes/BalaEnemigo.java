@@ -8,8 +8,8 @@ public class BalaEnemigo extends Enemigo{
 		super(Recursos.bala);
 	setAncho(20);
 	setAlto(20);
-	vx=0;
-	vy=-4;
+	setVx(0);
+	setVy(-4);
 	animExplosion = Recursos.animExplosion;
 	}
 }

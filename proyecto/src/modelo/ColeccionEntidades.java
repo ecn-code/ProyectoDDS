@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import modelo.decorador.ExtraVelocidad;
 import modelo.personajes.BalaEnemigo;
 import modelo.personajes.Entidad;
 import modelo.personajes.EntidadDinamica;
@@ -65,12 +66,16 @@ public class ColeccionEntidades {
 	}
 	
 	public void buscarNave(){
-		for(Entidad entidad : array) {
-			if(entidad instanceof Nave){
-				nave = (EntidadDinamica) entidad;
+		int i;
+		for(i=0;i<array.size();i++) {
+			if(array.get(i) instanceof Nave){
+				nave = (EntidadDinamica) array.get(i);
 				break;
 			}
 		}
+		array.remove(i);
+		nave=new ExtraVelocidad(nave);
+		array.add(i,nave);
 	}
 	
 	public void buscarJefeRajoy(){
@@ -96,7 +101,6 @@ public class ColeccionEntidades {
 			if(array.get(r).colision(array.get(i))){
 				array.get(r).getEstado().colisionar();
 				array.get(i).getEstado().colisionar();
-				
 			}
 		}
 		if(array.get(r).getY()<-95 || array.get(r).getY()>Gdx.graphics.getHeight()+50 ){

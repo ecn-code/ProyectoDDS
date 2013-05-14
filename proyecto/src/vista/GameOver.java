@@ -1,5 +1,6 @@
 package vista;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
@@ -9,17 +10,19 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class GameOver implements Screen {
 SpriteBatch batch;
 Texture intro;
-	public GameOver() {
+Game game;
+	public GameOver(Game _game) {
 		batch = new SpriteBatch();
 		intro = new Texture(Gdx.files.internal("data/game-over.jpg"));
 		Gdx.input.setInputProcessor(null);
+		game = _game;
 	}
 
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0, 1, 0, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-		
+		if(Gdx.input.isTouched()) game.setScreen(new JuegoScreen(game));
 		batch.begin();
 		batch.draw(intro,120,120);
 		batch.end();
