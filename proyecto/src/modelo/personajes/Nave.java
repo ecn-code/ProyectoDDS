@@ -9,7 +9,6 @@ public class Nave extends Amigo{
 	
 public Nave(){
 	super(Recursos.naveNormal);
-	Recursos.girar();
 	animIzquierda = Recursos.animNaveIzquierda;
 	animDerecha = Recursos.animNaveDerecha;
 	animExplosion = Recursos.animExplosion;

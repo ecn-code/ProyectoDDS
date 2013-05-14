@@ -29,17 +29,13 @@ public static TextureRegion explosion1 = new TextureRegion(explosionTextura,0,0,
 public static TextureRegion explosion2 = new TextureRegion(explosionTextura,118,0,118,118);
 public static Animation animExplosion = new Animation(0.2f, new TextureRegion[] {explosion1,explosion2});
 TextureRegion te []= new TextureRegion[] {naveNormal,naveIzq1,naveIzq2};
-public static  TextureRegion naveDer1 = new TextureRegion(naveIzq1);
-public static  TextureRegion naveDer2 = new TextureRegion(naveIzq2);
-public static  Animation animNaveDerecha;
-public static Animation animNaveIzquierda = new Animation(0.2f, new TextureRegion[] {naveNormal,naveIzq1,naveIzq2});
-public static void girar(){
-	naveDer1.flip(true, false);
-	naveDer2.flip(true, false);
-	animNaveDerecha = new Animation(0.2f, new TextureRegion[] 
-			{naveNormal,naveDer1,naveDer2});
-}
 
+public static Animation animNaveIzquierda = new Animation(0.2f, new TextureRegion[] {naveNormal,naveIzq1,naveIzq2});
+
+public static  TextureRegion naveDer1 = new TextureRegion(new Texture(Gdx.files.internal("data/naveDer1.png")));
+public static  TextureRegion naveDer2 = new TextureRegion(new Texture(Gdx.files.internal("data/naveDer2.png")));
+public static  Animation animNaveDerecha = new Animation(0.2f, new TextureRegion[] 
+		{naveNormal,naveDer1,naveDer2});
 /**MARCADOR**/
 public static  TextureRegion n1 = new TextureRegion(new Texture(Gdx.files.internal("data/1.png")));
 public static  TextureRegion n2 = new TextureRegion(new Texture(Gdx.files.internal("data/2.png")));

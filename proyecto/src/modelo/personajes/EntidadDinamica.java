@@ -33,9 +33,6 @@ public abstract class EntidadDinamica extends Entidad {
 	}
 	
 	public void actualizar(float time){
-		if(this instanceof ExtraVelocidad){
-			System.out.println("Soy mipsito");
-		}
 		estado.mover(getVx());
 		estado.actualizarTextura(time);
 		sumarX(getVx());

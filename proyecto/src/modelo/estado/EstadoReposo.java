@@ -16,9 +16,6 @@ public class EstadoReposo implements Estado{
 	}
 	@Override
 	public void mover(float vx) {
-		if(entidad instanceof ExtraVelocidad){
-			System.out.println("Extra vx "+vx);
-		}
 		if(vx>0) entidad.setEstado(new EstadoDerecha(entidad));
 		else if(vx<0) entidad.setEstado(new EstadoIzquierda(entidad));
 	}

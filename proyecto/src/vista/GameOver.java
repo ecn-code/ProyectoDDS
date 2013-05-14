@@ -2,6 +2,7 @@ package vista;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
@@ -22,7 +23,7 @@ Game game;
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0, 1, 0, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-		if(Gdx.input.isTouched()) game.setScreen(new JuegoScreen(game));
+		if(Gdx.input.isKeyPressed(Keys.ALT_LEFT)) game.setScreen(new JuegoScreen(game));
 		batch.begin();
 		batch.draw(intro,120,120);
 		batch.end();

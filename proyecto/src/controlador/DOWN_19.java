@@ -10,6 +10,7 @@ public class DOWN_19 implements Comando{
 		}
 		@Override
 		public void ejecutar() {
+			System.out.println("Apretado_3");
 			// TODO Auto-generated method stub
 			logica.moverNaveY(3);
 		}

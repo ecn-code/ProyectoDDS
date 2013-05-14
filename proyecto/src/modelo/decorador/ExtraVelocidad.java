@@ -21,6 +21,14 @@ public ExtraVelocidad(EntidadDinamica _entidad){
 		this.estado = estado;
 	}
 	@Override
+	public void setVx(float _vx){
+		componente.setVx(_vx);
+	}
+	@Override
+	public void setVy(float _vy){
+		componente.setVy(_vy);
+	}
+	@Override
 	public Estado getEstado() {
 		return this.estado ;
 	}

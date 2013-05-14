@@ -21,7 +21,7 @@ public class Logica {
 	private SpriteBatch batch;
 	Nivel1 nivel1;
 	private Reloj reloj;
-	private int cambiosVelocidad=0;
+	private int cambiosVelocidad;
 	private ColeccionEntidades coleccionEntidades;
 	private Marcador marcador;
 
@@ -33,6 +33,8 @@ public Logica() {
 	nivel1=new Nivel1();
 	reloj=new Reloj();
 	invoker=new Invoker(null);
+	cambiosVelocidad=0;
+	System.out.println("Logica");
 }
 
 public void crearBala(){
@@ -147,13 +149,13 @@ coleccionEntidades.colision();
 public void dibujar(){
 	batch.begin();
 	coleccionEntidades.dibujar(batch);
-	int indice = 120;
+	int desplazamientoCifrasMarcador = 120;
 	batch.draw(Recursos.panelSuperior, 0, 
 			Gdx.graphics.getHeight()-50, Gdx.graphics.getWidth(),50 );
 	for(TextureRegion texture : marcador.getTexturas()){
-		batch.draw(texture, marcador.getX()+indice, marcador.getY(),
-				marcador.getW(),marcador.getH());
-	indice-=20;	
+		batch.draw(texture, marcador.getPosX()+desplazamientoCifrasMarcador, marcador.getPosY (),
+				marcador.getAncho(),marcador.getAlto());
+	desplazamientoCifrasMarcador-=20;	
 	}
 	batch.end();
 }
@@ -161,6 +163,7 @@ public void dibujar(){
 public void moverNaveX(float vx){
 	if(vx==0) cambiosVelocidad--;
 	else cambiosVelocidad++;
+	
 	if(cambiosVelocidad==0 || vx!=0)
 	coleccionEntidades.moverNaveX(vx);
 }

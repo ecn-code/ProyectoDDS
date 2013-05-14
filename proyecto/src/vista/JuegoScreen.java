@@ -16,6 +16,7 @@ private Logica logica;
 private int fps;
 private Reloj reloj;
 	public JuegoScreen(Game _game) {
+		System.out.println(logica);
 		game = _game;
 		logica=new Logica();
 		Gdx.input.setInputProcessor(new EventosTeclado(logica));
