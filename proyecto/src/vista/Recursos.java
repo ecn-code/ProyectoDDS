@@ -8,18 +8,23 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Recursos {
 	public static  TextureRegion bala = new TextureRegion(new Texture(Gdx.files.internal("data/bala.png"))); 
-public static  TextureRegion mocoRojo = new TextureRegion(new Texture(Gdx.files.internal("data/mocoRojo.png")));
+public static  TextureRegion mocoRojo1 = new TextureRegion(new Texture(Gdx.files.internal("data/mocoRojo1.png")));
+public static  TextureRegion mocoRojo2 = new TextureRegion(new Texture(Gdx.files.internal("data/mocoRojo2.png")));
 public static  TextureRegion naveNormal = new TextureRegion(new Texture(Gdx.files.internal("data/naveNormal.png")));
 public static  TextureRegion naveIzq1 = new TextureRegion(new Texture(Gdx.files.internal("data/naveIzq1.png")));
 public static  TextureRegion naveIzq2 = new TextureRegion(new Texture(Gdx.files.internal("data/naveIzq2.png")));
-public static  TextureRegion libelula = new TextureRegion(new Texture(Gdx.files.internal("data/libelula.png")));
+public static  TextureRegion libelula1 = new TextureRegion(new Texture(Gdx.files.internal("data/libelula1.png")));
+public static  TextureRegion libelula2 = new TextureRegion(new Texture(Gdx.files.internal("data/libelula2.png")));
+public static  TextureRegion libelula3 = new TextureRegion(new Texture(Gdx.files.internal("data/libelula3.png")));
 public static  TextureRegion abeja1 = new TextureRegion(new Texture(Gdx.files.internal("data/abeja1.png")));
 public static  TextureRegion abeja2 = new TextureRegion(new Texture(Gdx.files.internal("data/abeja2.png")));
 public static  TextureRegion abeja3 = new TextureRegion(new Texture(Gdx.files.internal("data/abeja3.png")));
 public static  TextureRegion abeja4 = new TextureRegion(new Texture(Gdx.files.internal("data/abeja4.png")));
 public static Animation animAbeja = new Animation(0.2f, new TextureRegion[] {abeja1, abeja2, abeja3, abeja4});
-public static Animation animLibelulaDerecha = new Animation(0.2f, new TextureRegion[] {libelula});
-public static Animation animLibelulaIzquierda = new Animation(0.2f, new TextureRegion[] {libelula});
+public static Animation animLibelulaDerecha = new Animation(0.2f, new TextureRegion[] {libelula1, libelula2, libelula3});
+public static Animation animLibelulaIzquierda = animLibelulaDerecha;
+public static Animation animMocoRojoDerecha = new Animation(0.2f, new TextureRegion[] {mocoRojo1, mocoRojo2});
+public static Animation animMocoRojoIzquiera = animMocoRojoDerecha;
 public static  TextureRegion fondo = new TextureRegion(new Texture(Gdx.files.internal("data/fondo.png")));
 public static  TextureRegion panelSuperior = new TextureRegion(new Texture(Gdx.files.internal("data/panelSuperior.png")));
 public static  TextureRegion nube1 = new TextureRegion(new Texture(Gdx.files.internal("data/nube1.png")));

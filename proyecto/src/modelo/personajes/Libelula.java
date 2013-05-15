@@ -5,9 +5,9 @@ import vista.Recursos;
 public class Libelula extends Enemigo{
 
 	public Libelula() {
-		super(Recursos.libelula);
-		setAncho(50);
-		setAlto(50);
+		super(Recursos.libelula1);
+		setAncho(75);
+		setAlto(75);
 		setVy(-2);
 		setVx(0);
 		setVida(1);
