@@ -14,9 +14,13 @@ public class Constantes {
 	public static final float velocidadMocoRojo=100;
 	public static final float velocidadLibelula=200;
 	public static final float velocidadAveja=100;
-	public static final float velocidadBala=100;
-	public static final float velocidadBalaEnemigo=100;
+	public static final float velocidadBala=450;
+	public static final float velocidadBalaEnemigo=300;
 	public static final float velocidadJefeRajoy=100;
+<<<<<<< HEAD
 	public static final float velocidadCiclope=50;
 	public static final float velocidadBolaVida=50;
+=======
+	public static final int velocidadFondo = 50;
+>>>>>>> 13aa6693fbea3f1730f8ea31c29cb76820aa1fca
 }

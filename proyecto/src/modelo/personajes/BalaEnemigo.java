@@ -6,9 +6,9 @@ import vista.Recursos;
 
 public class BalaEnemigo extends Enemigo{
 	public BalaEnemigo(){
-		super(Recursos.bala);
-	setAncho(20);
-	setAlto(20);
+		super(Recursos.balaEnemiga);
+	setAncho(10);
+	setAlto(10);
 	setVx(0);
 	setVy(-Constantes.velocidadBalaEnemigo);
 	setVida(1);
