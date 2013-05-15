@@ -13,7 +13,7 @@ public MocoRojo(){
 	animIzquierda = Recursos.animMocoRojoIzquiera;
 	puntos=30;
 	setVy(-Constantes.velocidadMocoRojo);
-	setVx(0);
+	setVx(0.1f);
 	setVida(2);
 	tipoMovimiento = "aleatorio";
 }

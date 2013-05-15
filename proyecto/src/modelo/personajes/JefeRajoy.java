@@ -12,9 +12,21 @@ public JefeRajoy() {
 	setAncho(50);
 	setAlto(50);
 	animExplosion = Recursos.animExplosion;
+	animDerecha = Recursos.animJefeRajoyDerecha;
+	animIzquierda = Recursos.animJefeRajoyIzquierda;
 	puntos=30;
-	setVy(-Constantes.velocidadJefeRajoy);
-	setVida(10);
+	posMovimiento=0;
+	movimientos = new float[]{
+			300,-100,800,0,
+			-10,0,730,0,
+			-500,-100,0,0,
+			10,0,60,0,
+			400,100,500,0,	
+			-10,0,450,0,
+			-500,200,0,0
+	};
+	setVy(movimientos[1]);
+	setVx(movimientos[0]);
 	}
 @Override
 public boolean disparo(){

@@ -16,7 +16,7 @@ public Nave(){
 	setAlto(50);
 	setVx(0);
 	setVy(0);
-	setVida(5);
+	setVida(500);
 }
 public void actualizar(float time) {
 		// TODO Auto-generated method stub

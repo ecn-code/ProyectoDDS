@@ -67,7 +67,8 @@ public static  TextureRegion n0 = new TextureRegion(new Texture(Gdx.files.intern
 public static TextureRegion marcadorTexturas []= new TextureRegion[]
 		{n0,n1,n2,n3,n4,n5,n6,n7,n8,n9};
 public static TextureRegion jefeRajoy=new TextureRegion(new Texture(Gdx.files.internal("data/jefeRajoy.png")));;
-
+public static Animation animJefeRajoyDerecha = new Animation(0.2f, new TextureRegion[] {jefeRajoy});
+public static Animation animJefeRajoyIzquierda = animJefeRajoyDerecha;
 
 
 

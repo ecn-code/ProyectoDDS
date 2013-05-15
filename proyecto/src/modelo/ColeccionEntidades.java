@@ -8,6 +8,7 @@ import modelo.decorador.ExtraVelocidad;
 import modelo.decorador.ExtraVida;
 import modelo.personajes.BalaEnemigo;
 import modelo.personajes.BolaVida;
+import modelo.personajes.Enemigo;
 import modelo.personajes.Entidad;
 import modelo.personajes.EntidadDinamica;
 import modelo.personajes.FabricaEntidadesDinamicas;
@@ -20,6 +21,7 @@ import vista.Recursos;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 
 public class ColeccionEntidades {
 	
@@ -50,8 +52,7 @@ public class ColeccionEntidades {
 	public void actualizar(float time,float acumulado){
 		ArrayList<EntidadDinamica> balasEnemigo = new ArrayList<EntidadDinamica>();
 		for(Entidad entidad : array){
-			final float vx = tipoMovimiento(((EntidadDinamica) entidad).getTipoMovimiento(),acumulado);
-			if(vx>-900) ((EntidadDinamica) entidad).setVx(vx);
+			if(entidad instanceof Enemigo)ejecutarMovimiento((Enemigo)entidad);
 			if(entidad.disparo()) balasEnemigo.add(fabrica.crearEntidad("BalaEnemigo",new float[]{entidad.getX()+entidad.getAncho()/2-10,entidad.getY()}));
 			((EntidadDinamica) entidad).actualizar(time);	
 		}
@@ -62,6 +63,26 @@ public class ColeccionEntidades {
 		if(tipoMovimiento.equals(""))
 		return -999f;
 		else return (float) Math.cos(time);
+	}
+	
+	private void ejecutarMovimiento(Enemigo _enemigo) {
+		Rectangle destino = null;
+		if(_enemigo.posMovimiento<_enemigo.movimientos.length){
+		destino = new Rectangle(
+				_enemigo.movimientos[_enemigo.posMovimiento+2],
+				_enemigo.movimientos[_enemigo.posMovimiento+3],
+				5,
+				_enemigo.movimientos[_enemigo.posMovimiento+3]+600
+				);
+		if(_enemigo.getSuperficie().overlaps(destino)){
+			_enemigo.posMovimiento=_enemigo.posMovimiento+4;
+			if(_enemigo.posMovimiento>=_enemigo.movimientos.length)
+				_enemigo.posMovimiento=0;
+		_enemigo.setVx(_enemigo.movimientos[_enemigo.posMovimiento]);
+		_enemigo.setVy(_enemigo.movimientos[_enemigo.posMovimiento+1]);
+			
+		}
+		}
 	}
 
 	public void dibujar(SpriteBatch batch){

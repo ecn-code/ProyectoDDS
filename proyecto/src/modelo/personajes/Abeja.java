@@ -11,7 +11,7 @@ public Abeja(){
 	animExplosion = Recursos.animExplosion;
 	puntos=30;
 	setVy(-Constantes.velocidadAveja);
-	setVx(0);
+	setVx(0.1f);
 	setVida(1);
 	animDerecha = Recursos.animAbeja;
 	animIzquierda = Recursos.animAbeja;

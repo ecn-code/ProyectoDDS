@@ -3,10 +3,14 @@ package modelo.personajes;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public abstract class Enemigo extends EntidadDinamica {
+	public float movimientos[];
+	public int posMovimiento;
 
 	public Enemigo(TextureRegion bala) {
 		super(bala);
 		animacionLoop = true;
+		posMovimiento=1;
+		movimientos=new float[0];
 	}
 	
 	public boolean colision(Amigo _amigo){
