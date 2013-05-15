@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import modelo.decorador.ExtraVelocidad;
 import modelo.decorador.ExtraVida;
 import modelo.personajes.BalaEnemigo;
+import modelo.personajes.BolaVida;
 import modelo.personajes.Entidad;
 import modelo.personajes.EntidadDinamica;
 import modelo.personajes.FabricaEntidadesDinamicas;
@@ -33,6 +34,9 @@ public class ColeccionEntidades {
 		}
 	
 	public void crearEntidad(String _tipo,float[] parametros){
+		if(_tipo.equals("Escorpion")){
+			array.add(fabrica.crearEntidad("BolaVida", new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1],parametros[2],parametros[3]}));
+		}
 		if(_tipo!="")
 			array.add(fabrica.crearEntidad(_tipo, new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1],parametros[2],parametros[3]}));
 	}
@@ -102,19 +106,24 @@ public class ColeccionEntidades {
 		for(int i=r+1;array.size()>i;i++){
 			if(array.get(r).colision(array.get(i))&& array.get(i).getExplosiona()==false && array.get(r).getExplosiona()==false  ){
 				System.out.println("i: "+i+" vida="+array.get(r).getVida());
+				
+				if(array.get(r) instanceof BolaVida){
+					nave=new ExtraVida(nave);
+					array.remove(r);
+				}else if(array.get(i) instanceof BolaVida){
+					nave=new ExtraVida(nave);
+					array.remove(i);
+				}else{
 				array.get(r).setVida(array.get(r).getVida()-1);
 				array.get(i).setVida(array.get(i).getVida()-1);
-				//System.out.println("vida"+array.get(r).getVida());
-				//System.out.println("vida"+array.get(i).getVida());
 				if(array.get(r).getVida()==0){
 					array.get(r).getEstado().colisionar();
-					System.out.println("entra");
 				}
 				if(array.get(i).getVida()==0){
 					array.get(i).getEstado().colisionar();
 					
+				}	
 				}
-				
 			}
 		}
 		if(array.get(r).getY()<-95 || array.get(r).getY()>Gdx.graphics.getHeight()+50 ){
