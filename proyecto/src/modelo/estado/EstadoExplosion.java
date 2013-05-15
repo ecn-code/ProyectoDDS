@@ -9,6 +9,7 @@ private EntidadDinamica entidad;
 private float acumulado;
 public EstadoExplosion(EntidadDinamica entidad){
 	this.entidad=entidad;
+	entidad.setExplosiona(true);
 }
 @Override
 public void actualizarTextura(float time) {

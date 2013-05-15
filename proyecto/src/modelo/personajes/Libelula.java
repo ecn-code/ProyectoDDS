@@ -10,6 +10,7 @@ public class Libelula extends Enemigo{
 		setAlto(50);
 		setVy(-2);
 		setVx(0);
+		setVida(1);
 		animExplosion = Recursos.animExplosion;
 		animDerecha = Recursos.animLibelulaDerecha;
 		animIzquierda = Recursos.animLibelulaIzquierda;

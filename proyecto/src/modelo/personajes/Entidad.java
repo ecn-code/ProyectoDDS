@@ -12,6 +12,8 @@ public abstract class Entidad {
 	protected TextureRegion texturaNormal;
 	protected boolean eliminar;
 	protected int puntos=0;
+	protected int vida;
+	protected boolean explosiona=false;
 	public Entidad(){
 	}
 	public Entidad(TextureRegion _texturaNormal){
@@ -19,6 +21,13 @@ public abstract class Entidad {
 		texturaNormal = _texturaNormal;
 		superficie = new Rectangle();
 		eliminar=false;
+	}
+	
+	public int getVida() {
+		return vida;
+	}
+	public void setVida(int vida) {
+		this.vida = vida;
 	}
 	public boolean isEliminar() {
 		return eliminar;
@@ -81,6 +90,12 @@ public abstract class Entidad {
 	}
 	public boolean disparo(){
 		return false;
+	}
+	public boolean getExplosiona() {
+		return explosiona;
+	}
+	public void setExplosiona(boolean explosiona) {
+		this.explosiona = explosiona;
 	}
 	
 }

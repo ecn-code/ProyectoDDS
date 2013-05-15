@@ -17,29 +17,12 @@ public ExtraVelocidad(EntidadDinamica _entidad){
 		return 1.5f*componente.getVx();
 	}
 	@Override
-	public void setEstado(Estado estado) {
-		this.estado = estado;
-	}
-	@Override
-	public void setVx(float _vx){
-		componente.setVx(_vx);
-	}
-	@Override
-	public void setVy(float _vy){
-		componente.setVy(_vy);
-	}
-	@Override
-	public Estado getEstado() {
-		return this.estado ;
-	}
-	@Override
 	public float getVy() {
 		// TODO Auto-generated method stub
 		return 1.5f*componente.getVy();
 	}
-	@Override
-	public boolean colision(Entidad _entidad) {
-		// TODO Auto-generated method stub
-		return componente.colision(_entidad);
-	}
+	
+
+	
+	
 }

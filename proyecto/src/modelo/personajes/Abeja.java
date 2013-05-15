@@ -11,6 +11,7 @@ public Abeja(){
 	puntos=30;
 	setVy(-0.5f);
 	setVx(0);
+	setVida(1);
 	animDerecha = Recursos.animAbeja;
 	animIzquierda = Recursos.animAbeja;
 	puntos = 10;

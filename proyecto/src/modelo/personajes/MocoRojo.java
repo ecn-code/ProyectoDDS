@@ -11,5 +11,6 @@ public MocoRojo(){
 	puntos=30;
 	setVy(-0.5f);
 	setVx(0);
+	setVida(2);
 }
 }

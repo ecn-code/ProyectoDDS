@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 import modelo.decorador.ExtraVelocidad;
+import modelo.decorador.ExtraVida;
 import modelo.personajes.BalaEnemigo;
 import modelo.personajes.Entidad;
 import modelo.personajes.EntidadDinamica;
@@ -46,7 +47,7 @@ public class ColeccionEntidades {
 		for(Entidad entidad : array){
 			final float vx = tipoMovimiento(((EntidadDinamica) entidad).getTipoMovimiento(),acumulado);
 			if(vx>-900) ((EntidadDinamica) entidad).setVx(vx);
-			if(entidad.disparo()) balasEnemigo.add(fabrica.crearEntidad("BalaEnemigo",new float[]{entidad.getX()+entidad.getAncho()/2-10,entidad.getY()+entidad.getAlto()}));
+			if(entidad.disparo()) balasEnemigo.add(fabrica.crearEntidad("BalaEnemigo",new float[]{entidad.getX()+entidad.getAncho()/2-10,entidad.getY()}));
 			((EntidadDinamica) entidad).actualizar(time);	
 		}
 		for(EntidadDinamica entidad : balasEnemigo) array.add(entidad);
@@ -75,6 +76,7 @@ public class ColeccionEntidades {
 		}
 		array.remove(i);
 		nave=new ExtraVelocidad(nave);
+		nave=new ExtraVida(nave);
 		array.add(i,nave);
 	}
 	
@@ -98,9 +100,21 @@ public class ColeccionEntidades {
 	public void colision(){
 	for(int r=0;array.size()-1>r;r++) {
 		for(int i=r+1;array.size()>i;i++){
-			if(array.get(r).colision(array.get(i))){
-				array.get(r).getEstado().colisionar();
-				array.get(i).getEstado().colisionar();
+			if(array.get(r).colision(array.get(i))&& array.get(i).getExplosiona()==false && array.get(r).getExplosiona()==false  ){
+				System.out.println("i: "+i+" vida="+array.get(r).getVida());
+				array.get(r).setVida(array.get(r).getVida()-1);
+				array.get(i).setVida(array.get(i).getVida()-1);
+				//System.out.println("vida"+array.get(r).getVida());
+				//System.out.println("vida"+array.get(i).getVida());
+				if(array.get(r).getVida()==0){
+					array.get(r).getEstado().colisionar();
+					System.out.println("entra");
+				}
+				if(array.get(i).getVida()==0){
+					array.get(i).getEstado().colisionar();
+					
+				}
+				
 			}
 		}
 		if(array.get(r).getY()<-95 || array.get(r).getY()>Gdx.graphics.getHeight()+50 ){

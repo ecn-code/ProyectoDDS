@@ -12,6 +12,7 @@ public JefeRajoy() {
 	animExplosion = Recursos.animExplosion;
 	puntos=30;
 	setVy(-4);
+	setVida(1);
 	}
 
 }
