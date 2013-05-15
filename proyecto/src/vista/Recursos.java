@@ -7,7 +7,8 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Recursos {
-	public static  TextureRegion bala = new TextureRegion(new Texture(Gdx.files.internal("data/bala.png"))); 
+public static  TextureRegion bala = new TextureRegion(new Texture(Gdx.files.internal("data/bala.png"))); 
+public static  TextureRegion balaEnemiga = new TextureRegion(new Texture(Gdx.files.internal("data/balaEnemiga2.png"))); 
 public static  TextureRegion mocoRojo1 = new TextureRegion(new Texture(Gdx.files.internal("data/mocoRojo1.png")));
 public static  TextureRegion mocoRojo2 = new TextureRegion(new Texture(Gdx.files.internal("data/mocoRojo2.png")));
 public static  TextureRegion naveNormal = new TextureRegion(new Texture(Gdx.files.internal("data/naveNormal.png")));
@@ -27,12 +28,15 @@ public static Animation animMocoRojoDerecha = new Animation(0.2f, new TextureReg
 public static Animation animMocoRojoIzquiera = animMocoRojoDerecha;
 public static  TextureRegion fondo = new TextureRegion(new Texture(Gdx.files.internal("data/fondo.png")));
 public static  TextureRegion panelSuperior = new TextureRegion(new Texture(Gdx.files.internal("data/panelSuperior.png")));
-public static  TextureRegion nube1 = new TextureRegion(new Texture(Gdx.files.internal("data/nube1.png")));
+public static  TextureRegion nube1 = new TextureRegion(new Texture(Gdx.files.internal("data/fondoLargo.png")));
 public static Sound sonidoDisparo= Gdx.audio.newSound(Gdx.files.internal("data/sonidoDisparo.mp3"));
 public static Texture explosionTextura = new Texture(Gdx.files.internal("data/explosion.png"));
 public static TextureRegion explosion1 = new TextureRegion(explosionTextura,0,0,118,118);
 public static TextureRegion explosion2 = new TextureRegion(explosionTextura,118,0,118,118);
-public static Animation animExplosion = new Animation(0.2f, new TextureRegion[] {explosion1,explosion2});
+public static TextureRegion explosion3 = new TextureRegion(explosionTextura,236,0,118,118);
+public static TextureRegion explosion4 = new TextureRegion(explosionTextura,354,0,118,118);
+public static TextureRegion explosion5 = new TextureRegion(explosionTextura,472,0,118,118);
+public static Animation animExplosion = new Animation(0.15f, new TextureRegion[] {explosion1,explosion2, explosion3, explosion4, explosion5});
 TextureRegion te []= new TextureRegion[] {naveNormal,naveIzq1,naveIzq2};
 
 public static Animation animNaveIzquierda = new Animation(0.2f, new TextureRegion[] {naveNormal,naveIzq1,naveIzq2});

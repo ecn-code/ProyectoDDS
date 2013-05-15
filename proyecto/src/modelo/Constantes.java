@@ -14,7 +14,8 @@ public class Constantes {
 	public static final float velocidadMocoRojo=100;
 	public static final float velocidadLibelula=200;
 	public static final float velocidadAveja=100;
-	public static final float velocidadBala=100;
-	public static final float velocidadBalaEnemigo=100;
+	public static final float velocidadBala=450;
+	public static final float velocidadBalaEnemigo=300;
 	public static final float velocidadJefeRajoy=100;
+	public static final int velocidadFondo = 50;
 }

@@ -44,13 +44,13 @@ public void crearBala(){
 }
 
 public void inicializarMapa(){
-	coleccionEntidades.crearEntidad("Fondo", new float[]{0,6,0,-0.5f});
-	coleccionEntidades.crearEntidad("Fondo", new float[]{0,5,0,-0.5f});
+	coleccionEntidades.crearEntidad("Fondo", new float[]{0,0,0,400f});
+	/*coleccionEntidades.crearEntidad("Fondo", new float[]{0,5,0,-0.5f});
 	coleccionEntidades.crearEntidad("Fondo", new float[]{0,4,0,-0.5f});
 	coleccionEntidades.crearEntidad("Fondo", new float[]{0,3,0,-0.5f});
 	coleccionEntidades.crearEntidad("Fondo", new float[]{0,2,0,-0.5f});
 	coleccionEntidades.crearEntidad("Fondo", new float[]{0,1,0,-0.5f});
-	coleccionEntidades.crearEntidad("Fondo", new float[]{0,0,0,-0.5f});
+	coleccionEntidades.crearEntidad("Fondo", new float[]{0,0,0,-0.5f});*/
 	int numeroFila=nivel1.getFilaActual();
 	int numeroColumna=0;
 	ArrayList<String> filas=nivel1.getFila(Constantes.filasPantalla+1);
@@ -81,7 +81,7 @@ public void actualizar(float time){
 
 	reloj.actualizar(time);
 	if(reloj.getAcumulado()>Constantes.tiempoRefrescoMapa){
-		coleccionEntidades.crearEntidad("Fondo",0, new float[]{0,6,0,-0.5f});
+		//coleccionEntidades.crearEntidad("Fondo",0, new float[]{0,6,0,-0.5f});
 		  reloj.reset();
 		  ArrayList<String> filas=nivel1.getFila(1);
 		  if(!filas.isEmpty()){

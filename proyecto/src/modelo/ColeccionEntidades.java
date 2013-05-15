@@ -10,6 +10,7 @@ import modelo.personajes.BalaEnemigo;
 import modelo.personajes.Entidad;
 import modelo.personajes.EntidadDinamica;
 import modelo.personajes.FabricaEntidadesDinamicas;
+import modelo.personajes.Fondo;
 import modelo.personajes.JefeRajoy;
 import modelo.personajes.Nave;
 
@@ -117,6 +118,7 @@ public class ColeccionEntidades {
 				
 			}
 		}
+		if(!(array.get(r) instanceof Fondo))
 		if(array.get(r).getY()<-95 || array.get(r).getY()>Gdx.graphics.getHeight()+50 ){
 			array.get(r).setEliminar(true);
 			array.get(r).setPuntos(0);

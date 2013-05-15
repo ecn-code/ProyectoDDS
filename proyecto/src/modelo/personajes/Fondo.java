@@ -1,5 +1,6 @@
 package modelo.personajes;
 
+import modelo.Constantes;
 import vista.Recursos;
 
 import com.badlogic.gdx.Gdx;
@@ -10,8 +11,8 @@ public class Fondo extends EntidadDinamica {
 	public Fondo() {
 		super(Recursos.nube1);
 		setAncho(Gdx.graphics.getWidth());
-		setAlto(100);
-		setVy(-0.2f);
+		setAlto(10000);
+		setVy(-Constantes.velocidadFondo);
 		setVx(0);
 	}
 
