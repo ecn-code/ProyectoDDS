@@ -173,5 +173,12 @@ if(entidad.isEliminar()){ iter.remove();puntos+=entidad.getPuntos();}
 			buscarJefeRajoy();
 			return false;}
 	}
+
+	public float getVidaNave() {
+		// TODO Auto-generated method stub
+		if(nave!=null)
+		return nave.getVida();
+		else return 0;
+	}
 	
 }

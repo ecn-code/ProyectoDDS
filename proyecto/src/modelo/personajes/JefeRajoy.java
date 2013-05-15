@@ -18,7 +18,7 @@ public JefeRajoy() {
 	}
 @Override
 public boolean disparo(){
-	return Math.random()*10<2;
+	return Math.random()*10<1;
 }
 
 }

@@ -8,8 +8,12 @@ import modelo.personajes.FabricaEntidadesDinamicas;
 import modelo.personajes.InterfazFabricaEntidad;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.math.Rectangle;
 
 import controlador.Invoker;
 
@@ -24,6 +28,7 @@ public class Logica {
 	private int cambiosVelocidad;
 	private ColeccionEntidades coleccionEntidades;
 	private Marcador marcador;
+	private ShapeRenderer rectangulo;
 
 public Logica() {
 	marcador = new Marcador();
@@ -35,6 +40,7 @@ public Logica() {
 	invoker=new Invoker(null);
 	cambiosVelocidad=0;
 	System.out.println("Logica");
+	rectangulo = new ShapeRenderer();
 }
 
 public void crearBala(){
@@ -158,6 +164,10 @@ public void dibujar(){
 	desplazamientoCifrasMarcador-=20;	
 	}
 	batch.end();
+	rectangulo.begin(ShapeType.Filled);
+	 rectangulo.rect(147f, 552f, 106, 26, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE);
+    rectangulo.rect(150f, 555f, coleccionEntidades.getVidaNave()*5, 20, Color.RED, Color.GREEN, Color.GREEN, Color.RED);
+    rectangulo.end();
 }
 
 public void moverNaveX(float vx){
