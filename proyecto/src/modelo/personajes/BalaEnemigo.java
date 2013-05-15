@@ -14,4 +14,8 @@ public class BalaEnemigo extends Enemigo{
 	setVida(1);
 	animExplosion = Recursos.animExplosion;
 	}
+	@Override
+	public boolean disparo(){
+		return false;
+	}
 }

@@ -103,6 +103,7 @@ public class ColeccionEntidades {
 		nave.setVy(vy);
 	}
 	public void colision(){
+		if(nave==null) buscarNave();
 	for(int r=0;array.size()-1>r;r++) {
 		for(int i=r+1;array.size()>i;i++){
 			if(array.get(r).colision(array.get(i))&& array.get(i).getExplosiona()==false && array.get(r).getExplosiona()==false  ){

@@ -22,7 +22,7 @@ public void actualizar(float time) {
 		// TODO Auto-generated method stub
 	if(!(superficie.getX()+getVx()>0 && superficie.getX()+superficie.getWidth()+getVx()<Gdx.graphics.getWidth()))
 		setVx(0);
-	if(!(superficie.getY()+getVy()>0 && superficie.getY()+superficie.getHeight()+getVy()<Gdx.graphics.getHeight()))
+	if(!(getY()>0 && superficie.getY()+superficie.getHeight()+getVy()<Gdx.graphics.getHeight()))
 		setVy(0);
 super.actualizar(time);
 	}
