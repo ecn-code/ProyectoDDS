@@ -1,5 +1,7 @@
 package modelo.decorador;
 
+import com.badlogic.gdx.Gdx;
+
 import modelo.estado.Estado;
 import modelo.personajes.Entidad;
 import modelo.personajes.EntidadDinamica;
@@ -16,6 +18,14 @@ public abstract class Decorador extends EntidadDinamica{
 		animExplosion=componente.getAnimExplosion();
 		animIzquierda=componente.getAnimIzquierda();
 		superficie=componente.getSuperficie();
+	}
+	@Override
+	public void actualizar(float time){
+		if(!(getX()+getVx()*time>0 && getX()+superficie.getWidth()+getVx()*time<Gdx.graphics.getWidth()))
+			setVx(0);
+		if(!(getY()+getVy()*time>0 && getY()+superficie.getHeight()+getVy()*time<Gdx.graphics.getHeight()))
+			setVy(0);
+	super.actualizar(time);
 	}
 	@Override
 	public int getVida() {

@@ -18,7 +18,7 @@ public boolean colision(Entidad _entidad){
 		return false;
 	}
 public boolean disparo(){
-	return Math.random()*100+Math.random()*3<5;
+	return Math.random()*100+Math.random()*3<1;
 }
 
 

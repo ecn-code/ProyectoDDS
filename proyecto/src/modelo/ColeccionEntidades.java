@@ -103,6 +103,7 @@ public class ColeccionEntidades {
 		nave.setVy(vy);
 	}
 	public void colision(){
+		int ghu=-1;
 		if(nave==null) buscarNave();
 	for(int r=0;array.size()-1>r;r++) {
 		for(int i=r+1;array.size()>i;i++){
@@ -110,11 +111,11 @@ public class ColeccionEntidades {
 				System.out.println("i: "+i+" vida="+array.get(r).getVida());
 				
 				if(array.get(r) instanceof BolaVida){
-					nave=new ExtraVida(nave);
 					array.remove(r);
+					ghu=i;
 				}else if(array.get(i) instanceof BolaVida){
-					nave=new ExtraVida(nave);
 					array.remove(i);
+					ghu=r;
 				}else{
 				array.get(r).setVida(array.get(r).getVida()-1);
 				array.get(i).setVida(array.get(i).getVida()-1);
@@ -133,7 +134,12 @@ public class ColeccionEntidades {
 			array.get(r).setEliminar(true);
 			array.get(r).setPuntos(0);
 		}
-	}	
+	}
+	if(ghu>0){
+		array.remove(nave);
+		nave=new ExtraVida(nave);
+		array.add(1,nave);
+	}
 for (Iterator<EntidadDinamica> iter = array.iterator(); iter.hasNext();) {
 	Entidad entidad = iter.next();
 if(entidad.isEliminar()){ iter.remove();puntos+=entidad.getPuntos();}
