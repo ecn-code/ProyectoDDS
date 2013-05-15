@@ -1,5 +1,6 @@
 package modelo.personajes;
 
+import modelo.Constantes;
 import vista.Recursos;
 
 public class Libelula extends Enemigo{
@@ -8,7 +9,7 @@ public class Libelula extends Enemigo{
 		super(Recursos.libelula1);
 		setAncho(75);
 		setAlto(75);
-		setVy(-2);
+		setVy(-Constantes.velocidadBala);
 		setVx(0);
 		setVida(1);
 		animExplosion = Recursos.animExplosion;

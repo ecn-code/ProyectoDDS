@@ -1,5 +1,7 @@
 package modelo.personajes;
 
+import modelo.Constantes;
+
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import vista.Recursos;
@@ -11,7 +13,7 @@ public JefeRajoy() {
 	setAlto(50);
 	animExplosion = Recursos.animExplosion;
 	puntos=30;
-	setVy(-4);
+	setVy(-Constantes.velocidadJefeRajoy);
 	setVida(1);
 	}
 

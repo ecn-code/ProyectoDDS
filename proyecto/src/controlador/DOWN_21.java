@@ -1,5 +1,6 @@
 package controlador;
 
+import modelo.Constantes;
 import modelo.Logica;
 
 public class DOWN_21 implements Comando{
@@ -11,6 +12,6 @@ public class DOWN_21 implements Comando{
 	public void ejecutar() {
 		System.out.println("Apretado_3");
 		// TODO Auto-generated method stub
-		logica.moverNaveX(-3);
+		logica.moverNaveX(-Constantes.velocidadNave);
 	}
 }

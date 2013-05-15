@@ -1,5 +1,6 @@
 package modelo.personajes;
 
+import modelo.Constantes;
 import vista.Recursos;
 
 public class Abeja extends Enemigo{
@@ -9,7 +10,7 @@ public Abeja(){
 	setAlto(30);
 	animExplosion = Recursos.animExplosion;
 	puntos=30;
-	setVy(-0.5f);
+	setVy(-Constantes.velocidadAveja);
 	setVx(0);
 	setVida(1);
 	animDerecha = Recursos.animAbeja;

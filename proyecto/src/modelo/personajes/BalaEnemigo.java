@@ -1,5 +1,6 @@
 package modelo.personajes;
 
+import modelo.Constantes;
 import vista.Recursos;
 
 
@@ -9,7 +10,7 @@ public class BalaEnemigo extends Enemigo{
 	setAncho(20);
 	setAlto(20);
 	setVx(0);
-	setVy(-4);
+	setVy(-Constantes.velocidadBalaEnemigo);
 	setVida(1);
 	animExplosion = Recursos.animExplosion;
 	}

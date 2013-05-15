@@ -40,8 +40,8 @@ public abstract class EntidadDinamica extends Entidad {
 	public void actualizar(float time){
 		estado.mover(getVx());
 		estado.actualizarTextura(time);
-		sumarX(getVx());
-		sumarY(getVy());
+		sumarX(getVx()*time);
+		sumarY(getVy()*time);
 		}
 	public float getVx() {
 		return movimiento.getVx();

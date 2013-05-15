@@ -1,5 +1,6 @@
 package modelo.personajes;
 
+import modelo.Constantes;
 import vista.Recursos;
 
 public class MocoRojo extends Enemigo{
@@ -11,12 +12,9 @@ public MocoRojo(){
 	animDerecha = Recursos.animMocoRojoDerecha;
 	animIzquierda = Recursos.animMocoRojoIzquiera;
 	puntos=30;
-	setVy(-0.5f);
+	setVy(-Constantes.velocidadMocoRojo);
 	setVx(0);
-<<<<<<< HEAD
 	setVida(2);
-=======
 	tipoMovimiento = "aleatorio";
->>>>>>> 43d4f9d5d5f44054d5a5ce723ff1040386a4d3e4
 }
 }
