@@ -14,7 +14,11 @@ public JefeRajoy() {
 	animExplosion = Recursos.animExplosion;
 	puntos=30;
 	setVy(-Constantes.velocidadJefeRajoy);
-	setVida(1);
+	setVida(10);
 	}
+@Override
+public boolean disparo(){
+	return Math.random()*10<2;
+}
 
 }
