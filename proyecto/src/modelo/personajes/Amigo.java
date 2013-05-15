@@ -10,6 +10,7 @@ public abstract class Amigo extends EntidadDinamica {
 
 	public Amigo(TextureRegion _texturaNormal) {
 		super(_texturaNormal);
+		animacionLoop = false;
 	}
 	
 	public boolean colision(Enemigo _enemigo){

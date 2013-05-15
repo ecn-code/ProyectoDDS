@@ -6,6 +6,7 @@ public abstract class Enemigo extends EntidadDinamica {
 
 	public Enemigo(TextureRegion bala) {
 		super(bala);
+		animacionLoop = true;
 	}
 	
 	public boolean colision(Amigo _amigo){

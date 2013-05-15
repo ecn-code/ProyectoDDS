@@ -12,11 +12,16 @@ import com.badlogic.gdx.math.Rectangle;
 public abstract class EntidadDinamica extends Entidad {
 	protected String tipoMovimiento = "";
 	protected Estado estado;
+	protected boolean animacionLoop;
 	protected Animation  animIzquierda,animDerecha;
 	protected Animation animExplosion;
 	protected Movimiento movimiento;
 	public  EntidadDinamica() {
 		super();
+	}
+	
+	public boolean esAnimacionLoop (){
+		return animacionLoop;
 	}
 	
 	public String getTipoMovimiento() {

@@ -13,7 +13,7 @@ public class EstadoIzquierda implements Estado{
 	@Override
 	public void actualizarTextura(float time) {
 		acumulado += time;
-		entidad.setTextura(entidad.getAnimIzquierda().getKeyFrame(acumulado));
+		entidad.setTextura(entidad.getAnimIzquierda().getKeyFrame(acumulado,entidad.esAnimacionLoop()));
 	}
 	@Override
 	public void mover(float vx) {

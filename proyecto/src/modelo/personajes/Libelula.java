@@ -6,8 +6,8 @@ public class Libelula extends Enemigo{
 
 	public Libelula() {
 		super(Recursos.libelula1);
-		setAncho(50);
-		setAlto(50);
+		setAncho(75);
+		setAlto(75);
 		setVy(-2);
 		setVx(0);
 		animExplosion = Recursos.animExplosion;

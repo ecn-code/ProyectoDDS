@@ -14,18 +14,19 @@ Texture intro;
 Game game;
 	public GameOver(Game _game) {
 		batch = new SpriteBatch();
-		intro = new Texture(Gdx.files.internal("data/game-over.jpg"));
+		intro = new Texture(Gdx.files.internal("data/game-over.png"));
+		
 		Gdx.input.setInputProcessor(null);
 		game = _game;
 	}
 
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(0, 1, 0, 1);
+		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		if(Gdx.input.isKeyPressed(Keys.ALT_LEFT)) game.setScreen(new JuegoScreen(game));
 		batch.begin();
-		batch.draw(intro,120,120);
+		batch.draw(intro,195,290, 399, 48);
 		batch.end();
 	}
 
