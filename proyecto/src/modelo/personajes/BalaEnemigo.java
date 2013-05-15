@@ -18,4 +18,10 @@ public class BalaEnemigo extends Enemigo{
 	public boolean disparo(){
 		return false;
 	}
+	@Override
+	public boolean colision(Entidad _entidad){
+		if(_entidad instanceof Amigo &&
+				!(_entidad instanceof Bala)) return colision((Amigo)_entidad);
+			return false;
+		}
 }
