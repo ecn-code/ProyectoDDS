@@ -16,4 +16,11 @@ public class Bala extends Amigo {
 	animExplosion = Recursos.animExplosionBala;
 	}
 	
+	@Override
+	public boolean colision(Entidad _entidad){
+		if(_entidad instanceof Enemigo &&
+				!(_entidad instanceof BalaEnemigo)) return colision((Enemigo)_entidad);
+			return false;
+		}
+	
 }

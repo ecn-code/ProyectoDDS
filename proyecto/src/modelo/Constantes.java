@@ -3,7 +3,13 @@ package modelo;
 import com.badlogic.gdx.Gdx;
 
 public class Constantes {
-
+	public static final float[] movimientoCuadrado = new float[]{
+		100,-200,100,0,
+		-200,-100,0,100,
+		-100,200,100,0,
+		200,100,0,100
+		
+};
 	public static final float tiempoRefrescoMapa=3;
 	public static final int filasPantalla = 3;
 	public static final int ColumnasPantalla = 15;

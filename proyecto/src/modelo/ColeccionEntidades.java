@@ -66,21 +66,17 @@ public class ColeccionEntidades {
 	}
 	
 	private void ejecutarMovimiento(Enemigo _enemigo) {
-		Rectangle destino = null;
-		if(_enemigo.posMovimiento<_enemigo.movimientos.length){
-		destino = new Rectangle(
-				_enemigo.movimientos[_enemigo.posMovimiento+2],
-				_enemigo.movimientos[_enemigo.posMovimiento+3],
-				5,
-				_enemigo.movimientos[_enemigo.posMovimiento+3]+600
-				);
-		if(_enemigo.getSuperficie().overlaps(destino)){
+		if(_enemigo.movimientos!=null && 
+				_enemigo.posMovimiento<_enemigo.movimientos.length){
+		if(_enemigo.movimientos[_enemigo.posMovimiento+2]<=0 &&
+				_enemigo.movimientos[_enemigo.posMovimiento+3]<=0){
 			_enemigo.posMovimiento=_enemigo.posMovimiento+4;
-			if(_enemigo.posMovimiento>=_enemigo.movimientos.length)
+			if(_enemigo.posMovimiento>=_enemigo.movimientos.length){
 				_enemigo.posMovimiento=0;
+			_enemigo.resetMovimientos();
+			}
 		_enemigo.setVx(_enemigo.movimientos[_enemigo.posMovimiento]);
 		_enemigo.setVy(_enemigo.movimientos[_enemigo.posMovimiento+1]);
-			
 		}
 		}
 	}
