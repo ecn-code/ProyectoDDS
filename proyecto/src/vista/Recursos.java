@@ -44,7 +44,9 @@ public static TextureRegion explosion2 = new TextureRegion(explosionTextura,118,
 public static TextureRegion explosion3 = new TextureRegion(explosionTextura,236,0,118,118);
 public static TextureRegion explosion4 = new TextureRegion(explosionTextura,354,0,118,118);
 public static TextureRegion explosion5 = new TextureRegion(explosionTextura,472,0,118,118);
+
 public static Animation animExplosion = new Animation(0.15f, new TextureRegion[] {explosion1,explosion2, explosion3, explosion4, explosion5});
+public static Animation animExplosionBala = new Animation(0.15f, new TextureRegion[] {explosion1});
 TextureRegion te []= new TextureRegion[] {naveNormal,naveIzq1,naveIzq2};
 
 public static Animation animNaveIzquierda = new Animation(0.2f, new TextureRegion[] {naveNormal,naveIzq1,naveIzq2});

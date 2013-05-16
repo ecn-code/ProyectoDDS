@@ -13,7 +13,7 @@ public class Bala extends Amigo {
 	setVx(0);
 	setVy(Constantes.velocidadBala);
 	setVida(1);
-	animExplosion = Recursos.animExplosion;
+	animExplosion = Recursos.animExplosionBala;
 	}
 	
 }

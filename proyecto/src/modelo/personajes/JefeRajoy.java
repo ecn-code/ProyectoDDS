@@ -28,6 +28,7 @@ public JefeRajoy() {
 	};
 	setVy(movimientos[1]);
 	setVx(movimientos[0]);
+	setVida(30);
 	}
 @Override
 public boolean disparo(){
