@@ -22,7 +22,7 @@ public boolean colision(Entidad _entidad){
 		return false;
 	}
 public boolean disparo(){
-	return Math.random()*100+Math.random()*3<1;
+	return Math.random()*10+Math.random()*3<1;
 }
 
 
