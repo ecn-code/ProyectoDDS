@@ -21,7 +21,11 @@ public ExtraVelocidad(EntidadDinamica _entidad){
 		// TODO Auto-generated method stub
 		return 1.5f*componente.getVy();
 	}
-	
+	@Override
+	public int getVida() {
+		// TODO Auto-generated method stub
+		return componente.getVida();
+	}
 
 	
 	

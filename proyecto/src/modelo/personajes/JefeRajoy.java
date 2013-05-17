@@ -16,13 +16,7 @@ public JefeRajoy() {
 	animIzquierda = Recursos.animJefeRajoyIzquierda;
 	puntos=30;
 	posMovimiento=0;
-	movimientos = new float[]{
-			0,-20,0,100,
-			-100,-100,100,50,
-			100,100,50,100,
-			0,-100,0,20,
-			100,0,50,0
-	};
+	resetMovimientos();
 	setVy(movimientos[1]);
 	setVx(movimientos[0]);
 	setVida(30);
@@ -31,5 +25,7 @@ public JefeRajoy() {
 public boolean disparo(){
 	return Math.random()*10<1;
 }
-
+public void resetMovimientos(){
+	movimientos = Constantes.movimientoRajoy.clone();
+}
 }

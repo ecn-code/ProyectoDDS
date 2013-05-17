@@ -17,5 +17,13 @@ public Abeja(){
 	animIzquierda = Recursos.animAbeja;
 	puntos = 10;
 	tipoMovimiento = "aleatorio";
+	posMovimiento=0;
+	resetMovimientos();
 }
+
+public void resetMovimientos(){
+	movimientos = Constantes.movimientoAbeja.clone();
+}
+
+
 }

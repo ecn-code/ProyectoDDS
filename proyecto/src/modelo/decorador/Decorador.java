@@ -9,6 +9,7 @@ import modelo.personajes.EntidadDinamica;
 public abstract class Decorador extends EntidadDinamica{
 	public abstract float getVx();
 	public abstract float getVy();
+	public abstract int getVida();
 	public EntidadDinamica componente;
 	public Decorador(EntidadDinamica _componente){
 		super(_componente.getTexturaNormal());
@@ -27,11 +28,7 @@ public abstract class Decorador extends EntidadDinamica{
 			setVy(0);
 	super.actualizar(time);
 	}
-	@Override
-	public int getVida() {
-		// TODO Auto-generated method stub
-		return componente.getVida();
-	}
+	
 	@Override
 	public void setVida(int _vida) {
 		// TODO Auto-generated method stub

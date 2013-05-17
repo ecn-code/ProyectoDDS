@@ -1,5 +1,6 @@
 package modelo.personajes;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 
@@ -96,6 +97,9 @@ public abstract class Entidad {
 	}
 	public void setExplosiona(boolean explosiona) {
 		this.explosiona = explosiona;
+	}
+	public void dibujar(SpriteBatch batch) {
+		batch.draw(getTextura(), getX(), getY(), getAncho(), getAlto());
 	}
 	
 }

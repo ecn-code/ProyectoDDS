@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 
-public abstract class EntidadDinamica extends Entidad {
+public abstract class EntidadDinamica extends Entidad implements Movible{
 	protected String tipoMovimiento = "";
 	protected Estado estado;
 	protected boolean animacionLoop;
@@ -46,12 +46,14 @@ public abstract class EntidadDinamica extends Entidad {
 	public float getVx() {
 		return movimiento.getVx();
 	}
+	@Override
 	public void setVx(float _vx) {
 		movimiento.setVx(_vx);
 	}
 	public float getVy() {
 		return movimiento.getVy();
 	}
+	@Override
 	public void setVy(float _vy) {
 		movimiento.setVy(_vy);
 	}

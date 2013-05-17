@@ -9,6 +9,13 @@ public class Constantes {
 		-100,0,100,0,
 		0,100,0,100
 		
+}; 
+	public static final float[] movimientoRajoy = new float[]{
+		0,-20,0,100,
+		-100,-100,300,50,
+		100,100,100,200,
+		0,-400,0,120,
+		100,100,50,160
 };
 	public static final float tiempoRefrescoMapa=3;
 	public static final int filasPantalla = 3;
@@ -26,5 +33,9 @@ public class Constantes {
 	public static final float velocidadCiclope=50;
 	public static final float velocidadBolaVida=50;
 	public static final int velocidadFondo = 50;
+	public static final float[] movimientoAbeja=new float[]{
+		0,-120,0,50,
+		-100,-50,100,50,
+};
 
 }
