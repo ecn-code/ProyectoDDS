@@ -25,6 +25,7 @@ public class Logica {
 	private SpriteBatch batch;
 	Nivel1 nivel1;
 	private Reloj reloj;
+	private Reloj relojBalas;
 	private int cambiosVelocidad;
 	private ColeccionEntidades coleccionEntidades;
 	private Marcador marcador;
@@ -37,6 +38,7 @@ public Logica() {
 	batch = new SpriteBatch();
 	nivel1=new Nivel1();
 	reloj=new Reloj();
+	relojBalas=new Reloj();
 	invoker=new Invoker(null);
 	cambiosVelocidad=0;
 	System.out.println("Logica");
@@ -44,9 +46,11 @@ public Logica() {
 }
 
 public void crearBala(){
+	if(relojBalas.getAcumulado() - relojBalas.getTiempoGuardado() > 0.19f){
 	coleccionEntidades.crearBala();
 	Recursos.sonidoDisparo.play(0.3f);
-	
+	relojBalas.setTiempoGuardado(relojBalas.getAcumulado());
+	}
 }
 
 public void inicializarMapa(){
@@ -84,7 +88,7 @@ public void actualizar(float time){
 	marcador.sumar(coleccionEntidades.getPuntos());
 	coleccionEntidades.resetPuntos();
 	coleccionEntidades.actualizar(time,reloj.getAcumulado());
-
+	relojBalas.actualizar(time);
 	reloj.actualizar(time);
 	if(reloj.getAcumulado()>Constantes.tiempoRefrescoMapa){
 		//coleccionEntidades.crearEntidad("Fondo",0, new float[]{0,6,0,-0.5f});

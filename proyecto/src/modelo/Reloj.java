@@ -3,7 +3,16 @@ package modelo;
 public class Reloj {
 	
 	private float acumulado;
+	private float tiempoGuardado;
 	
+	public float getTiempoGuardado() {
+		return tiempoGuardado;
+	}
+
+	public void setTiempoGuardado(float tiempoGuardado) {
+		this.tiempoGuardado = tiempoGuardado;
+	}
+
 	public Reloj(){
 		acumulado = 0;
 	}
