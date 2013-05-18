@@ -20,6 +20,8 @@ public abstract class EntidadDinamica extends Entidad {
 		super();
 	}
 	
+	
+	
 	public boolean esAnimacionLoop (){
 		return animacionLoop;
 	}

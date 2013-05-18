@@ -30,11 +30,20 @@ public class ColeccionEntidades {
 	private FabricaEntidadesDinamicas fabrica;
 	private int puntos=0;
 	private EntidadDinamica jefeRajoy;
+
 	
 	public ColeccionEntidades(){ 
 		array = new LinkedList<EntidadDinamica>() ;
 		fabrica = new FabricaEntidadesDinamicas();
 		}
+	public Memento guardarMemento(){
+		LinkedList<EntidadDinamica> elementosArray=new LinkedList<EntidadDinamica>();
+		//for(EntidadDinamica ent:array )elementosArray.add(ent.clone())
+		return new Memento((LinkedList<EntidadDinamica>) array.clone());
+	}
+	public void restaurarDelMemento(Memento m){
+		array=(LinkedList<EntidadDinamica>) m.getEstado().clone();
+	}
 	
 	public void crearEntidad(String _tipo,float[] parametros){
 		if(_tipo.equals("Escorpion")){
@@ -80,7 +89,7 @@ public class ColeccionEntidades {
 		}
 		}
 	}
-
+	
 	public void dibujar(SpriteBatch batch){
 		
 		for(Entidad entidad : array)

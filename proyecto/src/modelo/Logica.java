@@ -26,10 +26,14 @@ public class Logica {
 	Nivel1 nivel1;
 	private Reloj reloj;
 	private Reloj relojBalas;
+	private Reloj relojMementos,relojCargarMemento;
 	private int cambiosVelocidad;
 	private ColeccionEntidades coleccionEntidades;
 	private Marcador marcador;
 	private ShapeRenderer rectangulo;
+	private boolean mementoActivado;
+	private Conserje conserje;
+	
 
 public Logica() {
 	marcador = new Marcador();
@@ -43,6 +47,26 @@ public Logica() {
 	cambiosVelocidad=0;
 	System.out.println("Logica");
 	rectangulo = new ShapeRenderer();
+	mementoActivado=false;
+	conserje=new Conserje();
+	relojMementos= new Reloj();
+	relojCargarMemento= new Reloj();
+}
+
+public boolean isMementoActivado() {
+	return mementoActivado;
+}
+
+public Memento getMemento(){
+	
+	Memento memento=conserje.getMemento();
+	
+	mementoActivado=false;
+	return null;
+	
+}
+public void setMementoActivado(boolean mementoActivado) {
+	this.mementoActivado = mementoActivado;
 }
 
 public void crearBala(){
@@ -82,13 +106,23 @@ public boolean gameOver(){
 }
 
 public void actualizar(float time){
+	
 	if(invoker.hayComando()){
 		invoker.ejecutar();
 	}
+	relojCargarMemento.actualizar(time);
+	if(!mementoActivado){
+		
+	
 	marcador.sumar(coleccionEntidades.getPuntos());
 	coleccionEntidades.resetPuntos();
 	coleccionEntidades.actualizar(time,reloj.getAcumulado());
 	relojBalas.actualizar(time);
+	relojMementos.actualizar(time);
+	if(relojMementos.getAcumulado()>0.4f){
+		conserje.addMemento(coleccionEntidades.guardarMemento());
+		relojMementos.reset();
+	}
 	reloj.actualizar(time);
 	if(reloj.getAcumulado()>Constantes.tiempoRefrescoMapa){
 		//coleccionEntidades.crearEntidad("Fondo",0, new float[]{0,6,0,-0.5f});
@@ -99,6 +133,20 @@ public void actualizar(float time){
 			  coleccionEntidades.crearEntidad(filas.get(numeroColumna), new float[]{numeroColumna,
 				  Constantes.filasPantalla,0,-3f});
 		  }	
+	}
+	}else{
+		if(relojCargarMemento.getAcumulado()>2f){
+		Memento memento=conserje.getMemento();
+		if(memento!=null){
+			
+			coleccionEntidades.restaurarDelMemento(memento);
+			relojCargarMemento.reset();
+			System.out.println("HE LLEGADO");
+				
+		}else{
+			mementoActivado=false;
+		}
+		}
 	}
 }
 /*
