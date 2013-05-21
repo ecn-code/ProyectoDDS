@@ -14,6 +14,7 @@ import modelo.personajes.Entidad;
 import modelo.personajes.EntidadDinamica;
 import modelo.personajes.FabricaEntidadesDinamicas;
 import modelo.personajes.Fondo;
+import modelo.personajes.IFabrica;
 import modelo.personajes.JefeRajoy;
 import modelo.personajes.Nave;
 
@@ -28,7 +29,7 @@ public class ColeccionEntidades {
 	
 	private LinkedList<EntidadDinamica>  array;
 	private EntidadDinamica nave;
-	private FabricaEntidadesDinamicas fabrica;
+	private IFabrica fabrica;
 	private int puntos=0;
 	private EntidadDinamica jefeRajoy;
 	private Reloj reloj;
@@ -44,10 +45,10 @@ public class ColeccionEntidades {
 	
 	public void crearEntidad(String _tipo,float[] parametros){
 		if(_tipo.equals("Escorpion")){
-			array.add(fabrica.crearEntidad("BolaVida", new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1]}));
+			array.add((EntidadDinamica) fabrica.crearProducto("BolaVida", new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1]}));
 		}
 		if(_tipo!=""){
-			EntidadDinamica a = fabrica.crearEntidad(_tipo, new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1]});
+			EntidadDinamica a = (EntidadDinamica) fabrica.crearProducto(_tipo, new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1]});
 			logica.agrega(a);
 			array.add(a);
 		
@@ -56,7 +57,7 @@ public class ColeccionEntidades {
 
 	public void crearBala(){
 		if(nave==null) buscarNave();
-		array.add(fabrica.crearEntidad("Bala",new float[]{nave.getX()+nave.getAncho()/2-10,nave.getY()+nave.getAlto(),0,4}));
+		array.add((EntidadDinamica) fabrica.crearProducto("Bala",new float[]{nave.getX()+nave.getAncho()/2-10,nave.getY()+nave.getAlto(),0,4}));
 	}
 	
 	public void actualizar(float time,float acumulado){
@@ -66,7 +67,7 @@ public class ColeccionEntidades {
 		ArrayList<EntidadDinamica> balasEnemigo = new ArrayList<EntidadDinamica>();
 		for(Entidad entidad : array){
 			if(entidad instanceof Enemigo)ejecutarMovimiento((Enemigo)entidad);
-			if(reloj.getAcumulado()>0.01 &&  entidad.disparo()){ balasEnemigo.add(fabrica.crearEntidad("BalaEnemigo",new float[]{entidad.getX()+entidad.getAncho()/2-10,entidad.getY()}));
+			if(reloj.getAcumulado()>0.01 &&  entidad.disparo()){ balasEnemigo.add((EntidadDinamica) fabrica.crearProducto("BalaEnemigo",new float[]{entidad.getX()+entidad.getAncho()/2-10,entidad.getY()}));
 			reloj.reset();
 			}((EntidadDinamica) entidad).actualizar(time);	
 		}
@@ -194,7 +195,7 @@ if(entidad.isEliminar()){ iter.remove();puntos+=entidad.getPuntos();}
 
 	public void crearEntidad(String _tipo, int i, float[] parametros) {
 		if(_tipo!="")
-			array.add(i,fabrica.crearEntidad(_tipo, new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1]}));
+			array.add(i,(EntidadDinamica) fabrica.crearProducto(_tipo, new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1]}));
 	
 	}
 

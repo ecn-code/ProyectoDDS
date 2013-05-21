@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import vista.Recursos;
 import modelo.niveles.Nivel1;
 import modelo.personajes.FabricaEntidadesDinamicas;
-import modelo.personajes.InterfazFabricaEntidad;
+import modelo.personajes.IFabrica;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -20,7 +20,7 @@ import controlador.Invoker;
 
 public class Logica extends Sujeto{
 	Invoker invoker;
-	InterfazFabricaEntidad fabrica = new FabricaEntidadesDinamicas();
+	IFabrica fabrica = new FabricaEntidadesDinamicas();
 	
 	private SpriteBatch batch;
 	Nivel1 nivel1;

@@ -1,4 +1,4 @@
-  package modelo.personajes;
+package modelo.personajes;
 
 
 import vista.Recursos;
