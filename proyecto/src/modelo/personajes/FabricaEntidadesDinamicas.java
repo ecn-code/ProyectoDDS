@@ -14,7 +14,7 @@ public class FabricaEntidadesDinamicas implements InterfazFabricaEntidad {
 				entidad.configurar(parametros);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
-			}catch (InstantiationException | IllegalAccessException e) {
+			}catch (Exception e) {
 				e.printStackTrace();
 			}
 		return entidad;

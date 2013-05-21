@@ -66,7 +66,7 @@ public class ColeccionEntidades {
 		ArrayList<EntidadDinamica> balasEnemigo = new ArrayList<EntidadDinamica>();
 		for(Entidad entidad : array){
 			if(entidad instanceof Enemigo)ejecutarMovimiento((Enemigo)entidad);
-			if(reloj.getAcumulado()>0.01 && entidad.disparo()){ balasEnemigo.add(fabrica.crearEntidad("BalaEnemigo",new float[]{entidad.getX()+entidad.getAncho()/2-10,entidad.getY()}));
+			if(reloj.getAcumulado()>0.01 &&  entidad.disparo()){ balasEnemigo.add(fabrica.crearEntidad("BalaEnemigo",new float[]{entidad.getX()+entidad.getAncho()/2-10,entidad.getY()}));
 			reloj.reset();
 			}((EntidadDinamica) entidad).actualizar(time);	
 		}

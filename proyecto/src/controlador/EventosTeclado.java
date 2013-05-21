@@ -78,9 +78,7 @@ public EventosTeclado(Logica _logica){
 		
 				object = clase.getDeclaredConstructor(Logica.class).newInstance(logica);
 				logica.getInvoker().setComando((Comando) object);
-			} catch (InstantiationException | IllegalAccessException
-					| IllegalArgumentException | InvocationTargetException
-					| NoSuchMethodException | SecurityException | ClassNotFoundException e) {
+			} catch (Exception e) {
 				System.out.println("Tecla no implementada!"+_clase);
 			}
 	}

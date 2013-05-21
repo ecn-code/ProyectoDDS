@@ -75,7 +75,6 @@ public boolean gameOver(){
 }
 
 public void actualizar(float time){
-	System.out.println("----L"+time);
 	if(invoker.hayComando()){
 		invoker.ejecutar();
 	}
