@@ -30,19 +30,25 @@ public class ColeccionEntidades {
 	private FabricaEntidadesDinamicas fabrica;
 	private int puntos=0;
 	private EntidadDinamica jefeRajoy;
+	private Logica logica;
 	
-	public ColeccionEntidades(){ 
+	public ColeccionEntidades(Logica _logica){ 
 		array = new LinkedList<EntidadDinamica>() ;
 		fabrica = new FabricaEntidadesDinamicas();
+		logica = _logica;
 		}
 	
 	public void crearEntidad(String _tipo,float[] parametros){
 		if(_tipo.equals("Escorpion")){
-			array.add(fabrica.crearEntidad("BolaVida", new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1],parametros[2],parametros[3]}));
+			array.add(fabrica.crearEntidad("BolaVida", new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1]}));
 		}
-		if(_tipo!="")
-			array.add(fabrica.crearEntidad(_tipo, new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1],parametros[2],parametros[3]}));
-	}
+		if(_tipo!=""){
+			EntidadDinamica a = fabrica.crearEntidad(_tipo, new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1]});
+			logica.agrega(a);
+			array.add(a);
+		
+		}
+		}
 	
 	public void crearBala(){
 		if(nave==null) buscarNave();
@@ -50,6 +56,7 @@ public class ColeccionEntidades {
 	}
 	
 	public void actualizar(float time,float acumulado){
+		/*
 		ArrayList<EntidadDinamica> balasEnemigo = new ArrayList<EntidadDinamica>();
 		for(Entidad entidad : array){
 			if(entidad instanceof Enemigo)ejecutarMovimiento((Enemigo)entidad);
@@ -57,6 +64,7 @@ public class ColeccionEntidades {
 			((EntidadDinamica) entidad).actualizar(time);	
 		}
 		for(EntidadDinamica entidad : balasEnemigo) array.add(entidad);
+		*/
 	}
 	
 	private float tipoMovimiento(String tipoMovimiento,float time) {
@@ -96,10 +104,15 @@ public class ColeccionEntidades {
 				break;
 			}
 		}
+		
 		array.remove(i);
+		logica.suprime(nave);
 		nave=new ExtraVelocidad(nave);
+		logica.suprime(nave);
 		nave=new ExtraVida(nave);
+		logica.agrega(nave);
 		array.add(i,nave);
+		
 	}
 	
 	public void buscarJefeRajoy(){

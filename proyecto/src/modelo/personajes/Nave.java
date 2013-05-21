@@ -19,11 +19,14 @@ public Nave(){
 	setVida(5);
 }
 public void actualizar(float time) {
+	System.out.println("----N"+time);
 		// TODO Auto-generated method stub
-	if(!(superficie.getX()+getVx()>0 && superficie.getX()+superficie.getWidth()+getVx()<Gdx.graphics.getWidth()))
+	
+	if(!(superficie.getX()+getVx()*time>0 && superficie.getX()+superficie.getWidth()+getVx()*time<Gdx.graphics.getWidth()))
 		setVx(0);
-	if(!(getY()>0 && superficie.getY()+superficie.getHeight()+getVy()<Gdx.graphics.getHeight()))
+	if(!(getY()+getVy()*time>0 && superficie.getY()+superficie.getHeight()+getVy()*time<Gdx.graphics.getHeight()))
 		setVy(0);
+		
 super.actualizar(time);
 	}
 
