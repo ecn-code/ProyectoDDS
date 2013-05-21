@@ -1,15 +1,17 @@
 package modelo.personajes;
 
 import modelo.Movimiento;
+import modelo.Observador;
 import modelo.decorador.ExtraVelocidad;
 import modelo.estado.Estado;
 import modelo.estado.EstadoReposo;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 
-public abstract class EntidadDinamica extends Entidad implements Movible{
+public abstract class EntidadDinamica extends Entidad implements Observador{
 	protected String tipoMovimiento = "";
 	protected Estado estado;
 	protected boolean animacionLoop;
@@ -46,14 +48,14 @@ public abstract class EntidadDinamica extends Entidad implements Movible{
 	public float getVx() {
 		return movimiento.getVx();
 	}
-	@Override
+
 	public void setVx(float _vx) {
 		movimiento.setVx(_vx);
 	}
 	public float getVy() {
 		return movimiento.getVy();
 	}
-	@Override
+
 	public void setVy(float _vy) {
 		movimiento.setVy(_vy);
 	}
@@ -102,6 +104,11 @@ public void setAnimDerecha(Animation animDerecha) {
 
 public void setAnimExplosion(Animation animExplosion) {
 	this.animExplosion = animExplosion;
+}
+
+public void actualiza(){
+	float tiempoTranscurrido = Gdx.graphics.getDeltaTime();
+	actualizar(tiempoTranscurrido);
 }
 
 }

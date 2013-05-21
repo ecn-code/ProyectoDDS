@@ -18,7 +18,7 @@ import com.badlogic.gdx.math.Rectangle;
 import controlador.Invoker;
 
 
-public class Logica {
+public class Logica extends Sujeto{
 	Invoker invoker;
 	InterfazFabricaEntidad fabrica = new FabricaEntidadesDinamicas();
 	
@@ -34,7 +34,7 @@ public class Logica {
 public Logica() {
 	marcador = new Marcador();
 	marcador.reset();
-	coleccionEntidades =  new ColeccionEntidades();
+	coleccionEntidades =  new ColeccionEntidades(this);
 	batch = new SpriteBatch();
 	nivel1=new Nivel1();
 	reloj=new Reloj();
@@ -59,7 +59,7 @@ public void inicializarMapa(){
 	ArrayList<String> filas=nivel1.getFila(Constantes.filasPantalla+1);
 	
 	for(String unaFila : filas){
-		coleccionEntidades.crearEntidad(unaFila, new float[]{numeroColumna,numeroFila,0,-1f});
+		coleccionEntidades.crearEntidad(unaFila, new float[]{numeroColumna,numeroFila});
 		if(numeroColumna<Constantes.ColumnasPantalla)numeroColumna++;
 		if(numeroColumna==Constantes.ColumnasPantalla){
 		numeroFila++;
@@ -75,6 +75,7 @@ public boolean gameOver(){
 }
 
 public void actualizar(float time){
+	System.out.println("----L"+time);
 	if(invoker.hayComando()){
 		invoker.ejecutar();
 	}
@@ -93,6 +94,7 @@ public void actualizar(float time){
 				  Constantes.filasPantalla,0,-3f});
 		  }	
 	}
+	this.notifica();
 }
 public void colision(){
 coleccionEntidades.colision();

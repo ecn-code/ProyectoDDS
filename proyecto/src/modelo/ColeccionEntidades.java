@@ -32,19 +32,28 @@ public class ColeccionEntidades {
 	private int puntos=0;
 	private EntidadDinamica jefeRajoy;
 	private Reloj reloj;
+	private Logica logica;
 	
-	public ColeccionEntidades(){ 
+	public ColeccionEntidades(Logica _logica){ 
 		array = new LinkedList<EntidadDinamica>() ;
 		fabrica = new FabricaEntidadesDinamicas();
 		reloj=new Reloj();
 		reloj.reset();
+		logica = _logica;
 		}
 	
 	public void crearEntidad(String _tipo,float[] parametros){
-		if(_tipo!="")
-			array.add(fabrica.crearEntidad(_tipo, new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1],parametros[2],parametros[3]}));
-	}
-	
+		if(_tipo.equals("Escorpion")){
+			array.add(fabrica.crearEntidad("BolaVida", new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1]}));
+		}
+		if(_tipo!=""){
+			EntidadDinamica a = fabrica.crearEntidad(_tipo, new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1]});
+			logica.agrega(a);
+			array.add(a);
+		
+		}
+		}
+
 	public void crearBala(){
 		if(nave==null) buscarNave();
 		array.add(fabrica.crearEntidad("Bala",new float[]{nave.getX()+nave.getAncho()/2-10,nave.getY()+nave.getAlto(),0,4}));
@@ -52,6 +61,8 @@ public class ColeccionEntidades {
 	
 	public void actualizar(float time,float acumulado){
 		reloj.actualizar(time);
+
+
 		ArrayList<EntidadDinamica> balasEnemigo = new ArrayList<EntidadDinamica>();
 		for(Entidad entidad : array){
 			if(entidad instanceof Enemigo)ejecutarMovimiento((Enemigo)entidad);
@@ -99,6 +110,7 @@ public class ColeccionEntidades {
 				break;
 			}
 		}
+
 	}
 	
 	public void buscarJefeRajoy(){
