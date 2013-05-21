@@ -41,7 +41,6 @@ public Logica() {
 	relojBalas=new Reloj();
 	invoker=new Invoker(null);
 	cambiosVelocidad=0;
-	System.out.println("Logica");
 	rectangulo = new ShapeRenderer();
 }
 
@@ -55,12 +54,6 @@ public void crearBala(){
 
 public void inicializarMapa(){
 	coleccionEntidades.crearEntidad("Fondo", new float[]{0,0,0,400f});
-	/*coleccionEntidades.crearEntidad("Fondo", new float[]{0,5,0,-0.5f});
-	coleccionEntidades.crearEntidad("Fondo", new float[]{0,4,0,-0.5f});
-	coleccionEntidades.crearEntidad("Fondo", new float[]{0,3,0,-0.5f});
-	coleccionEntidades.crearEntidad("Fondo", new float[]{0,2,0,-0.5f});
-	coleccionEntidades.crearEntidad("Fondo", new float[]{0,1,0,-0.5f});
-	coleccionEntidades.crearEntidad("Fondo", new float[]{0,0,0,-0.5f});*/
 	int numeroFila=nivel1.getFilaActual();
 	int numeroColumna=0;
 	ArrayList<String> filas=nivel1.getFila(Constantes.filasPantalla+1);
@@ -101,57 +94,6 @@ public void actualizar(float time){
 		  }	
 	}
 }
-/*
-public void iA(){
-	double random;
-	for(int i=0;i<array.size();i++){
-		if(array.get(i) instanceof Enemigo){
-		random=Math.random()*50;
-		if(random>2 && random<2.55){
-			crearEntidades("BalaEnemigo",new float[]{array.get(i).getX()+array.get(i).getAncho()/2,array.get(i).getY(),20,20,0,-4});
-		}
-		}
-	}
-}
-*/
-/*
-public void colision(){
-	Entidad[] eliminar= new Entidad[array.size()];
-	for(int r=0;array.size()>r;r++) {
-		for(int i=0;array.size()>i;i++){
-			
-		if(array.get(i)!=array.get(r))
-		if(array.get(r).colision(array.get(i).getSuperficie()))
-			if(array.get(i) instanceof Bala && array.get(r) instanceof Enemigo){
-				eliminar[r]=array.get(r);
-				eliminar[i]=array.get(i);
-			}else if(array.get(r) instanceof Bala && array.get(i) instanceof Enemigo){
-				eliminar[r]=array.get(r); 
-				eliminar[i]=array.get(i);
-			}else if(array.get(r) instanceof Nave && array.get(i) instanceof Enemigo){
-				eliminar[r]=array.get(r);
-				eliminar[i]=array.get(i);
-			}else if(array.get(r) instanceof Enemigo && array.get(i) instanceof Nave){
-				eliminar[r]=array.get(r);
-				eliminar[i]=array.get(i);
-			}else if(array.get(r) instanceof BalaEnemigo && array.get(i) instanceof Nave){
-				eliminar[r]=array.get(r);
-				eliminar[i]=array.get(i);
-			}else if(array.get(r) instanceof Nave && array.get(i) instanceof BalaEnemigo){
-				eliminar[r]=array.get(r);
-				eliminar[i]=array.get(i);
-			}
-	}
-		
-		if(array.get(r) instanceof Bala || array.get(r) instanceof Enemigo)
-			if(array.get(r).getY()<0 || array.get(r).getY()>Gdx.graphics.getHeight()+50 )
-				eliminar[r]=array.get(r);}
-		//System.out.println(array.size());
-	for(Entidad entidad : eliminar){
-		if(entidad!=null)array.remove(entidad);
-	}
-}
-*/
 public void colision(){
 coleccionEntidades.colision();
 }

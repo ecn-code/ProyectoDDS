@@ -17,6 +17,12 @@ public class Constantes {
 		0,-400,0,120,
 		100,100,50,160
 };
+	public static final float[] movimientoCiclope = new float[]{
+		75,0,100,0,
+		0,-75,0,50,
+		-75,0,100,0,
+		0,-75,0,50,
+};
 	public static final float tiempoRefrescoMapa=3;
 	public static final int filasPantalla = 3;
 	public static final int ColumnasPantalla = 15;

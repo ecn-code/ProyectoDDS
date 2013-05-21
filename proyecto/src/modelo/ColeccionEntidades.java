@@ -31,10 +31,13 @@ public class ColeccionEntidades {
 	private FabricaEntidadesDinamicas fabrica;
 	private int puntos=0;
 	private EntidadDinamica jefeRajoy;
+	private Reloj reloj;
 	
 	public ColeccionEntidades(){ 
 		array = new LinkedList<EntidadDinamica>() ;
 		fabrica = new FabricaEntidadesDinamicas();
+		reloj=new Reloj();
+		reloj.reset();
 		}
 	
 	public void crearEntidad(String _tipo,float[] parametros){
@@ -48,11 +51,13 @@ public class ColeccionEntidades {
 	}
 	
 	public void actualizar(float time,float acumulado){
+		reloj.actualizar(time);
 		ArrayList<EntidadDinamica> balasEnemigo = new ArrayList<EntidadDinamica>();
 		for(Entidad entidad : array){
 			if(entidad instanceof Enemigo)ejecutarMovimiento((Enemigo)entidad);
-			if(entidad.disparo()) balasEnemigo.add(fabrica.crearEntidad("BalaEnemigo",new float[]{entidad.getX()+entidad.getAncho()/2-10,entidad.getY()}));
-			((EntidadDinamica) entidad).actualizar(time);	
+			if(reloj.getAcumulado()>0.01 && entidad.disparo()){ balasEnemigo.add(fabrica.crearEntidad("BalaEnemigo",new float[]{entidad.getX()+entidad.getAncho()/2-10,entidad.getY()}));
+			reloj.reset();
+			}((EntidadDinamica) entidad).actualizar(time);	
 		}
 		for(EntidadDinamica entidad : balasEnemigo) array.add(entidad);
 	}
@@ -120,8 +125,6 @@ public class ColeccionEntidades {
 	for(int r=0;array.size()-1>r;r++) {
 		for(int i=r+1;array.size()>i;i++){
 			if(array.get(r).colision(array.get(i))&& array.get(i).getExplosiona()==false && array.get(r).getExplosiona()==false  ){
-				System.out.println("i: "+i+" vida="+array.get(r).getVida());
-				
 				if(array.get(r) instanceof BolaVida){
 					array.remove(r);
 					ghu=i;
@@ -131,11 +134,9 @@ public class ColeccionEntidades {
 				}else if(array.get(r) instanceof BolaVelocidad){
 					array.remove(r);
 					colisionaBolaVelocidad=i;
-					System.out.println("colisiona 1");
 				}else if(array.get(i) instanceof BolaVelocidad){
 					array.remove(i);
 					colisionaBolaVelocidad=r;
-					System.out.println("colisiona 2");
 				}else{
 				array.get(r).setVida(array.get(r).getVida()-1);
 				array.get(i).setVida(array.get(i).getVida()-1);

@@ -20,7 +20,6 @@ public class EstadoDerecha implements Estado{
 	@Override
 	public void mover(float vx) {
 		if(entidad instanceof Nave){
-			System.out.println("entra ederechaaaaaaaaa");
 		}
 		if(vx<0) entidad.setEstado(new EstadoIzquierda(entidad));
 		else if(vx==0) entidad.setEstado(new EstadoReposo(entidad));
