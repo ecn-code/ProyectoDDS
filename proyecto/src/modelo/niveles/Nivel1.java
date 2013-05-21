@@ -10,31 +10,25 @@ public class Nivel1 {
 			{"","","","","","","","","","","","","","",""},
 			{"","","","","","","","","","","","","","",""},
 			{"","","","","","","","","","","","","Abeja","Abeja","Abeja"},
-			{"","","","","","","","","","","","","Abeja","Abeja","Abeja"},
-			{"","","","","","","","","","","","","Abeja","Abeja","Abeja"},
+			{"","","","","","","","Abeja","Abeja","Abeja","","","","",""},
+			{"","","Abeja","Abeja","Abeja","","","","","","","","","",""},
 			{"","","","","","","","","","","","","","",""},
+			{"","","Libelula","","","Libelula","","","Libelula","","","Libelula","","",""},
 			{"","","","","","","","","","","","","","",""},
-			{"","Libelula","","BolaVida","BolaVida","BolaVida","","","Libelula","Ciclope","Ciclope","Ciclope","MocoRojo","",""},
-			{"Libelula","","MocoRojo","Libelula","","Ciclope","Ciclope","Ciclope","Libelula","","","","MocoRojo","","","Libelula"},
-			{"MocoRojo","","","MocoRojo","","Libelula","","","Libelula","","MocoRojo","","","Libelula",""},
-			{"","","","","","Libelula","MocoRojo","","","MocoRojo","Libelula","","","",""},
-			{"MocoRojo","","","","","","","","","","","","","",""},
-			{"MocoRojo","","","Libelula","","","MocoRojo","","","","","Libelula","","","MocoRojo"},
-			{"","MocoRojo","","","","Libelula","","","Libelula","","MocoRojo","","","",""},
-			{"","MocoRojo","","","MocoRojo","","","MocoRojo","","Libelula","","MocoRojo","Libelula","",""},
-			{"","","","","","","","Abeja","","","","","","",""},
+			{"Libelula","","","Libelula","","","","Libelula","","","Libelula","","","Libelula",""},
 			{"","","","","","","","","","","","","","",""},
+			{"","","","","","","","","","","","","BolaVida","","BolaVelocidad"},
 			{"","","","","","","","","","","","","","",""},
-			{"","","","","","","","","","","","","","",""},
-			{"","","","","","","","","","","","","","",""},
-			{"","","","","","","","","","","","","","",""},
+			{"MocoRojo","","","MocoRojo","","","MocoRojo","","","MocoRojo","","","MocoRojo","",""},
+			{"","","","","","","","","","BolaVida","","","","",""},
+			{"","","MocoRojo","","","MocoRojo","","","MocoRojo","","","MocoRojo","","","MocoRojo"},
+			{"","","","","","","BolaVelocidad","","","","","","","",""},
+			{"Ciclope","","","Ciclope","","","","Ciclope","","","","Ciclope","","","Ciclope"},
+			{"","","","Ciclope","","","","","","Ciclope","","","","",""},
+			{"","","Libelula","","","Libelula","","","Libelula","","","Libelula","","","Libelula"},
 			{"","","","","","","","JefeRajoy","","","","","","",""}
 	};
 
-	/*
-	private static final String[][] nivel1 = new String[][]{
-		{"","","","Nave"},{"","","",""},{"","Libelula","MocoRojo",""},
-		{"","Libelula","",""},{"Libelula","MocoRojo","MocoRojo","Libelula"}};*/
 	int filaActual=0;
 	public Nivel1(){
 		}

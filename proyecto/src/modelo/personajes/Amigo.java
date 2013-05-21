@@ -19,8 +19,12 @@ public abstract class Amigo extends EntidadDinamica {
 	public boolean colision(BolaVida _bolaVida){
 		return superficie.overlaps(_bolaVida.getSuperficie());
 	}
+	public boolean colision(BolaVelocidad _bolaVelocidad){
+		return superficie.overlaps(_bolaVelocidad.getSuperficie());
+	}
 	
 public boolean colision(Entidad _entidad){
+	if(_entidad instanceof BolaVelocidad) return colision((BolaVelocidad) _entidad);
 	if(_entidad instanceof BolaVida) return colision((BolaVida) _entidad);
 	if(_entidad instanceof Enemigo) return colision((Enemigo)_entidad);
 		return false;
