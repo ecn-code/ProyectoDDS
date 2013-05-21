@@ -5,7 +5,7 @@ import com.badlogic.gdx.Gdx;
 public class Constantes {
 	public static final float[] movimientoCuadrado = new float[]{
 		100,0,100,0,
-		0,-200,0,100,
+		0,-200,0,160,
 		-100,0,100,0,
 		0,100,0,100
 		
@@ -32,6 +32,7 @@ public class Constantes {
 	public static final float velocidadJefeRajoy=100;
 	public static final float velocidadCiclope=50;
 	public static final float velocidadBolaVida=50;
+	public static final float velocidadBolaVelocidad=50;
 	public static final int velocidadFondo = 50;
 	public static final float[] movimientoAbeja=new float[]{
 		0,-120,0,50,

@@ -16,12 +16,15 @@ public Nave(){
 	setAlto(50);
 	setVx(0);
 	setVy(0);
-	setVida(5);
+	setVida(20);
 }
 public void actualizar(float time) {
 	System.out.println("----N"+time);
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 39bf7754e3b5f02dadef4e7f3d24db07134456bf
 	if(!(superficie.getX()+getVx()*time>0 && superficie.getX()+superficie.getWidth()+getVx()*time<Gdx.graphics.getWidth()))
 		setVx(0);
 	if(!(getY()+getVy()*time>0 && superficie.getY()+superficie.getHeight()+getVy()*time<Gdx.graphics.getHeight()))
@@ -29,7 +32,4 @@ public void actualizar(float time) {
 		
 super.actualizar(time);
 	}
-
-
-
 }

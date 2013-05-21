@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import modelo.decorador.ExtraVelocidad;
 import modelo.decorador.ExtraVida;
 import modelo.personajes.BalaEnemigo;
+import modelo.personajes.BolaVelocidad;
 import modelo.personajes.BolaVida;
 import modelo.personajes.Enemigo;
 import modelo.personajes.Entidad;
@@ -39,6 +40,7 @@ public class ColeccionEntidades {
 		}
 	
 	public void crearEntidad(String _tipo,float[] parametros){
+<<<<<<< HEAD
 		if(_tipo.equals("Escorpion")){
 			array.add(fabrica.crearEntidad("BolaVida", new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1]}));
 		}
@@ -49,6 +51,11 @@ public class ColeccionEntidades {
 		
 		}
 		}
+=======
+		if(_tipo!="")
+			array.add(fabrica.crearEntidad(_tipo, new float[]{Constantes.columnaCalculada*(parametros[0]),Constantes.filaCalculada*parametros[1],parametros[2],parametros[3]}));
+	}
+>>>>>>> 39bf7754e3b5f02dadef4e7f3d24db07134456bf
 	
 	public void crearBala(){
 		if(nave==null) buscarNave();
@@ -104,6 +111,7 @@ public class ColeccionEntidades {
 				break;
 			}
 		}
+<<<<<<< HEAD
 		
 		array.remove(i);
 		logica.suprime(nave);
@@ -113,6 +121,8 @@ public class ColeccionEntidades {
 		logica.agrega(nave);
 		array.add(i,nave);
 		
+=======
+>>>>>>> 39bf7754e3b5f02dadef4e7f3d24db07134456bf
 	}
 	
 	public void buscarJefeRajoy(){
@@ -134,6 +144,7 @@ public class ColeccionEntidades {
 	}
 	public void colision(){
 		int ghu=-1;
+		int colisionaBolaVelocidad=-1;
 		if(nave==null) buscarNave();
 	for(int r=0;array.size()-1>r;r++) {
 		for(int i=r+1;array.size()>i;i++){
@@ -146,6 +157,14 @@ public class ColeccionEntidades {
 				}else if(array.get(i) instanceof BolaVida){
 					array.remove(i);
 					ghu=r;
+				}else if(array.get(r) instanceof BolaVelocidad){
+					array.remove(r);
+					colisionaBolaVelocidad=i;
+					System.out.println("colisiona 1");
+				}else if(array.get(i) instanceof BolaVelocidad){
+					array.remove(i);
+					colisionaBolaVelocidad=r;
+					System.out.println("colisiona 2");
 				}else{
 				array.get(r).setVida(array.get(r).getVida()-1);
 				array.get(i).setVida(array.get(i).getVida()-1);
@@ -168,6 +187,11 @@ public class ColeccionEntidades {
 	if(ghu>0){
 		array.remove(nave);
 		nave=new ExtraVida(nave);
+		array.add(1,nave);
+	}
+	if(colisionaBolaVelocidad>0){
+		array.remove(nave);
+		nave=new ExtraVelocidad(nave);
 		array.add(1,nave);
 	}
 for (Iterator<EntidadDinamica> iter = array.iterator(); iter.hasNext();) {

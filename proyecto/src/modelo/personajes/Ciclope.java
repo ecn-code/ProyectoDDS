@@ -17,4 +17,7 @@ public Ciclope(){
 	setVida(6);
 	tipoMovimiento = "aleatorio";
 }
+public void resetMovimientos(){
+	movimientos = Constantes.movimientoAbeja.clone();
+}
 }
