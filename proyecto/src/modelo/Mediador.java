@@ -54,6 +54,9 @@ public class Mediador implements IMediador{
 			arrayColegas.remove(_colega);
 	}
 	}
+	public void reset(){
+		hashColegas=new HashMap<String,CopyOnWriteArrayList<IColega>>();
+	}
 
 	public static Mediador getMediador() {
 		if(mediador==null)mediador = new Mediador();
