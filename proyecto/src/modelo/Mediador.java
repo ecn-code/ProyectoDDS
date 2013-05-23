@@ -59,6 +59,10 @@ public class Mediador implements IMediador{
 		if(mediador==null)mediador = new Mediador();
 		return mediador;
 	}
+	
+	public void reset(){
+		hashColegas=new HashMap<String,CopyOnWriteArrayList<IColega>>();
+	}
 
 	public EntidadDinamica getNave() {
 		// TODO Auto-generated method stub
