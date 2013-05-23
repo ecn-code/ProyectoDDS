@@ -8,7 +8,6 @@ import vista.Recursos;
 import com.badlogic.gdx.Gdx;
 
 public class Nave extends EntidadDinamica{
-	private int b=0;
 public Nave(){
 	super(Recursos.naveNormal);
 	animIzquierda = Recursos.animNaveIzquierda;
