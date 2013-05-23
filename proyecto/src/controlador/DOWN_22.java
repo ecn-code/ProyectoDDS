@@ -9,7 +9,6 @@ public class DOWN_22 implements Comando{
 	}
 	@Override
 	public void ejecutar() {
-		System.out.println("Apretado_3");
 		// TODO Auto-generated method stub
 		logica.moverNaveX(Constantes.velocidadNave);
 	}

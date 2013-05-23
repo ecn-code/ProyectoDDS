@@ -11,8 +11,10 @@ public class Muro extends EntidadDinamica {
 	public Muro() {
 		super(null);
 		setAlto(1);
-		setAncho(Gdx.graphics.getWidth());
-		canalesDeColision = new String[]{"BalaEnemigo","Enemigo"};
+		setVx(0);
+		setVy(0);
+		setAncho(Gdx.graphics.getWidth()*2);
+		canalesDeColision = new String[]{"BalaEnemigo","Enemigo","Bala"};
 		canal = "";
 	}
 	

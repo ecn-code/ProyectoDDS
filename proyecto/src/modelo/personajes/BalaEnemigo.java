@@ -19,5 +19,7 @@ public class BalaEnemigo extends Enemigo{
 	canalesDeColision=new String[]{"Nave"};
 	}
 	
-
+public boolean disparo(){
+	return false;
+}
 }

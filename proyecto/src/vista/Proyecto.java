@@ -14,7 +14,7 @@ import controlador.EventosTeclado;
 public class Proyecto extends Game {
 
 	public void create() {	
-		setScreen(new IntroJuego(this));
+		setScreen(new JuegoScreen(this));
 		
 	}
 }

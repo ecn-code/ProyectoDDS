@@ -50,6 +50,7 @@ public Logica() {
 	mediador = Mediador.getMediador();
 	mediador.registrarse("Logica", this);
 	crearEntidad("Muro", new Vector2(0,-50));
+	crearEntidad("Muro", new Vector2(0,Gdx.graphics.getHeight()+150));
 }
 
 public static SpriteBatch dameBatch(){

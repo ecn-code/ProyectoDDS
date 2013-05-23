@@ -9,7 +9,6 @@ public class UP_19 implements Comando {
 	}
 	@Override
 	public void ejecutar() {
-		System.out.println("Apretado_0");
 		// TODO Auto-generated method stub
 		logica.moverNaveY(0);
 	}
