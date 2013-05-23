@@ -14,16 +14,17 @@ public class Fondo extends EntidadDinamica {
 		setAlto(10000);
 		setVy(-Constantes.velocidadFondo);
 		setVx(0);
+		canal="Fondo";
+		registrarseEnElMediador(canal);
+		canalesDeColision=new String[]{""};
+
 	}
 
 	public Fondo(TextureRegion _texturaNormal) {
 		super(_texturaNormal);
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public boolean colision(Entidad _entidad) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
+
 
 }

@@ -19,6 +19,9 @@ public class Libelula extends Enemigo{
 		resetMovimientos();
 		setVy(movimientos[1]);
 		setVx(movimientos[0]);
+		canal = "Enemigo";
+		registrarseEnElMediador(canal);
+		canalesDeColision=new String[]{"Amigo"};
 	}
 
 	@Override

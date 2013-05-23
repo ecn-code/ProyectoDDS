@@ -10,7 +10,8 @@ public class Hola extends IEstrategia {
 
 	public void comportamiento() {
 		// TODO Auto-generated method stub
-		System.out.println(mensaje.getDestinatario());
+		((ColegaPrueba) mensaje.getDestinatario()).saludar();
+		
 	}
 
 

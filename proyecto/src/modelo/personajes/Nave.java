@@ -1,11 +1,12 @@
 package modelo.personajes;
 
 
+import modelo.estrategia.Mensaje;
 import vista.Recursos;
 
 import com.badlogic.gdx.Gdx;
 
-public class Nave extends Amigo{
+public class Nave extends EntidadDinamica{
 	
 public Nave(){
 	super(Recursos.naveNormal);
@@ -17,6 +18,9 @@ public Nave(){
 	setVx(0);
 	setVy(0);
 	setVida(20);
+	canal="Nave";
+	registrarseEnElMediador(canal);
+	canalesDeColision=new String[]{"Enemigo","BalaEnemigo","Extra"};
 }
 public void actualizar(float time) {
 		// TODO Auto-generated method stub 
@@ -26,5 +30,14 @@ public void actualizar(float time) {
 		setVy(0);
 		
 super.actualizar(time);
+
+Mensaje mensaje = new Mensaje();
+mensaje.setDescripcion(this.getSuperficie());
+mensaje.setAsunto("ComprobarColision");
+mensaje.setCanalEmisor(canal);
+for(String _canal : canalesDeColision)
+mediador.enviar(_canal, mensaje);
 	}
+
+
 }

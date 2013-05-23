@@ -1,5 +1,7 @@
 package modelo.personajes;
 
+import com.badlogic.gdx.math.Vector2;
+
 
 
 public class FabricaEntidadesDinamicas implements IFabrica {
@@ -11,7 +13,7 @@ public class FabricaEntidadesDinamicas implements IFabrica {
 				Class<?> clase = Class.forName("modelo.personajes."+nombreClase);
 				Object object = clase.newInstance();
 				entidad = (EntidadDinamica) object;
-				entidad.configurar((float[]) parametros);
+				entidad.configurar((Vector2) parametros);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}catch (Exception e) {

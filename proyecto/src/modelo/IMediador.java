@@ -1,9 +1,9 @@
 package modelo;
 
-import modelo.personajes.EntidadDinamica;
+import modelo.estrategia.Mensaje;
 
 public interface IMediador {
-public abstract void registrarse(String canal,Object objeto);
-public abstract void enviar();
-public abstract void eliminarColega(String canal,Object objeto);
+	public void registrarse(String canal,IColega colega);
+public void enviar(String _canal,Mensaje _mensaje);
+public void eliminarColega(String canal,IColega _colega);
 }

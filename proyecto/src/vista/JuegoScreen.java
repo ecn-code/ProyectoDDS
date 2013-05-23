@@ -34,7 +34,6 @@ private Reloj reloj;
 			if(!logica.gameOver() && logica.gameWin()) game.setScreen(new GameWin());
 			logica.actualizar(delta);
 			logica.dibujar();
-			logica.colision();
 			if(reloj.getAcumulado()>1){
 				
 			  reloj.reset();

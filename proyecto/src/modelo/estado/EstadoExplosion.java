@@ -1,5 +1,6 @@
 package modelo.estado;
 
+import modelo.estrategia.Mensaje;
 import modelo.personajes.EntidadDinamica;
 import modelo.personajes.Nave;
 
@@ -18,8 +19,11 @@ public void actualizarTextura(float time) {
 		System.out.println("entra en actualizr");
 	}
 	entidad.setTextura(entidad.getAnimExplosion().getKeyFrame(acumulado));
-	if(entidad.getAnimExplosion().isAnimationFinished(acumulado)) 
+	if(entidad.getAnimExplosion().isAnimationFinished(acumulado)){
 		entidad.setEliminar(true);
+		entidad.eliminarSubscripcion();
+		entidad.enviarPuntos();
+	}
 	entidad.setVx(0);
 	entidad.setVy(0);
 }

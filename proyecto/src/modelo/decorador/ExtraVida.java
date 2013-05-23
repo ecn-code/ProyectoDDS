@@ -30,4 +30,5 @@ public class ExtraVida extends Decorador {
 		return componente.getVy();
 	}
 
+
 }

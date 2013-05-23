@@ -16,5 +16,9 @@ public MocoRojo(){
 	setVx(0.1f);
 	setVida(2);
 	tipoMovimiento = "aleatorio";
+	canal="Enemigo";
+	registrarseEnElMediador(canal);
+	canalesDeColision=new String[]{"Amigo"};
 }
+
 }

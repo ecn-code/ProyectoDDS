@@ -15,12 +15,9 @@ public BolaVida(){
 	setVy(-Constantes.velocidadBolaVida);
 	setVx(0);
 	setVida(2);
+	canal="Extra";
+	registrarseEnElMediador(canal);
 	tipoMovimiento = "aleatorio";
 }
 
-@Override
-public boolean colision(Entidad _entidad) {
-	// TODO Auto-generated method stub
-	return false;
-}
 }

@@ -1,8 +1,9 @@
 package modelo;
 
+import modelo.estrategia.IEstrategia;
+import modelo.estrategia.Mensaje;
 import modelo.personajes.EntidadDinamica;
 
 public interface IColega {
-	public void recibir(Object objeto);
-	public void enviar(EntidadDinamica entidad);
+	public void recibir(IEstrategia estrategia);
 }

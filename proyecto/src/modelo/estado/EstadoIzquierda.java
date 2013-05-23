@@ -1,5 +1,6 @@
 package modelo.estado;
 
+import modelo.personajes.Bala;
 import modelo.personajes.EntidadDinamica;
 
 
@@ -22,7 +23,10 @@ public class EstadoIzquierda implements Estado{
 	}
 	@Override
 	public void colisionar() {
-		entidad.setEstado(new EstadoExplosion(entidad));
+		if(entidad.getVida()<=0){
+			entidad.setEstado(new EstadoExplosion(entidad));
+			entidad.eliminarColega();
+			}
 	}
 	
 }

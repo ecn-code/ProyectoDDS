@@ -1,6 +1,7 @@
 package modelo.estado;
 
 import modelo.decorador.ExtraVelocidad;
+import modelo.personajes.Bala;
 import modelo.personajes.EntidadDinamica;
 import modelo.personajes.Nave;
 
@@ -26,7 +27,11 @@ public class EstadoDerecha implements Estado{
 	}
 	@Override
 	public void colisionar() {
-		entidad.setEstado(new EstadoExplosion(entidad));
+		if(entidad instanceof Bala)System.out.println("Soy bala");
+		if(entidad.getVida()<=0){
+			entidad.setEstado(new EstadoExplosion(entidad));
+			entidad.eliminarColega();
+			}
 	}
 	
 }

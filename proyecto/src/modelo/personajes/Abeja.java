@@ -19,6 +19,13 @@ public Abeja(){
 	tipoMovimiento = "aleatorio";
 	posMovimiento=0;
 	resetMovimientos();
+	canal="Enemigo";
+	registrarseEnElMediador(canal);
+	canalesDeColision=new String[]{"Amigo"};
+}
+
+public boolean disparo(){
+	return Math.random()*10+Math.random()*3<1;
 }
 
 public void resetMovimientos(){

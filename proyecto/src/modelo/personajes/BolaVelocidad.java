@@ -1,6 +1,7 @@
 package modelo.personajes;
 
 import modelo.Constantes;
+import modelo.estrategia.Mensaje;
 import vista.Recursos;
 
 public class BolaVelocidad extends EntidadDinamica{
@@ -15,10 +16,17 @@ public class BolaVelocidad extends EntidadDinamica{
 	setVy(-Constantes.velocidadBolaVelocidad);
 	setVx(0);
 	setVida(2);
+	canal="Extra";
+	canalesDeColision=new String[]{""};
+	registrarseEnElMediador(canal);
 	tipoMovimiento = "aleatorio";
 	}
-	public boolean colision(Entidad _entidad) {
-		// TODO Auto-generated method stub
-		return false;
+	@Override
+	public void eliminarSubscripcion(){
+		super.eliminarSubscripcion();
+		Mensaje mensajeParaLogica = new Mensaje();
+		mensajeParaLogica.setAsunto("DecorarVelocidad");
+		mediador.enviar("Logica", mensajeParaLogica);
 	}
+
 }

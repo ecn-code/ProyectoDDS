@@ -1,6 +1,8 @@
 package modelo.estado;
 
 import modelo.decorador.ExtraVelocidad;
+import modelo.estrategia.Mensaje;
+import modelo.personajes.Bala;
 import modelo.personajes.EntidadDinamica;
 import modelo.personajes.Nave;
 
@@ -21,7 +23,10 @@ public class EstadoReposo implements Estado{
 	}
 	@Override
 	public void colisionar() {
+		if(entidad.getVida()<=0){
 		entidad.setEstado(new EstadoExplosion(entidad));
+		entidad.eliminarColega();
+		}
 	}
 	
 }

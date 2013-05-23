@@ -20,8 +20,11 @@ public Ciclope(){
 	resetMovimientos();
 	setVy(movimientos[1]);
 	setVx(movimientos[0]);
+	canal="Enemigo";
+	registrarseEnElMediador(canal);
 }
 public void resetMovimientos(){
 	movimientos = Constantes.movimientoCiclope.clone();
 }
+
 }

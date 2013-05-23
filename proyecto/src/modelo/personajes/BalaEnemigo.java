@@ -1,6 +1,7 @@
 package modelo.personajes;
 
 import modelo.Constantes;
+import modelo.estrategia.Mensaje;
 import vista.Recursos;
 
 
@@ -13,15 +14,16 @@ public class BalaEnemigo extends Enemigo{
 	setVy(-Constantes.velocidadBalaEnemigo);
 	setVida(1);
 	animExplosion = Recursos.animExplosion;
+	canal = "BalaEnemigo";
+	registrarseEnElMediador(canal);
+	canalesDeColision=new String[]{"Nave"};
 	}
 	@Override
-	public boolean disparo(){
-		return false;
+	public void eliminarSubscripcion(){
+		super.eliminarSubscripcion();
+		Mensaje mensajeParaLogica = new Mensaje();
+		mensajeParaLogica.setAsunto("DecorarVelocidad");
+		mediador.enviar("Logica", mensajeParaLogica);
 	}
-	@Override
-	public boolean colision(Entidad _entidad){
-		if(_entidad instanceof Amigo &&
-				!(_entidad instanceof Bala)) return colision((Amigo)_entidad);
-			return false;
-		}
+
 }

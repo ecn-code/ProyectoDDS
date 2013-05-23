@@ -30,7 +30,6 @@ public EventosTeclado(Logica _logica){
 	}
 	@Override
 	public boolean keyTyped(char character) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

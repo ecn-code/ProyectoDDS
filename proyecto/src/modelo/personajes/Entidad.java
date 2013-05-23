@@ -1,12 +1,16 @@
 package modelo.personajes;
 
+import modelo.IColega;
+import modelo.Mediador;
+import modelo.estrategia.IEstrategia;
+
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 
 
 
-public abstract class Entidad {
+public abstract class Entidad implements IColega{
 
 	protected Rectangle superficie;
 	protected TextureRegion textura;
@@ -23,7 +27,6 @@ public abstract class Entidad {
 		superficie = new Rectangle();
 		eliminar=false;
 	}
-	
 	public int getVida() {
 		return vida;
 	}
@@ -84,7 +87,9 @@ public abstract class Entidad {
 		puntos=_puntos;
 	}
 	
-	public abstract boolean colision(Entidad _entidad);
+	public boolean colision(Rectangle _superficie){
+		return this.superficie.overlaps(_superficie);
+	}
 	
 	public Rectangle getSuperficie(){
 		return superficie;
@@ -101,5 +106,7 @@ public abstract class Entidad {
 	public void dibujar(SpriteBatch batch) {
 		batch.draw(getTextura(), getX(), getY(), getAncho(), getAlto());
 	}
-	
+	public void recibir(IEstrategia estrategia){
+		estrategia.comportamiento();
+	}
 }

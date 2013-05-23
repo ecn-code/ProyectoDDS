@@ -3,6 +3,7 @@ package modelo.decorador;
 import com.badlogic.gdx.Gdx;
 
 import modelo.estado.Estado;
+import modelo.estrategia.Mensaje;
 import modelo.personajes.Entidad;
 import modelo.personajes.EntidadDinamica;
 
@@ -19,14 +20,26 @@ public abstract class Decorador extends EntidadDinamica{
 		animExplosion=componente.getAnimExplosion();
 		animIzquierda=componente.getAnimIzquierda();
 		superficie=componente.getSuperficie();
+		mediador = componente.getMediador();
+		canal=componente.getCanal();
+		canalesDeColision=componente.getCanalesDeColision();
 	}
 	@Override
 	public void actualizar(float time){
-		if(!(getX()+getVx()*time>0 && getX()+superficie.getWidth()+getVx()*time<Gdx.graphics.getWidth()))
-			setVx(0);
-		if(!(getY()+getVy()*time>0 && getY()+superficie.getHeight()+getVy()*time<Gdx.graphics.getHeight()))
-			setVy(0);
-	super.actualizar(time);
+		// TODO Auto-generated method stub 
+	if(!(superficie.getX()+getVx()*time>0 && superficie.getX()+superficie.getWidth()+getVx()*time<Gdx.graphics.getWidth()))
+		setVx(0);
+	if(!(getY()+getVy()*time>0 && superficie.getY()+superficie.getHeight()+getVy()*time<Gdx.graphics.getHeight()))
+		setVy(0);
+		
+super.actualizar(time);
+
+Mensaje mensaje = new Mensaje();
+mensaje.setDescripcion(this.getSuperficie());
+mensaje.setAsunto("ComprobarColision");
+mensaje.setCanalEmisor(canal);
+for(String _canal : canalesDeColision)
+mediador.enviar(_canal, mensaje);
 	}
 	
 	@Override
@@ -50,9 +63,5 @@ public abstract class Decorador extends EntidadDinamica{
 	public Estado getEstado() {
 		return this.estado ;
 	}
-	@Override
-	public boolean colision(Entidad _entidad) {
-		// TODO Auto-generated method stub
-		return componente.colision(_entidad);
-	}
+
 }

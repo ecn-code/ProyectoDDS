@@ -20,12 +20,16 @@ public JefeRajoy() {
 	setVy(movimientos[1]);
 	setVx(movimientos[0]);
 	setVida(30);
+	canal="Enemigo";
+	registrarseEnElMediador(canal);
 	}
 @Override
 public boolean disparo(){
-	return Math.random()*10<1;
+	return false;
 }
 public void resetMovimientos(){
 	movimientos = Constantes.movimientoRajoy.clone();
 }
+
+
 }
