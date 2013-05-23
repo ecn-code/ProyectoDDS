@@ -15,7 +15,6 @@ Game game;
 	public GameOver(Game _game) {
 		batch = new SpriteBatch();
 		intro = new Texture(Gdx.files.internal("data/game-over.png"));
-		
 		Gdx.input.setInputProcessor(null);
 		game = _game;
 	}
