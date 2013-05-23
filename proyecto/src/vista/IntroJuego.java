@@ -19,7 +19,7 @@ public class IntroJuego implements Screen{
 	private float xTitulo1=-400;
 	private float xTitulo2=810;
 	private int xNave=-200;
-	private int yEnrique=700;
+	private float yEnrique=700;
 	private float xElias=-200;
 	private float xRoberto=-200;
 	private float xMocoRojo=-1100;
@@ -68,12 +68,12 @@ public class IntroJuego implements Screen{
 		batch.draw(titulo2,xTitulo2,400,375,75);
 		//if(reloj.getAcumulado()>0.2){
 			if(xTitulo1<180){
-				xTitulo1=xTitulo1+2.5f;
+				xTitulo1=xTitulo1+3.5f;
 			}else{
 				entranNombres=true;
 			}
 			if(xTitulo2>310){
-				xTitulo2=xTitulo2-2.5f;
+				xTitulo2=xTitulo2-3.5f;
 			}
 		
 		if(entraNave && xNave<350){
@@ -84,19 +84,19 @@ public class IntroJuego implements Screen{
 		}
 		if(entranNombres && yEnrique>55){
 			batch.draw(enrique,620,yEnrique,150,30);
-			yEnrique=yEnrique-2;
+			yEnrique=yEnrique-2.75f;
 		}else{
 			batch.draw(enrique,620,yEnrique,150,30);
 		}
 		if(entranNombres && xElias<620){
 			batch.draw(elias,xElias,85,150,30);
-			xElias=xElias+2.25f;
+			xElias=xElias+3f;
 		}else{
 			batch.draw(elias,xElias,85,150,30);
 		}
 		if(entranNombres && xRoberto<620){
 			batch.draw(roberto,xRoberto,25,150,30);
-			xRoberto=xRoberto+2.25f;
+			xRoberto=xRoberto+3f;
 			
 		}else{
 			batch.draw(roberto,xRoberto,25,150,30);
@@ -111,15 +111,15 @@ public class IntroJuego implements Screen{
 			batch.draw(mocoRojo,xMocoRojo,300,50,50);
 			batch.draw(ciclope,xCiclope,250,50,50);
 			if(xAbeja<475)
-				xAbeja+=1.75f;
+				xAbeja+=3f;
 			if(xLibelula<400)
-				xLibelula+=1.75f;
+				xLibelula+=3f;
 			if(xMocoRojo<325)
-				xMocoRojo+=1.75f;
+				xMocoRojo+=3f;
 			if(xCiclope<250)
-				xCiclope+=1.75f;
+				xCiclope+=3f;
 		}
-		if(xCiclope==250){
+		if(xCiclope>247){
 			entraNave=true;
 		}
 		if(xNave==350){
@@ -129,7 +129,7 @@ public class IntroJuego implements Screen{
 		}
 		//}
 			if(yBala>200 && empiezaJuego){
-				game.setScreen(new JuegoScreen(game));
+				//game.setScreen(new JuegoScreen(game));
 			}
 		
 		batch.end();	
