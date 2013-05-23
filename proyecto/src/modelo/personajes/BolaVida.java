@@ -1,6 +1,7 @@
 package modelo.personajes;
 
 import modelo.Constantes;
+import modelo.estrategia.Mensaje;
 import vista.Recursos;
 
 public class BolaVida extends EntidadDinamica{
@@ -19,5 +20,11 @@ public BolaVida(){
 	registrarseEnElMediador(canal);
 	tipoMovimiento = "aleatorio";
 }
-
+@Override
+public void eliminarSubscripcion(){
+	super.eliminarSubscripcion();
+	Mensaje mensajeParaLogica = new Mensaje();
+	mensajeParaLogica.setAsunto("DecorarVida");
+	mediador.enviar("Logica", mensajeParaLogica);
+}
 }

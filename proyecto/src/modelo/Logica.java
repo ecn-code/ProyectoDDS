@@ -96,8 +96,7 @@ public Invoker getInvoker(){
 }
 
 public boolean gameOver(){
-	//return coleccionEntidades.gameOver();
-return false;
+	return nave.getVida()<=0;
 }
 
 public void actualizar(float time){
