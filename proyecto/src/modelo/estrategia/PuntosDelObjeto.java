@@ -18,7 +18,7 @@ public class PuntosDelObjeto extends IEstrategia {
 	@Override
 	public void comportamiento() {
 		Logica colegaReceptor = (Logica)mensaje.getDestinatario();
-			colegaReceptor.puntua((int) mensaje.getDescripcion());
+			colegaReceptor.puntua((Integer) mensaje.getDescripcion());
 			MensajesPool.damePoolMensajes().reciclar(mensaje);
 	}
 }
