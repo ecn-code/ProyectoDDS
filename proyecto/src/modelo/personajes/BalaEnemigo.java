@@ -18,12 +18,6 @@ public class BalaEnemigo extends Enemigo{
 	registrarseEnElMediador(canal);
 	canalesDeColision=new String[]{"Nave"};
 	}
-	@Override
-	public void eliminarSubscripcion(){
-		super.eliminarSubscripcion();
-		Mensaje mensajeParaLogica = new Mensaje();
-		mensajeParaLogica.setAsunto("DecorarVelocidad");
-		mediador.enviar("Logica", mensajeParaLogica);
-	}
+	
 
 }

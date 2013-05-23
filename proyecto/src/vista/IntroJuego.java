@@ -129,7 +129,7 @@ public class IntroJuego implements Screen{
 		}
 		//}
 			if(yBala>200 && empiezaJuego){
-				//game.setScreen(new JuegoScreen(game));
+				game.setScreen(new JuegoScreen(game));
 			}
 		
 		batch.end();	
