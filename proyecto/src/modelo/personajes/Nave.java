@@ -1,13 +1,14 @@
 package modelo.personajes;
 
 
+import objectPool.MensajesPool;
 import modelo.estrategia.Mensaje;
 import vista.Recursos;
 
 import com.badlogic.gdx.Gdx;
 
 public class Nave extends EntidadDinamica{
-	
+	private int b=0;
 public Nave(){
 	super(Recursos.naveNormal);
 	animIzquierda = Recursos.animNaveIzquierda;
@@ -31,13 +32,19 @@ public void actualizar(float time) {
 		
 super.actualizar(time);
 
-Mensaje mensaje = new Mensaje();
+Mensaje mensaje = MensajesPool.damePoolMensajes().adquirir();
 mensaje.setDescripcion(this.getSuperficie());
 mensaje.setAsunto("ComprobarColision");
 mensaje.setCanalEmisor(canal);
 for(String _canal : canalesDeColision)
 mediador.enviar(_canal, mensaje);
+
 	}
+@Override
+public void reset() {
+	// TODO Auto-generated method stub
+	
+}
 
 
 }

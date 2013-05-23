@@ -1,5 +1,7 @@
 package modelo.estrategia;
 
+import objectPool.MensajesPool;
+
 import com.badlogic.gdx.math.Rectangle;
 
 import modelo.Logica;
@@ -17,5 +19,6 @@ public class PuntosDelObjeto extends IEstrategia {
 	public void comportamiento() {
 		Logica colegaReceptor = (Logica)mensaje.getDestinatario();
 			colegaReceptor.puntua((int) mensaje.getDescripcion());
+			MensajesPool.damePoolMensajes().reciclar(mensaje);
 	}
 }

@@ -9,6 +9,17 @@ import vista.Recursos;
 public class JefeRajoy extends Enemigo{
 public JefeRajoy() {
 	super(Recursos.jefeRajoy);
+	reset();
+	}
+@Override
+public boolean disparo(){
+	return false;
+}
+public void resetMovimientos(){
+	movimientos = Constantes.movimientoRajoy.clone();
+}
+@Override
+public void reset() {
 	setAncho(50);
 	setAlto(50);
 	animExplosion = Recursos.animExplosion;
@@ -22,13 +33,6 @@ public JefeRajoy() {
 	setVida(30);
 	canal="Enemigo";
 	registrarseEnElMediador(canal);
-	}
-@Override
-public boolean disparo(){
-	return false;
-}
-public void resetMovimientos(){
-	movimientos = Constantes.movimientoRajoy.clone();
 }
 
 

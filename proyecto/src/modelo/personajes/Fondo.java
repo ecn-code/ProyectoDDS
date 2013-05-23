@@ -25,6 +25,12 @@ public class Fondo extends EntidadDinamica {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public void reset() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 }

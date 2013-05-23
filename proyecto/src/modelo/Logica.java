@@ -2,6 +2,8 @@ package modelo;
 
 import java.util.ArrayList;
 
+import objectPool.Almacen;
+
 import vista.Recursos;
 import modelo.decorador.ExtraVelocidad;
 import modelo.decorador.ExtraVida;
@@ -25,7 +27,7 @@ import controlador.Invoker;
 
 public class Logica extends Sujeto implements IColega{
 	Invoker invoker;
-	IFabrica fabrica = new FabricaEntidadesDinamicas();
+	//IFabrica fabrica = new FabricaEntidadesDinamicas();
 	
 	private static SpriteBatch batch;
 	Nivel1 nivel1;
@@ -36,8 +38,10 @@ public class Logica extends Sujeto implements IColega{
 	private ShapeRenderer rectangulo;
 	private Mediador mediador;
 	private EntidadDinamica nave;
+	private Almacen almacen;
 
 public Logica() {
+	almacen = new Almacen();
 	marcador = new Marcador();
 	marcador.reset();
 	batch = new SpriteBatch();
@@ -49,8 +53,9 @@ public Logica() {
 	rectangulo = new ShapeRenderer();
 	mediador = Mediador.getMediador();
 	mediador.registrarse("Logica", this);
-	crearEntidad("Muro", new Vector2(0,-50));
+	crearEntidad("Muro", new Vector2(-1000,-50));
 	crearEntidad("Muro", new Vector2(0,Gdx.graphics.getHeight()+150));
+	
 }
 
 public static SpriteBatch dameBatch(){
@@ -91,7 +96,10 @@ public void decorarVelocidad(){
 	mediador.registrarse("Nave", nave);
 	agrega( nave);
 }
-
+public void suprime(Observador observador){
+super.suprime(observador);
+almacen.reciclar((EntidadDinamica) observador);
+}
 public Invoker getInvoker(){
 	return invoker;
 }
@@ -169,9 +177,10 @@ public void puntua(int puntos) {
 	marcador.sumar(puntos);
 }
 
-public void crearEntidad(String _tipo,Vector2 parametros){
+public void crearEntidad(String _tipo,Vector2 _parametros){
 	if(_tipo!=""){
-		EntidadDinamica a = (EntidadDinamica) fabrica.crearProducto(_tipo, parametros);
+		//EntidadDinamica a = (EntidadDinamica) fabrica.crearProducto(_tipo, parametros);
+		EntidadDinamica a = (EntidadDinamica) almacen.adquirir(_tipo, _parametros);
 		agrega(a);
 	}
 	}

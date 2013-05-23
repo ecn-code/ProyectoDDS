@@ -6,6 +6,12 @@ import vista.Recursos;
 public class Ciclope extends Enemigo{
 public Ciclope(){
 	super(Recursos.ciclope1);
+	reset();
+}
+public void resetMovimientos(){
+	movimientos = Constantes.movimientoCiclope.clone();
+}
+public void reset(){
 	setAncho(35);
 	setAlto(35);
 	animExplosion = Recursos.animExplosion;
@@ -23,8 +29,4 @@ public Ciclope(){
 	canal="Enemigo";
 	registrarseEnElMediador(canal);
 }
-public void resetMovimientos(){
-	movimientos = Constantes.movimientoCiclope.clone();
-}
-
 }

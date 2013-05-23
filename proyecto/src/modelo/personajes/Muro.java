@@ -1,5 +1,6 @@
 package modelo.personajes;
 
+import objectPool.MensajesPool;
 import modelo.estrategia.Mensaje;
 
 import com.badlogic.gdx.Gdx;
@@ -10,17 +11,11 @@ public class Muro extends EntidadDinamica {
 
 	public Muro() {
 		super(null);
-		setAlto(1);
-		setVx(0);
-		setVy(0);
-		setAncho(Gdx.graphics.getWidth()*2);
-		canalesDeColision = new String[]{"BalaEnemigo","Enemigo","Bala"};
-		canal = "";
+reset();
 	}
 	
-	public void actualiza(SpriteBatch batch){
-		
-		Mensaje mensaje = new Mensaje();
+	public void actualiza(SpriteBatch batch){	
+		Mensaje mensaje = MensajesPool.damePoolMensajes().adquirir();
 		mensaje.setDescripcion(this.getSuperficie());
 		mensaje.setAsunto("ComprobarFueraPantalla");
 		mensaje.setCanalEmisor(canal);
@@ -31,5 +26,16 @@ public class Muro extends EntidadDinamica {
 public void actualiza(float time){
 
 	}
+
+@Override
+public void reset() {
+	setAlto(1);
+	setVx(0);
+	setVy(0);
+	setAncho(Gdx.graphics.getWidth()*100);
+	canalesDeColision = new String[]{"BalaEnemigo","Enemigo","BalaPersonaje"};
+	canal = "";
+	System.out.println(getClass().getSimpleName());
+}
 
 }

@@ -1,5 +1,7 @@
 package modelo.estrategia;
 
+import objectPool.MensajesPool;
+
 import com.badlogic.gdx.math.Rectangle;
 
 import modelo.IColega;
@@ -20,9 +22,9 @@ public class ComprobarColision extends IEstrategia {
 		boolean colision = colegaReceptor.colision(superficie);
 		if(colision){
 			colegaReceptor.setVida(colegaReceptor.getVida()-1);
-
+			MensajesPool.damePoolMensajes().reciclar(mensaje);
 			((EntidadDinamica)mensaje.getDestinatario()).getEstado().colisionar();
-			Mensaje mensajeReenvio = new Mensaje();
+			Mensaje mensajeReenvio = MensajesPool.damePoolMensajes().adquirir();
 			mensajeReenvio.setAsunto("ComprobarColision");
 			mensajeReenvio.setDescripcion(colegaReceptor.getSuperficie());
 			colegaReceptor.getMediador().enviar(mensaje.getCanalEmisor(), mensajeReenvio);		

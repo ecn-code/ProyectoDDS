@@ -7,6 +7,16 @@ public class Libelula extends Enemigo{
 
 	public Libelula() {
 		super(Recursos.libelula1);
+		reset();
+	}
+
+	@Override
+	public boolean disparo(){
+		return Math.random()*20<1;
+	}
+
+	@Override
+	public void reset() {
 		setAncho(75);
 		setAlto(75);
 		setVida(1);
@@ -22,11 +32,6 @@ public class Libelula extends Enemigo{
 		canal = "Enemigo";
 		registrarseEnElMediador(canal);
 		canalesDeColision=new String[]{"Amigo"};
-	}
-
-	@Override
-	public boolean disparo(){
-		return Math.random()*20<1;
 	}
 
 }

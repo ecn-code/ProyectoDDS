@@ -31,4 +31,7 @@ public abstract class Sujeto {
 		for(Observador observador : observadores)
 			observador.actualiza(time);
 	}
+	public int size(){
+		return observadores.size();
+	}
 }

@@ -7,6 +7,17 @@ import vista.Recursos;
 public class BolaVida extends EntidadDinamica{
 public BolaVida(){
 	super(Recursos.bolaVida);
+	reset();
+}
+@Override
+public void eliminarSubscripcion(){
+	super.eliminarSubscripcion();
+	Mensaje mensajeParaLogica = new Mensaje();
+	mensajeParaLogica.setAsunto("DecorarVida");
+	mediador.enviar("Logica", mensajeParaLogica);
+}
+@Override
+public void reset() {
 	setAncho(35);
 	setAlto(35);
 	animExplosion = Recursos.animExplosion;
@@ -19,12 +30,5 @@ public BolaVida(){
 	canal="Extra";
 	registrarseEnElMediador(canal);
 	tipoMovimiento = "aleatorio";
-}
-@Override
-public void eliminarSubscripcion(){
-	super.eliminarSubscripcion();
-	Mensaje mensajeParaLogica = new Mensaje();
-	mensajeParaLogica.setAsunto("DecorarVida");
-	mediador.enviar("Logica", mensajeParaLogica);
 }
 }

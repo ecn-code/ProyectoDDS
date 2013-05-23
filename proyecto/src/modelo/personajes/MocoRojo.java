@@ -21,4 +21,10 @@ public MocoRojo(){
 	canalesDeColision=new String[]{"Amigo"};
 }
 
+@Override
+public void reset() {
+	// TODO Auto-generated method stub
+	
+}
+
 }

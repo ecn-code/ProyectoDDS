@@ -6,6 +6,10 @@ import vista.Recursos;
 public class Abeja extends Enemigo{
 public Abeja(){
 	super(Recursos.abeja1);
+	reset();
+}
+
+public void reset(){
 	setAncho(32);
 	setAlto(30);
 	animExplosion = Recursos.animExplosion;

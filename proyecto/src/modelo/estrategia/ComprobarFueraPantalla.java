@@ -1,5 +1,7 @@
 package modelo.estrategia;
 
+import objectPool.MensajesPool;
+
 import com.badlogic.gdx.math.Rectangle;
 
 import modelo.IColega;
@@ -25,6 +27,7 @@ public class ComprobarFueraPantalla extends IEstrategia {
 			colegaReceptor.eliminarColega();
 		
 		}
-
+		MensajesPool.damePoolMensajes().reciclar(mensaje);
 	}
+	
 }

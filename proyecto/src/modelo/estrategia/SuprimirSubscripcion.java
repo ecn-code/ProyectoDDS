@@ -1,5 +1,7 @@
 package modelo.estrategia;
 
+import objectPool.MensajesPool;
+
 import com.badlogic.gdx.math.Rectangle;
 
 import modelo.Observador;
@@ -16,5 +18,6 @@ public class SuprimirSubscripcion extends IEstrategia {
 	public void comportamiento() {
 		Sujeto colegaReceptor = (Sujeto)mensaje.getDestinatario();
 			colegaReceptor.suprime((Observador) mensaje.getDescripcion());
+			MensajesPool.damePoolMensajes().reciclar(mensaje);
 	}
 }

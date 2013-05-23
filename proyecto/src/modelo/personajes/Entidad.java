@@ -109,4 +109,5 @@ public abstract class Entidad implements IColega{
 	public void recibir(IEstrategia estrategia){
 		estrategia.comportamiento();
 	}
+	public abstract void reset();
 }
