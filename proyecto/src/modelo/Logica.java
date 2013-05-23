@@ -101,6 +101,7 @@ public boolean gameOver(){
 }
 
 public void actualizar(float time){
+	
 	if(invoker.hayComando()){
 		invoker.ejecutar();
 	}
