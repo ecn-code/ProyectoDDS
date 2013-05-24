@@ -3,6 +3,7 @@ package modelo;
 import java.util.ArrayList;
 
 import sun.font.TrueTypeFont;
+import vista.JuegoScreen;
 import vista.Recursos;
 import modelo.decorador.ExtraVelocidad;
 import modelo.decorador.ExtraVida;
@@ -57,6 +58,7 @@ public Logica() {
 	crearEntidad("Muro", new Vector2(0,-50));
 	crearEntidad("Muro", new Vector2(0,Gdx.graphics.getHeight()+150));
 	font = new BitmapFont();
+	font.scale(3);
 }
 
 public static SpriteBatch dameBatch(){
@@ -134,6 +136,7 @@ public void actualizar(float time){
 public void dibujar(){
 	batch.begin();
 	font.setColor(0.0f, 1.0f, 1.0f, 1.0f);
+	
 	 
 	//coleccionEntidades.dibujar(batch);
 	this.notifica(batch);
@@ -145,7 +148,7 @@ public void dibujar(){
 				marcador.getAncho(),marcador.getAlto());
 	desplazamientoCifrasMarcador-=20;	
 	}
-	//font.draw(batch, "Hola", 25, 160);
+	font.draw(batch, JuegoScreen.fps()+" FPS", 600, 600);
 	batch.end();
 	rectangulo.begin(ShapeType.Filled);
 	 rectangulo.rect(147f, 552f, 106, 26, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE);

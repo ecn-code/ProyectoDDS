@@ -15,7 +15,12 @@ public class JuegoScreen implements Screen {
 Game game;
 private Logica logica;
 private int fps;
+private static int fpsFin;
 private Reloj reloj;
+
+public static int fps(){
+	return fpsFin;
+}
 
 	public JuegoScreen(Game _game) {
 		System.out.println(logica);
@@ -44,6 +49,7 @@ private Reloj reloj;
 				
 			  reloj.reset();
 			  reloj.setTiempoGuardado(reloj.getAcumulado());
+			  fpsFin = fps;
 			  System.out.println("FPS: "+fps);
 				fps=0;
 			}
