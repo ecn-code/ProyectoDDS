@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
+import sun.font.TrueTypeFont;
 import vista.Recursos;
 import modelo.decorador.ExtraVelocidad;
 import modelo.decorador.ExtraVida;
@@ -14,6 +15,7 @@ import modelo.personajes.Nave;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -36,6 +38,8 @@ public class Logica extends Sujeto implements IColega{
 	private ShapeRenderer rectangulo;
 	private Mediador mediador;
 	private EntidadDinamica nave;
+	BitmapFont font;
+	public static final String FONT_CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789][_!$%#@|\\/?-+=()*&.;,{}\"´`'<>";
 
 public Logica() {
 	marcador = new Marcador();
@@ -52,6 +56,7 @@ public Logica() {
 	mediador.registrarse("Logica", this);
 	crearEntidad("Muro", new Vector2(0,-50));
 	crearEntidad("Muro", new Vector2(0,Gdx.graphics.getHeight()+150));
+	font = new BitmapFont();
 }
 
 public static SpriteBatch dameBatch(){
@@ -128,6 +133,8 @@ public void actualizar(float time){
 
 public void dibujar(){
 	batch.begin();
+	font.setColor(0.0f, 1.0f, 1.0f, 1.0f);
+	 
 	//coleccionEntidades.dibujar(batch);
 	this.notifica(batch);
 	int desplazamientoCifrasMarcador = 120;
@@ -138,6 +145,7 @@ public void dibujar(){
 				marcador.getAncho(),marcador.getAlto());
 	desplazamientoCifrasMarcador-=20;	
 	}
+	//font.draw(batch, "Hola", 25, 160);
 	batch.end();
 	rectangulo.begin(ShapeType.Filled);
 	 rectangulo.rect(147f, 552f, 106, 26, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE);
