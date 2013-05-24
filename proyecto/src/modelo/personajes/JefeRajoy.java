@@ -9,12 +9,12 @@ import vista.Recursos;
 public class JefeRajoy extends Enemigo{
 public JefeRajoy() {
 	super(Recursos.jefeRajoy);
-	setAncho(50);
-	setAlto(50);
+	setAncho(100);
+	setAlto(100);
 	animExplosion = Recursos.animExplosion;
 	animDerecha = Recursos.animJefeRajoyDerecha;
 	animIzquierda = Recursos.animJefeRajoyIzquierda;
-	puntos=30;
+	puntos=100;
 	posMovimiento=0;
 	resetMovimientos();
 	setVy(movimientos[1]);
@@ -23,6 +23,7 @@ public JefeRajoy() {
 	canal="Enemigo";
 	registrarseEnElMediador(canal);
 	}
+
 @Override
 public boolean disparo(){
 	return false;

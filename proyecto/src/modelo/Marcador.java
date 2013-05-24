@@ -8,12 +8,24 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class Marcador {
 private int valorCifra[],posX,posY,ancho,alto;
 private TextureRegion imagenCifra[];
+private int puntosTotal;
+
+public int getPuntosTotal() {
+	return puntosTotal;
+}
+
+
+public void setPuntosTotal(int puntosTotal) {
+	this.puntosTotal = puntosTotal;
+}
+
 
 public Marcador(int _posX,int _posY, int _ancho, int _alto){
 	posX = _posX;
 	posY = _posY;
 	ancho = _ancho;
 	alto = _alto;
+	puntosTotal=0;
 }
 
 
@@ -57,6 +69,7 @@ public void setAlto(int _alto) {
 		posY=Gdx.graphics.getHeight()-50;
 		ancho=20;
 		alto=20;
+		puntosTotal = 0;
 	}
 	
 	public TextureRegion[] getTexturas(){
@@ -64,6 +77,7 @@ public void setAlto(int _alto) {
 	}
 	
 	public void sumar(int puntos){
+		puntosTotal += puntos;
 		int numeroCifra=0;
 		do{
 		int puntosCifra = puntos % 10;

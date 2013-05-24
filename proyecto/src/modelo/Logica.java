@@ -40,7 +40,6 @@ public class Logica extends Sujeto implements IColega{
 	private Mediador mediador;
 	private EntidadDinamica nave;
 	BitmapFont font;
-	public static final String FONT_CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789][_!$%#@|\\/?-+=()*&.;,{}\"´`'<>";
 
 public Logica() {
 	marcador = new Marcador();
@@ -204,6 +203,11 @@ public void decorarVida() {
 	nave = new ExtraVida(nave);
 	mediador.registrarse("Nave", nave);
 	agrega(nave);
+}
+
+public int getPuntos() {
+	// TODO Auto-generated method stub
+	return marcador.getPuntosTotal();
 }
 }
 

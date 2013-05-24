@@ -6,14 +6,14 @@ import vista.Recursos;
 public class Ciclope extends Enemigo{
 public Ciclope(){
 	super(Recursos.ciclope1);
-	setAncho(35);
-	setAlto(35);
+	setAncho(70);
+	setAlto(70);
 	animExplosion = Recursos.animExplosion;
 	animDerecha = Recursos.animCiclopeDerecha;
 	animIzquierda = Recursos.animCiclopeIzquierda;
 	puntos=50;
 	setVy(-Constantes.velocidadCiclope);
-	setVx(0);
+	setVx(0.1f);
 	setVida(6);
 	tipoMovimiento = "aleatorio";
 	posMovimiento=0; 

@@ -23,7 +23,7 @@ public void actualizarTextura(float time) {
 		entidad.setEliminar(true);
 		entidad.eliminarSubscripcion();
 		entidad.enviarPuntos();
-		 
+		
 	}
 	entidad.setVx(0);
 	entidad.setVy(0);
