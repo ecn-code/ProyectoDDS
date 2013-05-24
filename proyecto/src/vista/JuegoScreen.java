@@ -22,12 +22,15 @@ private Reloj reloj;
 		Gdx.input.setInputProcessor(new EventosTeclado(logica));
 		logica.inicializarMapa();
 		reloj = new Reloj();
+		
 	}
 
 	@Override
 	public void render(float delta) {
 
 	reloj.actualizar(delta);
+	if(reloj.getAcumulado()-reloj.getTiempoGuardado()>0.010){
+		reloj.setTiempoGuardado(reloj.getAcumulado());
 			Gdx.gl.glClearColor(1, 1, 1, 1);
 			Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 			if(logica.gameOver() || logica.gameOver() && !logica.gameWin()) game.setScreen(new GameOver(game));
@@ -35,12 +38,13 @@ private Reloj reloj;
 			logica.actualizar(delta);
 			logica.dibujar();
 			logica.colision();
-			if(reloj.getAcumulado()>1){
-				
+			fps++;
+	}
+			if(reloj.getAcumulado()>1){				
 			  reloj.reset();
+			  reloj.setTiempoGuardado(reloj.getAcumulado());
 			  System.out.println("FPS: "+fps);
-				fps=0;
-			}else fps++;
+				fps=0;}
 			
 	}
 
