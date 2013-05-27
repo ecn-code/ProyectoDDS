@@ -1,5 +1,6 @@
 package vista;
 
+
 import modelo.Logica;
 import modelo.Reloj;
 
