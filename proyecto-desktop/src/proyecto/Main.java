@@ -4,6 +4,8 @@ import vista.Proyecto;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.badlogic.gdx.tools.imagepacker.TexturePacker2;
+import com.badlogic.gdx.tools.imagepacker.TexturePacker2.Settings;
 
 public class Main {
 	public static void main(String[] args) {
@@ -12,7 +14,10 @@ public class Main {
 		cfg.useGL20 = true;
 		cfg.width = 800;
 		cfg.height = 600;
-		
-		new LwjglApplication(new Proyecto(), cfg);
+	   /* Settings settings = new Settings();
+        settings.maxWidth = 4096;
+        settings.maxHeight = 4096;
+        TexturePacker2.process(settings, "../proyecto-android/assets/data", "../proyecto-android/assets/data", "imagenes");
+		*/new LwjglApplication(new Proyecto(), cfg);
 	}
 }

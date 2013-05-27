@@ -1,0 +1,327 @@
+
+imagenes.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+fondoLargo
+  rotate: false
+  xy: 1, 422
+  size: 224, 2500
+  orig: 224, 2500
+  offset: 0, 0
+  index: -1
+You Win
+  rotate: false
+  xy: 227, 2522
+  size: 400, 400
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+game
+  rotate: false
+  xy: 227, 2008
+  size: 256, 512
+  orig: 256, 512
+  offset: 0, 0
+  index: -1
+fondo
+  rotate: false
+  xy: 1, 164
+  size: 224, 256
+  orig: 224, 256
+  offset: 0, 0
+  index: -1
+Intro
+  rotate: false
+  xy: 227, 1881
+  size: 512, 125
+  orig: 512, 125
+  offset: 0, 0
+  index: -1
+explosion
+  rotate: false
+  xy: 227, 1761
+  size: 591, 118
+  orig: 591, 118
+  offset: 0, 0
+  index: -1
+titulo2
+  rotate: false
+  xy: 227, 1634
+  size: 500, 125
+  orig: 500, 125
+  offset: 0, 0
+  index: -1
+titulo1
+  rotate: false
+  xy: 227, 1532
+  size: 500, 100
+  orig: 500, 100
+  offset: 0, 0
+  index: -1
+elias
+  rotate: false
+  xy: 227, 1470
+  size: 550, 60
+  orig: 550, 60
+  offset: 0, 0
+  index: -1
+enrique
+  rotate: false
+  xy: 227, 1408
+  size: 550, 60
+  orig: 550, 60
+  offset: 0, 0
+  index: -1
+roberto
+  rotate: false
+  xy: 227, 1346
+  size: 550, 60
+  orig: 550, 60
+  offset: 0, 0
+  index: -1
+nube1
+  rotate: false
+  xy: 1, 103
+  size: 224, 59
+  orig: 224, 59
+  offset: 0, 0
+  index: -1
+panelSuperior
+  rotate: false
+  xy: 629, 2906
+  size: 224, 16
+  orig: 224, 16
+  offset: 0, 0
+  index: -1
+game-over
+  rotate: false
+  xy: 485, 2504
+  size: 133, 16
+  orig: 133, 16
+  offset: 0, 0
+  index: -1
+naveNormal
+  rotate: false
+  xy: 729, 1702
+  size: 64, 57
+  orig: 64, 57
+  offset: 0, 0
+  index: -1
+naveDer1
+  rotate: false
+  xy: 227, 1287
+  size: 56, 57
+  orig: 56, 57
+  offset: 0, 0
+  index: -1
+naveIzq1
+  rotate: false
+  xy: 1, 44
+  size: 56, 57
+  orig: 56, 57
+  offset: 0, 0
+  index: -1
+naveDer2
+  rotate: false
+  xy: 629, 2846
+  size: 48, 58
+  orig: 48, 58
+  offset: 0, 0
+  index: -1
+naveIzq2
+  rotate: false
+  xy: 485, 2444
+  size: 48, 58
+  orig: 48, 58
+  offset: 0, 0
+  index: -1
+jefeRajoy
+  rotate: false
+  xy: 729, 1643
+  size: 40, 57
+  orig: 40, 57
+  offset: 0, 0
+  index: -1
+ciclope1
+  rotate: false
+  xy: 227, 1254
+  size: 32, 31
+  orig: 32, 31
+  offset: 0, 0
+  index: -1
+ciclope2
+  rotate: false
+  xy: 285, 1313
+  size: 32, 31
+  orig: 32, 31
+  offset: 0, 0
+  index: -1
+ciclope3
+  rotate: false
+  xy: 1, 11
+  size: 32, 31
+  orig: 32, 31
+  offset: 0, 0
+  index: -1
+libelula1
+  rotate: false
+  xy: 59, 72
+  size: 32, 29
+  orig: 32, 29
+  offset: 0, 0
+  index: -1
+libelula2
+  rotate: false
+  xy: 629, 2815
+  size: 32, 29
+  orig: 32, 29
+  offset: 0, 0
+  index: -1
+libelula3
+  rotate: false
+  xy: 679, 2875
+  size: 32, 29
+  orig: 32, 29
+  offset: 0, 0
+  index: -1
+abeja1
+  rotate: false
+  xy: 855, 2907
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+abeja2
+  rotate: false
+  xy: 795, 1744
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+abeja3
+  rotate: false
+  xy: 485, 2427
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+abeja4
+  rotate: false
+  xy: 535, 2487
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+mocoRojo1
+  rotate: false
+  xy: 729, 1625
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+mocoRojo2
+  rotate: false
+  xy: 771, 1684
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+bala
+  rotate: false
+  xy: 227, 1237
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+bolaVelocidad
+  rotate: false
+  xy: 261, 1271
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+bolaVerde
+  rotate: false
+  xy: 285, 1299
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+0
+  rotate: false
+  xy: 319, 1336
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+1
+  rotate: false
+  xy: 1, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+2
+  rotate: false
+  xy: 35, 34
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+3
+  rotate: false
+  xy: 59, 62
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+4
+  rotate: false
+  xy: 93, 93
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+5
+  rotate: false
+  xy: 629, 2805
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+6
+  rotate: false
+  xy: 663, 2836
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+7
+  rotate: false
+  xy: 679, 2865
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+8
+  rotate: false
+  xy: 713, 2896
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+9
+  rotate: false
+  xy: 873, 2914
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+balaEnemiga2
+  rotate: false
+  xy: 620, 2514
+  size: 5, 6
+  orig: 5, 6
+  offset: 0, 0
+  index: -1
