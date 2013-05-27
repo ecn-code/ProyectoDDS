@@ -20,13 +20,13 @@ public class ComprobarColision extends IEstrategia {
 		boolean colision = colegaReceptor.colision(superficie);
 		if(colision){
 			colegaReceptor.setVida(colegaReceptor.getVida()-1);
-
 			((EntidadDinamica)mensaje.getDestinatario()).getEstado().colisionar();
+			if(!colegaReceptor.getCanal().equals("Extra")){
 			Mensaje mensajeReenvio = new Mensaje();
 			mensajeReenvio.setAsunto("ComprobarColision");
 			mensajeReenvio.setDescripcion(colegaReceptor.getSuperficie());
 			colegaReceptor.getMediador().enviar(mensaje.getCanalEmisor(), mensajeReenvio);		
 		}
-
+		}
 	}
 }
