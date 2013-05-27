@@ -59,6 +59,9 @@ public class IntroJuego implements Screen{
 	}
 	@Override
 	public void render(float delta) {
+		if(Gdx.input.isKeyPressed(Keys.ENTER)){
+			game.setScreen(new JuegoScreen(game));
+		}
 		reloj.actualizar(delta);
 		// TODO Auto-generated method stub
 		Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -106,20 +109,20 @@ public class IntroJuego implements Screen{
 			entranEnemigos=true;
 		}
 		if(entranEnemigos==true){
-			batch.draw(abeja,xAbeja,300,50,50);
-			batch.draw(libelula,xLibelula,250,50,50);
-			batch.draw(mocoRojo,xMocoRojo,300,50,50);
-			batch.draw(ciclope,xCiclope,250,50,50);
-			if(xAbeja<475)
+			batch.draw(abeja,xAbeja,300,32,30);
+			batch.draw(libelula,xLibelula,250,75,75);
+			batch.draw(mocoRojo,xMocoRojo,300,35,35);
+			batch.draw(ciclope,xCiclope,250,70,70);
+			if(xAbeja<510)
 				xAbeja+=3f;
 			if(xLibelula<400)
 				xLibelula+=3f;
 			if(xMocoRojo<325)
 				xMocoRojo+=3f;
-			if(xCiclope<250)
+			if(xCiclope<220)
 				xCiclope+=3f;
 		}
-		if(xCiclope>247){
+		if(xCiclope>218){
 			entraNave=true;
 		}
 		if(xNave==350){
