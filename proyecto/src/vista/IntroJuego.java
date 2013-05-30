@@ -11,10 +11,12 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 
 public class IntroJuego implements Screen{
 	SpriteBatch batch;
-	Texture titulo1,nave,naveNormal,titulo2,elias,enrique,roberto,libelula,mocoRojo,ciclope,abeja,bala;
+	AtlasRegion titulo1;
+	AtlasRegion nave,naveNormal,titulo2,elias,enrique,roberto,libelula,mocoRojo,ciclope,abeja,bala;
 	Game game;
 	private float xTitulo1=-400;
 	private float xTitulo2=810;
@@ -37,18 +39,18 @@ public class IntroJuego implements Screen{
 
 	public IntroJuego(Game _game){
 		batch = new SpriteBatch();
-		titulo1 = new Texture(Gdx.files.internal("data/titulo1.png"));
-		titulo2 = new Texture(Gdx.files.internal("data/titulo2.png"));
-		nave = new Texture(Gdx.files.internal("data/naveDer1.png"));
-		elias = new Texture(Gdx.files.internal("data/elias.png"));
-		enrique = new Texture(Gdx.files.internal("data/enrique.png"));
-		roberto = new Texture(Gdx.files.internal("data/roberto.png"));
-		naveNormal = new Texture(Gdx.files.internal("data/naveNormal.png"));
-		libelula = new Texture(Gdx.files.internal("data/libelula1.png"));
-		mocoRojo = new Texture(Gdx.files.internal("data/mocoRojo1.png"));
-		ciclope = new Texture(Gdx.files.internal("data/ciclope1.png"));
-		abeja = new Texture(Gdx.files.internal("data/abeja1.png"));
-		bala = new Texture(Gdx.files.internal("data/bala.png"));
+		titulo1 = Recursos.titulo1;
+		titulo2 = Recursos.titulo2;
+		nave = Recursos.naveDer1;
+		elias = Recursos.elias;
+		enrique = Recursos.enrique;
+		roberto = Recursos.roberto;
+		naveNormal = Recursos.naveNormal;
+		libelula = Recursos.libelula1;
+		mocoRojo = Recursos.mocoRojo1;
+		ciclope = Recursos.ciclope1;
+		abeja = Recursos.abeja1;
+		bala = Recursos.bala;
 		reloj=new Reloj();
 		reloj.reset();
 		game = _game;

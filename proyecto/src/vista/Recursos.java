@@ -44,6 +44,13 @@ public class Recursos {
 	public static  AtlasRegion panelSuperior = atlas.findRegion("panelSuperior");
 	public static  AtlasRegion nube1 = atlas.findRegion("fondoLargo");
 	public static Sound sonidoDisparo= Gdx.audio.newSound(Gdx.files.internal("data/sonidoDisparo.mp3"));
+	public static AtlasRegion titulo1 = atlas.findRegion("titulo1");
+	public static AtlasRegion titulo2 = atlas.findRegion("titulo2");
+	public static AtlasRegion elias = atlas.findRegion("elias");
+	public static AtlasRegion enrique = atlas.findRegion("enrique");
+	public static AtlasRegion roberto = atlas.findRegion("roberto");
+	
+	
 	public static AtlasRegion explosionTextura =atlas.findRegion("explosion");
 	public static TextureRegion explosion1 = new TextureRegion(explosionTextura,0,0,118,118);
 	public static TextureRegion explosion2 = new TextureRegion(explosionTextura,118,0,118,118);
